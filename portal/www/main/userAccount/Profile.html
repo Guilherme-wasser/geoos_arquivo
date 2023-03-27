@@ -1,0 +1,61 @@
+<div class="container-fluid pt-2">    
+    <div id="profile">
+        <hr style="background-color: white;" /> 
+        <h6><b>$[mainMenu.DatosUs]</b></h6>   
+        <div style="width: 0; height: 0; overflow: hidden;">
+            <input id="edFileInput" type="file" accept="image" />
+        </div>
+        <div class="row mt-1">
+            <a id="cmdEliminarFoto" class="pl-0 btn btn-sm btn-link">$[mainMenu.ElimFoto]</a>
+        </div>
+        <div class="row mt-1">
+            <div id="fotoContainer" data-z-clickable="true" style="margin:auto; width: 200px; height: 200px;position: relative; cursor: pointer;"> 
+                <img id="fotoInicial" width="128px" height="128px" style="margin:auto;margin-top: 20px; display: block;" src="img/usuario.svg" />
+                <i class="fas fa-camera fa-2x" style="position: absolute; bottom:60px; left:130px;"></i>
+            </div>
+        </div>
+
+
+        <hr style="background-color: white;" />  
+        <div class="ml-2">
+            <div class="row">
+                <div class="col-4">
+                    <i class="fas fa-envelope "></i>
+                    <label  style="text-align: left;">$[mainMenu.emaill]</label>
+                </div>
+                <div class="col-8">
+                    <span id="edEmail" type="email" readonly="readonly" class="label" ></span>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-4">
+                    <i class="fas fa-user mt-1"></i>
+                    <label class="mt-1">$[mainMenu.Nombre]</label>
+                </div>
+                <div class="col-8">
+                    <input id="edNombre" type="text" class="form-control form-control-sm" />
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-4">
+                    <i class="mt-1 fas fa-university"></i>
+                    <label class="mt-1">$[mainMenu.instit]</label>
+                </div>
+                <div class="col-8">
+                    <input id="edInstitucion" type="text" class="form-control form-control-sm" />
+                </div>
+            </div>
+            <hr style="background-color: white;" />    
+            <div class="row my-2">
+                <div class="col-12 text-center">
+                    <a id="cmdPwd" class="btn btn-sm btn-link float-left">$[mainMenu.CambiarC]</a>
+                    <button id="cmdSave" type="button" class="btn btn-sm btn-secondary geoos-panel-ok ml-auto">
+                        <i class="fa fas fa-save mr-2"></i>
+                        <b>$[mainMenu.GrabarC]</b>                    
+                    </button>
+                    <i id="working" class="fa fas fa-lg fa-spin fa-spinner mt-2"></i>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

@@ -1,0 +1,29 @@
+#
+# docker stack deploy -c geoos.yml geoos
+#
+version: '3.6'
+services:
+    db:
+        image: mongo:4.4.1-bionic
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: geoos-admin
+            MONGO_INITDB_ROOT_PASSWORD: geoos-password
+        volumes:
+            - ./mongo-data:/data
+
+    portal:
+        image: node:14-alpine
+        deploy:
+            restart_policy:
+                condition: on-failure
+        ports:
+            - 9234:9234/tcp # nodemon debugger
+            - 8090:8090/tcp
+        working_dir: /usr/src/app
+        environment:
+            MONGO_URL: "mongodb://geoos-admin:geoos-password@db:27017"
+            MONGO_DATABASE: geoos
+        volumes:
+            - ./portal:/usr/src/app
+            - ./config:/home/config
+        command: "npm run-script debug"

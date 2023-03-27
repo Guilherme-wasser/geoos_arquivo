@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 text-right pt-2 pr-0">$[mainMenu.Nombre]</div>
+        <div class="col-8">
+            <input id="edLayerName" type="text" class="form-control form-control-sm" data-z-autochange-delay="300" />
+        </div>
+    </div>    
+    <div id="levelRow" class="row">
+        <div id="lblLevel" class="col-4 text-right pt-2 pr-0">$[mainMenu.ValorNivel]</div>
+        <div class="col-8 pt-1">
+            <select id="edLevel" class="custom-select custom-select-sm" data-z-id-field="idx" data-z-label-field="nombre"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div id="lblOpacity" class="col-4 text-right pt-2 pr-0">$[mainMenu.Opacidad]</div>
+        <div class="col-8">
+            <div id="edOpacity" data-z-component="common/Slider"></div>
+        </div>
+    </div>    
+</div>

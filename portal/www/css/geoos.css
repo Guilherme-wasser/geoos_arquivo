@@ -1,0 +1,1045 @@
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: white;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+a {
+    color: white;    
+}
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#main {
+    height: 100%;
+}
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-select {
+    border: 1px solid white;
+    color: white;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px
+}
+.form-control {
+    /* background: #444343; */
+    background-color: #4F618E;
+    opacity: 0.8;
+    border: 1px solid white;
+    color: white;
+}
+.form-control:disabled {
+    background: #444343;
+    border: 1px solid white;
+    color: lightgray;
+}
+.form-control:focus {
+    background: #444343;
+    border: 1px solid white;
+    color: white;
+}
+.form-control.error {
+    border: 1px solid orangered;
+}
+.nav-tabs {
+    padding-top: 10px;
+    border-bottom: none;
+}
+.nav-link {
+    color: lightgray;
+}
+.nav-link:hover {
+    color: lightgray;
+    border-bottom: none;
+}
+.nav-link.active {
+    color: white !important;
+    background-color: #444343 !important;
+    border-bottom: none;
+}
+.tab-content {
+    background: #444343;
+}
+.custom-select option {
+    background: #444343;
+    color: white
+}
+
+.input-group-text {
+    color: white;
+    background-color: #444343;
+}
+
+/* Modals */
+.modal {z-index: 6000;}
+.modal-content {
+    background-color: rgba(68, 68, 67, 1);
+    border: 1px solid white;
+    border-radius: 15px;
+    color:white;
+    font-size: 16px;
+}
+
+/* Slider */
+.slider-bar {
+    border-radius: 5px;
+    height: 8px;
+    background-color: rgba(68, 68, 67, 1);
+    border: 1px solid white;
+    color:white;
+    margin-top:16px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.slider .fa-minus {margin-top: -3px}
+.slider .fa-plus {margin-top: -11px}
+
+/* Controles */
+.checkbox i {cursor: pointer;}
+.checkbox-label:hover {cursor: pointer; text-decoration: underline;}
+
+/* Leaflet */
+.leaflet-marker-pane {
+    z-index: 2000;
+}
+
+/* Comunes Paneles y Ventanas */
+.geoos-panel {
+    padding: 10px;
+    z-index: 5100;
+    position: absolute;
+    background-color: rgba(68, 68, 67, 0.9);
+    border: 1px solid white;
+}
+.geoos-panel-caption {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    height: 32px;
+    margin-top: 4px;
+    border-bottom: 1px solid white;
+}
+.geoos-panel-icon {    
+    height: 22px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 6px;
+}
+.geoos-panel-close {
+    float: right;   
+    width: 22px; height: 22px;
+    background-image: url(../img/icons/close.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    cursor: pointer;    
+    margin-right: 6px;
+}
+.geoos-panel-close:hover {
+    background-image: url(../img/icons/close-active.svg);
+}
+.geoos-panel-back {
+    float: left;   
+    width: 22px; height: 22px;
+    background-image: url(../img/icons/back.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    cursor: pointer;    
+    margin-right: 6px;
+}
+.geoos-panel-back:hover {
+    background-image: url(../img/icons/back-active.svg);
+}
+.geoos-group-default{
+    float: right;   
+    width: 22px; height: 22px;
+    background-image: url(../img/icons/pin.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    cursor: pointer;    
+    margin-right: 6px;
+    margin-top:3px ;
+}
+.geoos-group-default:hover {
+    background-image: url(../img/icons/pin-active.svg);
+}
+.geoos-panel-subtitle {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    height: 32px;
+    margin-top: 6px;
+    border-bottom: 1px solid white;
+}
+.geoos-panel-subicon {    
+    height: 18px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 6px;
+    margin-top: 2px;
+}
+.geoos-panel-subtitle a {
+    margin-top: 4px;
+}
+
+/* Details Menu */
+.details-menu-icon {
+    /*background: #00A0F9;*/
+    background: #6042cb;
+    color: white;
+    border-radius: 12px;
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.my-panel-group .details-menu-icon {margin-top: -17px;}
+.my-panel-layer .details-menu-icon {margin-top: -20px;}
+
+/* Top Panel */
+.top-panel {
+    z-index: 5000;
+    pointer-events: none;
+    position: absolute;
+    top: 9px;
+    left:0; right:0; 
+    width:100%; height: 74px;     
+}
+.top-panel .logo {
+    z-index: 5010;
+    position: absolute;
+    width: 74px; height: 74px;
+}
+.top-option {
+    margin-top: 4px;
+    border-radius: 5px;
+    height: 48px;
+    padding-left: 4px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 17px;
+    cursor: pointer;
+    flex: 1 1;
+    display: flex;
+    flex-direction: row;
+    /*border-bottom: 5px solid rgba(0,0,0,0);*/
+    margin-left:  4px; 
+    margin-right: 4px;
+}
+.top-option.active {
+    /*border-bottom: 5px solid rgb(0,160,249);*/
+    /*font-weight: bold;*/
+    background-color: #382c6f;
+}
+.top-option:hover {
+    /*border-bottom: 5px solid rgba(0,160,249, 30%);*/
+    /*font-weight: bold;*/
+    background-color: #373647;
+}
+.top-option.active:hover {
+    background-color: #382c6f;
+}
+.top-option img {
+    flex: 1 1 30px;
+    height: 26px;
+    align-self: center;
+}
+.top-option span {
+    flex: 5 5 100%;
+    align-self: center;
+    margin-left: 6px;
+}
+.left-bar {
+    display: flex;
+    flex-direction: row;
+    pointer-events: all;
+    position: absolute;
+    height: 56px; top: 5px; left: 1px;
+    background: #1B1B2C;
+    padding-left: 4px; 
+    padding-right: 8px;
+}
+.left-toggler {
+    margin-top: 15px;
+    padding-right: 26px;
+    cursor: pointer;
+}
+.left-toggler-closed {
+    padding-right: 10px;
+}
+.left-toggler-closed img {
+    transform: rotate(-180deg);    
+}
+
+.right-bar {
+    display: flex;
+    flex-direction: row;
+    pointer-events: all;
+    position: absolute;
+    height: 56px; top: 5px;
+    background: #444343;
+    padding-left: 8px; 
+    padding-right: 4px;
+}
+.right-toggler {
+    margin-top: 15px;
+    padding-left: 26px;
+    cursor: pointer;
+}
+.right-toggler-closed {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.right-toggler-closed img {
+    transform: rotate(-180deg);
+}
+.wizard-expander {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 6px;
+    margin-right: 6px;
+    cursor: pointer;
+    border-right: 1px solid white;
+}
+.wizard-expander img {    
+    margin-top: 11px;
+    margin-right: 5px;
+}
+.top-action {
+    height: 56px;
+    padding-left: 4px;
+    padding-right: 4px;
+    cursor: pointer;
+}
+.top-action img {
+    margin-top: 15px;
+}
+
+/* Panel Agregar */
+.filter-accordion {
+    border: 1px solid white;
+    margin-top: 10px;
+}
+.section-filter-caption {
+    padding-top:10px;
+    padding-bottom:5px;
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.section-filter-caption:hover {
+    text-decoration: underline;
+}
+.section-filter-caption i {
+    transition: 0.3s ease-in-out;
+}
+.section-filter-caption i.expanded {
+    transform: rotate(90deg);
+}
+.section-filter-items {
+    margin-top: 5px;
+}
+.section-filter-item {
+    margin-left: 20px;
+    height: 22px;
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
+}
+.add-panel-filters {
+    border: 1px solid white;
+    padding: 5px;
+    background-color: #444343;
+}
+.add-panel-filter {
+    /*border: 1px solid white;*/
+    border-radius: 5px;
+    padding: 3px 6px 3px 6px;
+    height: 24px;
+    /*background-color: rgb(68, 68, 67);*/
+    background-color: #5B5B5D;
+    display: inline-block;
+    margin-left: 6px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.add-panel-filter i {
+    cursor: pointer;
+}
+.add-panel-filters a {
+    color: white;
+    float: right;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+.add-panel-filters a:hover {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.add-panel-resume {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    line-height: 22px;
+}
+.add-panel-variable {
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.add-panel-variable:hover {
+    text-decoration: underline;
+}
+.add-panel-proveedor {
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.add-panel-proveedor:hover {
+    text-decoration: underline;
+}
+.add-panel-variable-icon {
+    cursor: pointer;
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.add-panel-variable-icon.inactive {
+    opacity: 0.5;
+}
+.add-panel-count-resume {
+    background: #444343;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+.add-panel-info-panel {
+    margin-top: 10px;    
+}
+.provider-url {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+.provider-url:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* My Panel */
+.my-panel-group {
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 16px;
+}
+.my-panel-group .group-name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.my-panel-group.group-inactive {
+    opacity: 0.5;
+}
+.group-expander {
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.group-expander.expanded {
+    transform: rotate(90deg);
+}
+.my-panel-group .group-activator {
+    cursor: pointer;
+}
+.my-panel-layers {
+    margin-top: 7px;
+    border-top: 3px solid transparent;
+}
+.my-panel-layers.target {
+    border-top: 3px solid rgb(0,160,249);;
+}
+.my-panel-layer {
+    margin-left: 25px;
+    margin-top: 5px;
+    border-bottom: 3px solid transparent;
+    font-weight: normal;
+    font-size: 16px;
+}
+.my-panel-layer.target {
+    border-bottom: 3px solid rgb(0,160,249);
+}
+.my-panel-layer .layer-name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.my-panel-layer .layer-state {
+    font-size: small;
+    margin-left: 50px;
+    font-weight: 100;
+}
+.layer-expander {
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 4px;
+    width: 14px;
+}
+.layer-icon {
+    margin-top: 4px;
+    width: 14px;
+}
+.layer-expander.expanded {
+    transform: rotate(90deg);
+}
+.my-panel-layer .layer-activator {
+    cursor: pointer;
+    margin-top: 4px;
+    color: white;
+}
+.my-panel-layer-items {
+    margin-left: 50px;
+    margin-top: 5px;
+    font-weight: normal;
+    font-size: 14px;
+}
+.my-panel-visualizer .visualizer-activator {
+    cursor: pointer;
+    float: left;
+    margin-top: 3px;
+    margin-right: 8px;
+}
+.my-panel-visualizer .visualizer-name {
+    cursor: pointer;
+}
+.my-panel-visualizer .visualizer-name:hover {
+    text-decoration: underline;
+}
+.my-panel-user-object .user-object-name {
+    cursor: pointer;
+}
+.my-panel-user-object .user-object-name:hover {
+    text-decoration: underline;
+}
+.my-panel-user-object .user-object-icon {
+    height: 14px;
+    float: left;
+    margin-top: 3px;
+    margin-right: 8px;
+}
+/*.user-object-addpanel .user-object-deleter{
+    cursor: pointer; 
+     margin-top:-12px; 
+    font-size:12px;  
+    margin-right:6px; 
+} */
+
+.favorite-layer{
+    cursor: pointer;
+    margin-top: 4px;
+    color: white;
+}
+.group-name span {
+    padding: 5px;
+}
+.layer-name span {
+    /* margin-left: 44px; */
+    margin-right: 30px;
+    display: block;
+    margin-top: -5px;
+    padding: 2px;
+    font-weight: 600;
+}
+.my-panel-selected-name {
+    background: #444343;
+}
+
+/* Propiedades */
+.prop-panel {
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+.prop-caption div {
+    padding: 5px;;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+}
+.prop-caption div:hover {
+    text-decoration: underline;
+}
+.panel-expander {
+    margin-top: 7px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.panel-expander.expanded {
+    transform: rotate(90deg);
+}
+.prop-panel-content {
+    padding: 5px;
+}
+.scale-preview {
+    border-radius: 5px;
+    border: 1px solid white;
+    height: 26px;
+}
+
+/* Time */
+.time-panel {
+    pointer-events: none;
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+}
+.time-subpanel {
+    opacity: 0.9;
+    background-color: #272626;    
+    color: white;
+    box-shadow: 0px 4px 4px 0px #000000 25%;
+    z-index: 400;
+    border-radius: 5px;
+    border: 2px solid rgba(246,246,246,0.5);
+}
+.days-bar {
+    height: 65px;
+}
+.days-table {
+    height: 20px;
+    margin-top: 10px;
+}
+.bootstrap-datetimepicker-widget table td.active {
+    background-color: #6042cb;
+}
+.bootstrap-datetimepicker-widget table td.active:hover {
+    background-color: #6042cb;
+}
+.day-cell {
+    border-right: 1px solid white;
+    height: 20px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top:30px;
+}
+.first-day-cell {
+    border-left: 1px solid white;
+}
+.time-element {
+    pointer-events: all;
+    font-size: 12px;
+    padding: 4px;
+    opacity: 0.9;
+    background-color: #272626;    
+    color: white;
+    z-index: 400;
+    border: 1px solid #3D3D3D;
+}
+.time-link {
+    cursor: pointer;
+}
+.time-link:hover {
+    text-decoration: underline;
+}
+.time-icon {
+    cursor: pointer;
+}
+.time-element.datetimepicker {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.time-element.timepicker {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding:0;
+    padding-top: 10px;
+}
+.timepicker-hour {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 12px !;
+    font-weight: normal !important;    
+    line-height: 30px !important;
+    background-color: #6042cb;
+}
+.timepicker-minute {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 12px !;
+    font-weight: normal !important;    
+    line-height: 30px !important;
+    background-color: #6042cb;
+}
+.bootstrap-datetimepicker-widget table td span {
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    color: white;
+}
+.bootstrap-datetimepicker-widget table td span:hover {
+    color: gray;
+}
+.time-center-panel {
+    pointer-events: all;
+    opacity: 0.9;
+    z-index: 400;
+}
+.time-center-button {
+    pointer-events: all;
+    cursor: pointer;
+    opacity: 0.9;
+    background-color: #272626;    
+    color: white;
+    z-index: 400;
+    border: 1px solid #3D3D3D;
+}
+.custom-select:disabled {
+    color: #6c757d;
+    background-color: transparent;
+}
+
+
+/* Watchers */
+.inverse-image {filter: invert(1)}
+.selectable-name {
+    cursor: pointer;
+}
+.selectable-name:hover {
+    text-decoration: underline;
+}
+
+/* Analysis Panel */
+.analysis-panel {
+    opacity: 1;
+    background-color: #272626;    
+    color: white;
+    box-shadow: 0px 4px 4px 0px #000000 25%;
+    z-index: 400;
+    border-radius: 5px;
+    border: 2px solid rgba(246,246,246,0.5);
+    position: absolute;
+    left: 20px; right: 40px; bottom: -5px;
+    padding-bottom: 5px;
+    height: 200px;
+}
+.analysis-expander {
+    cursor: pointer;
+}
+.analysis-expander.disabled {
+    color: gray;
+    cursor: default;
+}
+
+/* Add Object */
+.add-object-title {
+    font-size: 16px;
+    border-bottom: 5px solid transparent;
+}
+.add-object-title:hover {
+    text-decoration: underline;
+}
+.add-object-title.active {
+    border-bottom: 5px solid rgb(0,160,249);
+}
+
+/* Tools */
+.tools-expander.disabled {
+    color: gray;
+    cursor: default;
+}
+.tool-selector {
+    white-space: nowrap;
+    font-size: 15px;
+    height: 38px;
+    background-color: rgb(70,70,70);
+}
+.tool-selector.selected {
+    background-color: rgb(40,40,40);
+}
+.configure-selected {
+    background-color: rgb(40,40,40);
+}
+.configure-selected:focus {
+    background-color: rgb(40,40,40);
+}
+
+/* User Configs */
+.user-config-panel {
+    opacity: 0.9;
+    background-color: #272626;    
+    color: white;
+    box-shadow: 0px 4px 4px 0px #000000 25%;
+    z-index: 400;
+    border-radius: 5px;
+    border: 2px solid rgba(246,246,246,0.5);
+    position: absolute;
+    width:500px; 
+    right: 40px;
+    top: 77px;    
+}
+.map-icon {
+    cursor: pointer;
+}
+.map-icon:hover {
+    background-color: #272626;
+}
+.map-icon.selected {
+    background-color: #000000;
+}
+
+/* Right Helper */
+.right-helper-panel {
+    opacity: 0.9;
+    background-color: #272626;    
+    color: white;
+    box-shadow: 0px 4px 4px 0px #000000 25%;
+    z-index: 400;
+    border-radius: 5px;
+    border: 2px solid rgba(246,246,246,0.5);
+    position: absolute;
+    width:500px; 
+    right: 40px;
+    top: 77px;    
+}
+
+/* User Help */
+.user-help-panel {
+    opacity: 0.9;
+    background-color: #272626;    
+    color: white;
+    box-shadow: 0px 4px 4px 0px #000000 25%;
+    z-index: 400;
+    border-radius: 5px;
+    border: 2px solid rgba(246,246,246,0.5);
+    position: absolute;
+    width:500px; 
+    right: 40px;
+    top: 77px;    
+}
+.faq-q {
+    padding-top:10px;
+    padding-bottom:5px;
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.faq-q:hover {
+    text-decoration: underline;
+}
+.faq-q i {
+    transition: 0.3s ease-in-out;
+}
+.faq-q i.expanded {
+    transform: rotate(90deg);
+}
+.faq-a {
+    margin-top: 5px;
+    margin-left: 20px;
+}
+.loc-search-result {
+    margin-top: 5px;
+    cursor: pointer;
+}
+.loc-search-result:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Dialogs */
+.geoos-dialog {
+    background-color: #1B1B2C;
+    border: 2px solid #bdbdbd
+}
+.geoos-dialog-ask {
+    background-color: #392b6f;
+    border: 2px solid #bdbdbd
+}
+.geoos-dialog-ok {
+    background-color: #ffffff;
+    color: #1b1b1b;
+}
+.geoos-dialog-cancel {
+    background-color: #6042cb;
+    color: #e8e4f8;
+}
+.geoos-dialog-close {
+    float: right;   
+    width: 22px; height: 22px;
+    background-image: url(../img/icons/close.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    cursor: pointer;    
+    margin-right: 6px;
+}
+.geoos-dialog-close:hover {
+    background-image: url(../img/icons/close-active.svg);
+}
+/* Input dialog */
+.input-ask{
+    border: solid 1px #A7A7A7;
+    background-color: #2A3D62;
+    border-radius: 20px; 
+    line-height: 40px; 
+    width: 10%;
+
+    font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+    color: rgb(240, 232, 232);
+}
+
+
+
+/* Paneles */
+.geoos-panel-ok {
+    background-color: #6042cb;
+    color: #ffffff;
+}
+.geoos-panel-cancel {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+
+.checkbox .fa-check-square {
+    background-color: #6042cb;
+}
+
+/* Export Station Data */
+.wizard-step-cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 20px;
+    background-color: #4285C4;
+}
+.wizard-step-cell-active {
+    background-color: #2DBBC2;
+}
+.wizard-step-union {
+    width:70px;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    background-color: #2DBBC2;
+    line-height: 3px;
+}
+.wizard-step-text {
+    width:113px;
+    text-align: center;
+    font-size: 90%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.wizard-radio {
+    cursor: pointer;
+}
+.wizard-radio:hover {
+    text-decoration: underline;
+}
+.btn-wizard-prev {
+    width: 150px;
+    border-color: #6042cb;
+    color: white;
+}
+.btn-wizard-next {
+    width: 150px;
+    color: white;
+    background-color: #6042cb;
+}
+.btn-wizard-next:hover {background-color: #6042cb;}
+.btn-wizard-next:focus {background-color: #6042cb;}
+.btn-wizard-next:disabled {background-color: #6042cb;}
+
+.tool-assigned-cell {
+    width: 33%;
+    height: 50px;
+    border: 1px solid gray;
+}
+.tool-assigned-cell.active {
+    border: 1px solid white;
+}
+.tool-assigned-cell img {        
+    height: 22px;    
+}
+.tool-available-cell {
+    width: 33%;
+    height: 50px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+.tool-available-cell img {        
+    height: 22px;    
+}
+
+.radio-butt{
+    color: white;
+    background-color: #6042cb;
+}
+
+.zoom-panel {
+    border-radius: 6px;
+    z-index: 400;
+    padding: 4px;
+    color: white;
+    background-color: #6042cb;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    top: 80px;
+    right: 36px;
+}
+
+
+/* Info Bar */
+.info-bar-panel {
+    opacity: 0.8;
+    background-color: #272626;    
+    color: white;
+    box-shadow: 0px 4px 4px 0px #000000 25%;
+    z-index: 400;
+    border-radius: 5px;
+    border: 2px solid rgba(246,246,246,0.5);
+    position: absolute;
+    width:500px; 
+    right: 40px;
+    bottom: 105px;    
+}
+.ib-layer-name {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 6px;
+}
+.ib-visualizer-container {
+    padding-left: 10px;    
+}
+.ib-visualizer-name {
+    font-size: 14px;    
+}
+.ib-scale {
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 4px;
+    cursor: crosshair;
+}

@@ -1,0 +1,20 @@
+<div id="myPanelContainer" class="geoos-panel">
+    <div id="myPanelContent" class="my-panel-content d-flex flex-column" style="width: 100%;">
+        <div class="geoos-panel-caption">
+            <img src="img/icons/my-panel.svg" class="geoos-panel-icon" />
+            <span>$[mainMenu.miPanel]</span>
+            <span id="cmdCloseMyPanel" class="geoos-panel-close" data-z-clickable="true"></span>
+        </div>
+        <div>
+            <div class="geoos-panel-subtitle" data-z-clickable="true">
+                <img src="img/icons/add-group.svg" class="geoos-panel-subicon" />
+                <a id="cmdAddGroup" href="#">$[mainMenu.crearGrupo]</a>
+                <i class="fas fa-upload fa-lg float-right geoos-panel-subicon"></i>
+                <a id="cmdImportGroup" href="#" class="float-right">$[mainMenu.importarGrupo]</a>
+            </div>            
+        </div>
+        <div id="myContainer" class="p-1" style="flex: 1 1 100%; overflow-y: auto;">
+        </div>
+    </div>
+    <input id="edFileSelector" type="file" accept=".json" style="width: 1px; height: 1px; margin-top: -20px; opacity: 0.01;" />
+</div>

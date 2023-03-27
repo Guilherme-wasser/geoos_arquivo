@@ -1,0 +1,103 @@
+{
+    webServer:{http:{port:8090}}
+
+
+    #Available base Maps 
+    maps:[{
+        code:"esri-world-physical", name:"Esri - World Physical Map"
+        url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}'
+        options:{
+            attribution: 'Tiles &copy; Esri &mdash; Source: US National Park Service'
+            maxZoom: 8
+        }
+    }, {
+        code:"open-topo", name:"OSM - Open Topo"
+        url:'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
+        options:{
+            maxZoom: 17
+            attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        }
+        includeLabels:true
+    }, {
+        code:"esri-world-imagery", name:"Esri - World Imagery"
+        url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+        options:{
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        }
+    }, {
+        code:"stamen-terrain", name:"Stamen - Terrain"
+        url:'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.{ext}'
+        options:{
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            subdomains: 'abcd',
+            minZoom: 0,
+            maxZoom: 18,
+            ext: 'png'
+        }
+        includeLabels:true
+    }, {
+        code:"esri-world-street", name:"Esri - World Street Map",
+        url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+        options:{
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+        }
+        includeLabels:true
+    }, {
+        code:"esri-world-terrain", name:"Esri - World Terrain",
+        url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}',
+        options:{
+            attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
+            maxZoom:13
+        }
+    }, {
+        code:"esri-ocean-basemap", name:"Esri - Ocean Base Map",
+        url:'https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}',
+        options:{
+            attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+            maxZoom:13
+        }
+        includeLabels:true
+    }, {
+        code:"esri-natgeo", name:"Esri - NatGeo World Map",
+        url:'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',
+        options:{
+            attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+            maxZoom:16
+        }
+        includeLabels:true
+    }]
+
+
+    plugins:["base-plugin"]
+
+
+    # Here
+    hereAPIKey:"eG2NCop0Fa_k1JUQUaiZvkt-pQKlSlYODS_UwKqaD6c"
+
+
+    # Servers
+    geoServers:["https://geoserver.geoos.org"]
+    zRepoServers:[{url:"https://zrepo.geoos.org", token:"geoos-public"}]
+    
+    # Variables Clasification
+    varSubjects:[{
+        code:"meteo", name:"Metereología"
+    }, {
+        code:"oce", name:"Oceanografía"
+    }, {
+        code:"geo", name:"Geología"
+    }, {
+        code:"geopolitica", name:"División Geopolítica"
+    }, {
+        code:"senso", name:"Datos desde Senso"
+    }]
+    
+    varTypes:[{
+        code:"sat", name:"Telemetría Satelital"
+    }]
+    
+    varRegions:[{
+        code:"centro", name:"Zona Centro"
+    }]
+}
+

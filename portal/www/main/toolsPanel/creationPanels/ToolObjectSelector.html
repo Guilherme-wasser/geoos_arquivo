@@ -1,0 +1,29 @@
+<div class="container-fluid p-2">
+    <h5 id="lblSelectCaption" class="mt-2">$[mainMenu.SeleccioneObj]</h5>
+    <div id="existingObject" class="mt-3">
+        <h6><b>$[mainMenu.SeleccionarMiPanel]</b></h6>
+        <div class="row">
+            <div class="col">
+                <label>$[mainMenu.DesdeCapa]</label>
+                <select id="edLayer" class="custom-select custom-select-sm" data-z-id-field="id" data-z-label-field="name"></select>
+            </div>
+            <div class="col">
+                <label>$[mainMenu.UsarObj]</label>
+                <select id="edObject" class="custom-select custom-select-sm" data-z-id-field="code" data-z-label-field="name"></select>
+            </div>
+        </div>
+    </div>
+    <div id="newObject" class="mt-3">
+        <h6><b>$[mainMenu.AgregarNuevo]</b></h6>
+        <div>
+            <button id="cmdAddArea" type="button" class="btn btn-sm geoos-panel-ok btn-secondary mr-2">
+                <img src="img/icons/area.svg" class="mr-2" height="20px" style="filter: invert(1);" />
+                $[mainMenu.AgregarArea]
+            </button>
+            <button id="cmdAddStation" type="button" class="btn btn-sm btn-secondary mr-2">
+                <img src="img/icons/stations.svg" class="mr-2" height="20px" />
+                $[mainMenu.AgregarEstacion]
+            </button>
+        </div>
+    </div>
+</div>

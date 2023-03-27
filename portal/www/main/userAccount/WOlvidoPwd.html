@@ -1,0 +1,64 @@
+<div class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 id="title" class="modal-title">$[mainMenu.Olvido]</h6>
+                <i id="cmdClose" class="geoos-panel-close" data-z-clickable="true"></i>
+            </div>
+            <div id="modalBody" class="modal-body container-fluid" style="background-color: rgba(0,0,0,0.9);">
+                <div id="enviarCodigo" class="mt-2">
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="mt-1">$[mainMenu.DirEmail]</label>
+                        </div>
+                        <div class="col-8">
+                            <input id="edEmail" type="email" class="form-control form-control-sm" data-z-autochange-delay="300"/>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-8 text-small">
+                            <span id="lblMensajeEnviar">$[mainMenu.ParaVerSuId]</span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <button id="cmdEnviarCodigo" type="button" class="btn btn-sm btn-secondary geoos-panel-ok">
+                                <i class="fa fas fa-envelope mr-2"></i>
+                                $[mainMenu.EnvCod]
+                            </button>
+                            <i id="working" class="fa fas fa-lg fa-spin fa-spinner mt-2"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="regenerar">
+                    <div class="row mt-1">
+                        <div class="col-6">
+                            <label class="mt-1">$[mainMenu.CodRec]</label>
+                        </div>
+                        <div class="col-6">
+                            <input id="edCodigo" type="password" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-6">
+                            <label class="mt-1">$[mainMenu.NuevoContra]</label>
+                        </div>
+                        <div class="col-6">
+                            <input id="edNewPwd" type="password" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-6">
+                            <label class="mt-1">$[mainMenu.RepetirNueva]</label>
+                        </div>
+                        <div class="col-6">
+                            <input id="edNewPwd2" type="password" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cmdOk" type="button" class="btn btn-link geoos-panel-ok">$[comunes.aceptar]</button>
+                <button id="cmdCancel" type="button" class="btn btn-link ml-auto">$[comunes.cancelar]</button>
+            </div>    
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+00:35:49 [warn] Updating config from /home/config/config.hjson
+00:35:49 [error] Error reading config file:Error: Syntax error, found trailing characters at line 39,5 >>>    dataSets:{ 
+     ...
+00:35:49 [error] No file imports will be executed until error is corrected
+02:20:34 [warn] Updating config from /home/config/config.hjson
+02:20:34 [error] Error reading config file:Error: Syntax error, found trailing characters at line 39,5 >>>    dataSets:{ 
+     ...
+02:20:34 [error] No file imports will be executed until error is corrected
+03:46:03 [info] GEOOS GEOServer [0.65 ]initialized
+03:46:04 [info] Reading config from /home/config/config.hjson
+03:46:04 [error] Error reading config file:Error: Syntax error, found trailing characters at line 39,5 >>>    dataSets:{ 
+     ...
+03:46:04 [error] No file imports will be executed until error is corrected
