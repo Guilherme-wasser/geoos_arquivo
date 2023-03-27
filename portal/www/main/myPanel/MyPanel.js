@@ -69,7 +69,7 @@ class MyPanel extends ZCustomController {
     onCmdCloseMyPanel_click() {this.toggle()}
 
     onCmdAddGroup_click() {
-        let baseName = "Nao lembro o que estava escrito";
+        let baseName = window.toLang[mensajes.javascripts.nuevoGrupodecapas];
         let name = baseName, idx=1;
         while(window.geoos.groups.find(g => g.name == name)) {
             name = baseName + " (" + (idx++) + ")";
