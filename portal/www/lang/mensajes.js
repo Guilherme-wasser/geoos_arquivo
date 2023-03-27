@@ -290,7 +290,10 @@ const mensajes = {
 
         importarCapa: { es: "Importar Capa", pt: "Importar Capa"},
         nuevoGrupodecapas: { es: "Nuevo Grupo de Capas", pt: "Novo Grupo de Camadas"},
-        PropriedadesDelGrupo: { es: "Propiedades del Grupo", pt: "Propriedades do Grupo"}
+        PropriedadesDelGrupo: { es: "Propiedades del Grupo", pt: "Propriedades do Grupo"},
+        Estaciones: { es: "Estaciones", pt: "Estações"},
+        ConfirmaDesea: { es: "¿Confirma que desea eliminar el objeto '", pt: "Confirma que deseja eliminar o objeto?"},
+        
     }
     }
 

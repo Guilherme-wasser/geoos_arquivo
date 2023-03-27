@@ -69,7 +69,7 @@ class MyPanel extends ZCustomController {
     onCmdCloseMyPanel_click() {this.toggle()}
 
     onCmdAddGroup_click() {
-        let baseName = window.toLang("$[javascripts.nuevoGrupodecapas]");
+        let baseName = window.toLang("$[javascripts.Estaciones]");
         let name = baseName, idx=1;
         while(window.geoos.groups.find(g => g.name == name)) {
             name = baseName + " (" + (idx++) + ")";
@@ -344,7 +344,7 @@ class MyPanel extends ZCustomController {
         let uoCode = uoDiv.data("code");
         let uo = window.geoos.getUserObject(uoCode);
         if (uo) {
-            this.showDialog("common/WConfirm", {message:"¿Confirma que desea eliminar el objeto '" + uo.name + "'?"}, 
+            this.showDialog("common/WConfirm", {message: window.toLang("$[javascripts.ConfirmaDesea]") + uo.name + "'?"}, 
                 _ => window.geoos.removeUserObject(uo.id));
         }
     }
