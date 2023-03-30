@@ -251,9 +251,9 @@ class Top extends ZCustomController {
         console.log("more");
         let opener = $(e.currentTarget);
         let items = [{
-            code:"help", icon:"fas fa-question", label:"Ayuda", 
+            code:"help", icon:"fas fa-question", label: window.toLang("$[mainMenu.Ayuda]"), 
         }, {
-            code:"localidad", icon:"fas fa-search", label:"Buscar Localidad", 
+            code:"localidad", icon:"fas fa-search", label: window.toLang("$[mainMenu.BuscarLocal]"), 
         }]
         let z = new ZPop(opener, items, {
             vMargin:0,

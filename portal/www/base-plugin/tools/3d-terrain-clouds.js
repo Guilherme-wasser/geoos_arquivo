@@ -55,9 +55,9 @@ class Tool3DTerrainClouds extends GEOOSTool {
     getPropertyPanels() {
         let basePath = window.geoos.getPlugin("base").basePath;
         return [{
-            code:"tool-props", name:"Nombre del Análisis", path:"./propertyPanels/PropToolName"
+            code:"tool-props", name: window.toLang("$[javascripts.datafrase8]"), path:"./propertyPanels/PropToolName"
         }, {
-            code:"p3d-axis-scale", name:"Escalar Ejes", path:basePath + "/tools/3d-chart-panels/3DChartScaleAxis"
+            code:"p3d-axis-scale", name: window.toLang("$[javascripts.datafrase9]"), path:basePath + "/tools/3d-chart-panels/3DChartScaleAxis"
         }]
     }
 
@@ -182,16 +182,16 @@ class Tool3DTerrainClouds extends GEOOSTool {
     }
 }
 
-GEOOSTool.register("3d-terrain-clouds", "Vista 3D de Terreno y Nubosidad", {    
+GEOOSTool.register("3d-terrain-clouds", window.toLang("$[javascripts.datafrase4]"), {    
     creationPanelPath:"./creationPanels/ToolObjectSelector",
     creationPanelOptions:{
         allowedObjectTypes:["user-object/area"],
-        caption:"Seleccione el Área para Analizar"
+        caption: window.toLang("$[javascripts.datafrase6]")
     },
     icon: window.geoos.getPlugin("base").basePath + "/tools/img/3d-terrain-clouds.png",
     menuIcon: window.geoos.getPlugin("base").basePath + "/tools/img/menu-3d-terrain-clouds.svg", 
     menuIconStyles:{filter:"invert(1)"},
-    menuLabel:"Terreno y Nubosidad",
+    menuLabel: window.toLang("$[javascripts.datafrase5]"),
     factory:(name, creationPanelResult) => (new Tool3DTerrainClouds(null, name, creationPanelResult)),
     deserialize:(id, name, config) => {
         let tool = new Tool3DTerrainClouds(id, name, {layerId:config.layerId, object:config.object})

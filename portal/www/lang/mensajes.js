@@ -7,6 +7,9 @@ const mensajes = {
     },
     // MainMenu
     mainMenu: {
+        recordame: { es: "Recordarme en este Equipo", pt: "Lembrar-me neste equipamento"},
+        ling: { es: "Lenguaje", pt: "Linguagem"},
+        W1: { es: "Buscar en Biblioteca ...", pt: "Buscar na Biblioteca"}, 
         //comunes en mainMenu html
         Seleccionar: { es: "Seleccionar", pt: "Selecionar"}, 
         Agregar: { es: "Agregar", pt:"Adicionar"},
@@ -228,7 +231,7 @@ const mensajes = {
         //Logged
         CerrarSesion: { es: "Cerrar Sesión", pt:"Fechar Sessão"},
         //Login
-        Correo: { es: "Correo", pt:"Correio"},
+        Correo: { es: "Correo", pt:"e-mail"},
         ContraS: { es: "Contraseña (*)", pt:"Senha (*)"},
         Olvidaste: { es: "¿Olvidaste tu contraseña?", pt:"Você esqueceu sua senha?"},
         IniciarS: { es: "Iniciar Sesión", pt:"Iniciar sessão"},
@@ -283,6 +286,7 @@ const mensajes = {
         //ZoomPanel
         //Portal
         //index
+        
     },
 
     //javascripts
@@ -292,7 +296,87 @@ const mensajes = {
         nuevoGrupodecapas: { es: "Nuevo Grupo de Capas", pt: "Novo Grupo de Camadas"},
         PropriedadesDelGrupo: { es: "Propiedades del Grupo", pt: "Propriedades do Grupo"},
         Estaciones: { es: "Estaciones", pt: "Estações"},
-        ConfirmaDesea: { es: "¿Confirma que desea eliminar el objeto '", pt: "Confirma que deseja eliminar o objeto?"},
+        ConfirmaDesea: { es: "¿Confirma que desea eliminar el objeto '", pt: "Confirma que deseja eliminar o objeto"},
+        SelectorTiempo: { es: "Selector Tiempo: BÁSICO", pt: "Seletor de tempo: BÁSICO"},
+        SelectorTiempoCAPA: { es: "Selector Tiempo: CAPA", pt: "Seletor de tempo: CAPA"},
+        NoHayCapas: { es: "No hay capas", pt: "sem camadas"},
+        NoHaAgregado: { es: "No ha agregado capas con temporalidad definida", pt: "Você não adicionou camadas com temporalidade definida"},
+        //Time js
+        FijarTiempo: { es: "Fijar Tiempo de Inicio", pt: "Definir hora de início"},
+        FijarTiempo2: { es: "Fijar Tiempo de Término", pt: "Definir hora de término"},
+        Time1: { es: "Generar Animación", pt: "Gerar Animação"},
+        Time2: { es: "Debe fijar el tiempo de inicio y de término antes de generar la animación", pt: "Você deve definir o horário de início e término antes de gerar a animação"},
+        Time3: { es: "Debe fijar el tiempo de término después del tiempo de inicio", pt: "Você deve definir a hora de término após a hora de início"},
+        //geoos-groups-layers js
+        ObjUser: { es: "Objetos de Usuario", pt: "Objetos do usuário"},
+        PropG: { es: "Propiedades del Grupo", pt: "Propriedades do grupo"},
+        PropCapa: { es: "Propiedades de la Capa", pt: "Propriedades da Camada"},
+
+        //Wlibrary js
+        nn1: { es: "Todos los Temas", pt: "Todos os Temas"},
+        nn2: { es: "Seleccione una Capa a la izquierda para ver sus detalles", pt: "Selecione uma camada à esquerda para ver seus detalhes"},
+        nn3: { es: "No se encontraron capas. Repita la búsqueda", pt: "Nenhuma camada encontrada. pesquisa repetida"},
+        nn4: { es: "¿Está seguro que desea eliminar permanentemente esta capa de la biblioteca?", pt: "Tem certeza de que deseja remover permanentemente esta camada da biblioteca?"},
+        //Main js
+        nn5: { es: "No hay layer codes", pt: "Não há códigos de camada"},
+        //AddStationsPanel
+        nn6: { es: "  estaciones encontradas", pt: "  estações encontradas"},
+        nn7: { es: "No hay estaciones seleccionadas", pt: "Nenhuma estação selecionada"},
+        nn8: { es: "Una estación seleccionada", pt: "Uma estação selecionada"},
+        nn9: { es: "Filtrar por Tema", pt: "Filtrar por Tema"},
+        nn10: { es: "Filtrar por Proveedor o Agencia", pt: "Filtrar por Provedor ou Agência"},
+        nn11: { es: "Filtrar por Tipo de Información", pt: "Filtrar por tipo de informação"},
+        nn12: { es: "Revisar provider, es obligatorio", pt: "Verifique o provedor, é obrigatório"},
+        //
+        Var1 : { es: "Variables", pt: "Variáveis"},
+        Var2 : { es: "Variable", pt: "Variável"},
+        Var3 : { es: "No hay", pt: "não há"},
+        Var4 : { es: "  Seleccionadas", pt: "  Selecionadas"},
+        Var5 : { es: " Una", pt: " Uma"},
+        Var6 : { es: " Seleccionada", pt: " Selecionada"},
+        Var7 : { es: "Variables", pt: "Variáveis"},
+        //
+        datafrase1 : { es: "No hay descripción de la Capa", pt: "Não há descrição da camada"},
+        datafrase2 : { es: "No hay detalles de la Capa", pt: "Sem detalhes da capa"},
+        datafrase3 : { es: "No hay detalles de la disponibilidad en GEOOS para la Capa", pt: "Não há detalhes da disponibilidade em GEOOS para a Camada"},
+        datafrase4 : { es: "Vista 3D de Terreno y Nubosidad", pt: "Terreno 3D e Nebulosidade"},
+        datafrase5 : { es: "Terreno y Nubosidad", pt: "Terreno e Nebulosidade"},
+        datafrase6: { es: "Seleccione el Área para Analizar", pt: "Selecione a Área para Analisar"},
+        datafrase7 : { es: "Seleccione el Área para los datos del Gráfico", pt: "Selecione a área para os dados do gráfico"},
+        datafrase8 : { es: "Nombre del Análisis", pt: "Nome da Análise"},
+        datafrase9 : { es: "Escalar Ejes", pt: "Eixos de Escala"},
+        datafrase10 : { es: "Selección de Variable", pt: "Seleção de variável"},
+        datafrase11 : { es: "Escala de Colores", pt: "Escala de Cores"},
+        datafrase12 : { es: "Mostrar Grilla de Coordenadas", pt: "Mostrar grelha de coordenadas"},
+        datafrase13 : { es: "No hay datos", pt: "Não há dados"},
+        datafrase14 : { es: "Cargando ...", pt: "Carregando ..."},
+        //meses
+        mes1 : { es: "Enero", pt: "Janeiro"},
+        mes2 : { es: "Febrero", pt: "Fevereiro"},
+        mes3 : { es: "Marzo", pt: "Março"},
+        mes4 : { es: "Abril", pt: "Abril"},
+        mes5 : { es: "Mayo", pt: "Maio"},
+        mes6 : { es: "Junio", pt: "Junho"},
+        mes7 : { es: "Julio", pt: "Julho"},
+        mes8 : { es: "Agosto", pt: "Agosto"},
+        mes9 : { es: "Septiembre", pt: "Setembro"},
+        mes10 : { es: "Octubre", pt: "Outubro"},
+        mes11 : { es: "Noviembre", pt: "Novembro"},
+        mes12 : { es: "Diciembre", pt: "Dezembro"},
+        //dias
+        Dia1 : { es: "Domingo", pt: "Domingo"},
+        Dia2 : { es: "Lunes", pt: "Segunda"},
+        Dia3 : { es: "Martes", pt: "Terça"},
+        Dia4 : { es: "Miércoles ", pt: "Quarta"},
+        Dia5 : { es: "Jueves", pt: "Quinta"},
+        Dia6 : { es: "Viernes", pt: "Sexta"},
+        Dia7 : { es: "Sábado", pt: "Sábado"},
+        //addstationspanel
+        add1 : { es: "No hay descripción de la Capa", pt: "Não há descrição da Camada"},
+        add2 : { es: "No hay detalles de la Capa", pt: "Sem detalhes da capa"},
+        add3 : { es: "No hay detalles de la disponibilidad en GEOOS para la Capa", pt: "Não há detalhes da disponibilidade em GEOOS para a Camada"},
+
+
         
     }
     }

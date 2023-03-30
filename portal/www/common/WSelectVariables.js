@@ -38,11 +38,11 @@ class WSelectVariables extends ZDialog {
             }], "variables")
         }
         this.sections = [{
-            code:"subjects", name:"Filtrar por Tema", data:window.geoos.subjects
+            code:"subjects", name: window.toLang("$[javascripts.nn9]"), data:window.geoos.subjects
         }, {
-            code:"providers", name:"Filtrar por Proveedor o Agencia", data:window.geoos.providers
+            code:"providers", name: window.toLang("$[javascripts.nn10]"), data:window.geoos.providers
         }, {
-            code:"types", name:"Filtrar por Tipo de Información", data:window.geoos.types
+            code:"types", name: window.toLang("$[javascripts.nn11]"), data:window.geoos.types
         }]
         await this.refreshLayerType();        
     }
@@ -91,7 +91,7 @@ class WSelectVariables extends ZDialog {
             layers.forEach(layer => {
                 let sectionCodes = layer[section.code];
                 if (!sectionCodes.length) {
-                    if (!section.data.find(r => r.code == "no")) console.error("NO nLayers", section.code, layer[section.code], "Revisar provider, es obligatorio");
+                    if (!section.data.find(r => r.code == "no")) console.error("NO nLayers", section.code, layer[section.code], window.toLang("$[javascripts.nn12]"));
                     section.data.find(r => r.code == "no").nLayers++;
                 } else {
                     sectionCodes.forEach(code => {
@@ -263,16 +263,16 @@ class WSelectVariables extends ZDialog {
 
     refreshResume() {
         let nSelected = this.filteredLayers.reduce((sum, l) => (l.selected?(sum+1):sum), 0);
-        let name = "Variables";
-        let name1 = "Variable";
+        let name = window.toLang("$[javascripts.Var1]");
+        let name1 = window.toLang("$[javascripts.Var2]");
         if (!nSelected) {
-            this.lblCountResume.text = "No hay " + name + " seleccionadas";
+            this.lblCountResume.text = window.toLang("$[javascripts.Var3]") + name + window.toLang("$[javascripts.Var4]");
             this.cmdAddLayers.disable();
         } else if (nSelected == 1) {
-            this.lblCountResume.text = "Una " + name1 + " seleccionada";
+            this.lblCountResume.text = window.toLang("$[javascripts.Var5]") + name1 +  window.toLang("$[javascripts.Var6]");
             this.cmdAddLayers.enable();
         } else {
-            this.lblCountResume.text = nSelected + " " + name + " seleccionadas";
+            this.lblCountResume.text = nSelected + " " + name +  window.toLang("$[javascripts.Var4]");
             this.cmdAddLayers.enable();
         }
     }
@@ -326,9 +326,9 @@ class WSelectVariables extends ZDialog {
         this.providerUrl.view.setAttribute("href", provider.url);
         this.providerUrl.text = provider.name;
         if (layer.type == "raster") {
-            this.layerDescription.html = layer.variable.options.description || "<p>No hay descripción de la Capa</p>";
-            this.layerDetails.html = layer.variable.options.details || "<p>No hay detalles de la Capa</p>";
-            this.layerAvailability.html = layer.variable.options.availability || "<p>No hay detalles de la disponibilidad en GEOOS para la Capa</p>";
+            this.layerDescription.html = layer.variable.options.description || "<p>$[javascripts.datafrase1]</p>";
+            this.layerDetails.html = layer.variable.options.details || "<p>$[javascripts.datafrase2]</p>";
+            this.layerAvailability.html = layer.variable.options.availability || "<p>$[javascripts.datafrase3]</p>";
         }
     }
 

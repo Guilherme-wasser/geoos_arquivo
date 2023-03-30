@@ -137,7 +137,7 @@ class GEOOSGroup {
     */
 
     createStationsLayer() {
-        let l = new GEOOSStationsLayer({name:"Estaciones", opacity:100});
+        let l = new GEOOSStationsLayer({name: window.toLang("$[javascripts.Estaciones]"), opacity:100});
         // this.addLayer(l)
         l.group = this; 
         this.layers.splice(0,0, l)
@@ -157,7 +157,7 @@ class GEOOSGroup {
         return this.layers.find(l => (l.id == "user-objects"));
     }
     createUserObjectsLayer() {
-        let l = new GEOOSUserObjectsLayer({name:"Objetos de Usuario", opacity:100});
+        let l = new GEOOSUserObjectsLayer({name: window.toLang("$[javascripts.ObjUser]"), opacity:100});
         this.addLayer(l)
         return l;
     }
@@ -187,7 +187,7 @@ class GEOOSGroup {
 
     getPropertyPanels() {
         return [{
-            code:"group-properties", name:"Propiedades del Grupo", path:"./groups/GroupProperties"
+            code:"group-properties", name: window.toLang("$[javascripts.PropG]"), path:"./groups/GroupProperties"
         }]
     }
 
@@ -337,7 +337,7 @@ class GEOOSLayer {
 
     getPropertyPanels() {
         return [{
-            code:"layer-properties", name:"Propiedades de la Capa", path:"./layers/LayerProperties"
+            code:"layer-properties", name: window.toLang("$[javascripts.PropCapa]"), path:"./layers/LayerProperties"
         }]
     }
 

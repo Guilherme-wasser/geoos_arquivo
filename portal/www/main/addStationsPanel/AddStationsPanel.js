@@ -222,7 +222,7 @@ class AddStationsPanel extends ZCustomController {
 
         // Results
         this.filteredStations = this.filterStations(null, this.edStationsNameFilter.value);
-        this.lblStationsResume.text = this.filteredStations.length + " estaciones encontradas";
+        this.lblStationsResume.text = this.filteredStations.length +  window.toLang("$[javascripts.nn6]");
         let providers = this.filteredStations.reduce((map, s) => {
             map[s.proveedor] = true;
             return map;
@@ -353,14 +353,14 @@ class AddStationsPanel extends ZCustomController {
     refreshResume() {
         let nSelected = window.geoos.stationSelected.length;
         if (!nSelected) {
-            this.lblStationsCountResume.text = "No hay estaciones seleccionadas";
+            this.lblStationsCountResume.text = window.toLang("$[javascripts.nn7]");
             if(window.geoos.getAddedStations().length < 1) this.cmdAccept.disable();
             else  this.cmdAccept.enable();
         } else if (nSelected == 1) {
-            this.lblStationsCountResume.text = "Una estación seleccionada";
+            this.lblStationsCountResume.text = window.toLang("$[javascripts.nn8]");
             this.cmdAccept.enable();
         } else {
-            this.lblStationsCountResume.text = nSelected + " estaciones seleccionadas";
+            this.lblStationsCountResume.text = nSelected + window.toLang("$[javascripts.add1]");
             this.cmdAccept.enable();
         }
     }
@@ -430,9 +430,9 @@ class AddStationsPanel extends ZCustomController {
         this.stationsProviderUrl.view.setAttribute("href", provider.url);
         this.stationsProviderUrl.text = provider.name;
         if (layer.type == "raster") {
-            this.layerDescription.html = layer.variable.options.description || "<p>No hay descripción de la Capa</p>";
-            this.layerDetails.html = layer.variable.options.details || "<p>No hay detalles de la Capa</p>";
-            this.layerAvailability.html = layer.variable.options.availability || "<p>No hay detalles de la disponibilidad en GEOOS para la Capa</p>";
+            this.layerDescription.html = layer.variable.options.description || "<p>$[javascripts.add1]</p>";
+            this.layerDetails.html = layer.variable.options.details || "<p>$[javascripts.add2]</p>";
+            this.layerAvailability.html = layer.variable.options.availability || "<p>$[javascripts.add3]</p>";
         }
     }
 }

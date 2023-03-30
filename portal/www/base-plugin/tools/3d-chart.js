@@ -32,13 +32,13 @@ class Tool3DChart extends GEOOSTool {
     getPropertyPanels() {
         let basePath = window.geoos.getPlugin("base").basePath;
         return [{
-            code:"tool-props", name:"Nombre del Análisis", path:"./propertyPanels/PropToolName"
+            code:"tool-props", name: window.toLang("$[javascripts.datafrase8]"), path:"./propertyPanels/PropToolName"
         }, {
-            code:"raster-var", name:"Selección de Variable", path:"./propertyPanels/SelectRasterVariable"
+            code:"raster-var", name: window.toLang("$[javascripts.datafrase10]"), path:"./propertyPanels/SelectRasterVariable"
         }, {
-            code:"color-scale", name:"Escala de Colores", path:"./propertyPanels/ToolColorScaleProperties"
+            code:"color-scale", name: window.toLang("$[javascripts.datafrase11]"), path:"./propertyPanels/ToolColorScaleProperties"
         }, {
-            code:"p3d-axis-scale", name:"Escalar Ejes", path:basePath + "/tools/3d-chart-panels/3DChartScaleAxis"
+            code:"p3d-axis-scale", name: window.toLang("$[javascripts.datafrase9]"), path:basePath + "/tools/3d-chart-panels/3DChartScaleAxis"
         }]
     }
 
@@ -184,7 +184,7 @@ GEOOSTool.register("3d-chart", "Gráficos 3D sobre Lat / Lng", {
     creationPanelPath:"./creationPanels/ToolObjectSelector",
     creationPanelOptions:{
         allowedObjectTypes:["user-object/area"],
-        caption:"Seleccione el Área para los datos del Gráfico"
+        caption: window.toLang("$[javascripts.datafrase7]")
     },
     icon:window.geoos.getPlugin("base").basePath + "/tools/img/3d-chart.png",
     menuIcon:window.geoos.getPlugin("base").basePath + "/tools/img/menu-3d-chart.svg",

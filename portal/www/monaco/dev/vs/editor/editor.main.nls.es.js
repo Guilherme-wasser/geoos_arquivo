@@ -1032,7 +1032,7 @@ define("vs/editor/editor.main.nls.es", {
 		"Domingo",
 		"Lunes",
 		"Martes",
-		"Miércoles",
+		"VAGABUNDO MIRCULOS",
 		"Jueves",
 		"Viernes",
 		"Sábado",

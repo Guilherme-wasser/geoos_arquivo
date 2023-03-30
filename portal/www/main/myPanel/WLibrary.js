@@ -1,6 +1,6 @@
 class WLibrary extends ZDialog {
     onThis_init(options) {
-        this.edTema.setRows([{code:"", name:"[Todos los Temas]"}].concat(geoos.temasBiblioteca));
+        this.edTema.setRows([{code:"", name:window.toLang("$[javascripts.nn1]")}].concat(geoos.temasBiblioteca));
         this.refrescar();
     }
 
@@ -57,9 +57,9 @@ class WLibrary extends ZDialog {
             this.msgSeleccion.show();
             this.detalles.hide();
             if (capas.length) {
-                this.msgSeleccion.text = "Seleccione una Capa a la izquierda para ver sus detalles";
+                this.msgSeleccion.text = window.toLang("$[javascripts.nn2]");
             } else {
-                this.msgSeleccion.text = "No se encontraron capas. Repita la búsqueda";
+                this.msgSeleccion.text = window.toLang("$[javascripts.nn3]");
             }
         } catch (error) {
             console.error(error);
@@ -131,7 +131,7 @@ class WLibrary extends ZDialog {
     }
 
     onCmdDelete_click() {
-        this.showDialog("common/WConfirm", {message:"¿Está seguro que desea eliminar permanentemente esta capa de la biblioteca?"}, async _ => {
+        this.showDialog("common/WConfirm", {message: window.toLang("$[javascripts.nn4]")}, async _ => {
             await zPost("deleteCapaBiblio.geoos", {id:this.capa._id});
             this.refrescar();
         })

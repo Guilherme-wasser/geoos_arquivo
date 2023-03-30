@@ -15,9 +15,9 @@ class Main extends ZCustomController {
                     'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'
                 ],
                 shortWeekdays:["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
-                drillUpText:"Volver",
-                loading:"Cargando ...",
-                noData:"No hay datos"
+                drillUpText:window.toLang("$[mainMenu.Volver]"),
+                loading: window.toLang("$[javascripts.datafrase14]"),
+                noData: window.toLang("$[javascripts.datafrase13]")
             },
             time:{
                 useUTC:false
@@ -66,9 +66,9 @@ class Main extends ZCustomController {
                         window.geoos.user.saveConfig();
                     }
                 } else {
-                    console.error("No hay layer codes");
+                    console.error(window.toLang("$[javascripts.nn5]"));
                     console.log(window.geoos.config);
-                    initialGroup = window.geoos.addGroup({name:"Mis Capas"});
+                    initialGroup = window.geoos.addGroup({name:window.toLang("$[mainMenu.MisCapas]")});
                     await window.geoos.activateGroup(initialGroup.id);
                 }
             } else if (userConfig.favorites.initialGroup) {
@@ -83,7 +83,7 @@ class Main extends ZCustomController {
                 }
             } else {
                 // null
-                initialGroup = window.geoos.addGroup({name:"Mis Capas"});
+                initialGroup = window.geoos.addGroup({name: window.toLang("$[mainMenu.MisCapas]")});
                 await window.geoos.activateGroup(initialGroup.id);
             }
         }

@@ -14,7 +14,7 @@ class Time extends ZCustomController {
         this.updateLabels();
         this.updatePickers();
         this.doResize();
-        this.edTimeSelector.setRows([{id:"basic", label:"Selector Tiempo: BÁSICO"}, {id:"layer", label:"Selector Tiempo: CAPA"}])
+        this.edTimeSelector.setRows([{id:"basic", label: window.toLang("$[javascripts.SelectorTiempo]")}, {id:"layer", label: window.toLang("$[javascripts.SelectorTiempoCAPA]")}])
         let days = [];
         for (let i=0; i<31; i++) {
             days.push({id:i, label:(i<10?"0":"") + i})
@@ -275,7 +275,7 @@ class Time extends ZCustomController {
         if (!rows.length) {
             this.cntSubSelector.hide();
             this.edTimeSelector.value = "basic";
-            this.showDialog("common/WInfo", {subtitle:"No hay capas", message:"No ha agregado capas con temporalidad definida"});
+            this.showDialog("common/WInfo", {subtitle:window.toLang("$[javascripts.NoHayCapas]"), message: window.toLang("$[javascripts.NoHaAgregado]")});
             this.adjustTimeStepSelectors();
             return;
         }
@@ -311,13 +311,13 @@ class Time extends ZCustomController {
     onCmdVideo_click() {
         let opener = $(this.find("#cmdVideo"));
         let z = new ZPop(opener, [{
-            code:"start", icon:"fas fa-step-forward", label:"Fijar Tiempo de Inicio", 
+            code:"start", icon:"fas fa-step-forward", label: window.toLang("$[javascripts.FijarTiempo]"), 
         }, {
-            code:"end", icon:"fas fa-step-backward", label:"Fijar Tiempo de Término", 
+            code:"end", icon:"fas fa-step-backward", label: window.toLang("$[javascripts.FijarTiempo2]"), 
         }, {
             code:"sep", icon:"-", label:"-", 
         }, {
-            code:"animate", icon:"fas fa-video", label:"Generar Animación", 
+            code:"animate", icon:"fas fa-video", label:window.toLang("$[javascripts.Time1]"), 
         }], {
             vMargin:10,
             onClick:async (code, item) => {
@@ -382,14 +382,14 @@ class Time extends ZCustomController {
     // https://gist.github.com/ilblog/5fa2914e0ad666bbb85745dbf4b3f106
     async animateOld() {
         if (!window.geoos.anim || isNaN(window.geoos.anim.start) || isNaN(window.geoos.anim.end)) {
-            this.showDialog("common/WError", {message:"Debe fijar el tiempo de inicio y de término antes de generar la animación"});
+            this.showDialog("common/WError", {message: window.toLang("$[javascripts.Time2]")});
             return;
         }
         console.log("anim", window.geoos.anim);
         let start = window.geoos.anim.start;
         let end = window.geoos.anim.end;
         if (start >= end) {
-            this.showDialog("common/WError", {message:"Debe fijar el tiempo de término después del tiempo de inicio"});
+            this.showDialog("common/WError", {message: window.toLang("$[javascripts.Time3]")});
             return;
         }
 
