@@ -13,13 +13,13 @@ class AddPanel extends ZCustomController {
         let providers = JSON.parse(JSON.stringify(window.geoos.providers));
         providers.splice(0,0,{code:"no", name:"Capa Especial|"})
         this.sections = [{
-            code:"subjects", name:"Filtrar por Tema", data:window.geoos.subjects
+            code:"subjects", name: window.toLang("$[javascripts.nn9]"), data:window.geoos.subjects
         }, {
-            code:"providers", name:"Filtrar por Proveedor o Agencia", data:providers
+            code:"providers", name: window.toLang("$[javascripts.nn10]"), data:providers
         }, {
-            code:"types", name:"Filtrar por Tipo de Información", data:window.geoos.types
+            code:"types", name: window.toLang("$[javascripts.nn11]"), data:window.geoos.types
         }, {
-            code:"regions", name:"Filtrar por Zona o Región", data:window.geoos.regions
+            code:"regions", name: window.toLang("$[javascripts.nn13]"), data:window.geoos.regions
         }]
         await this.refreshLayerType();
     }
@@ -138,7 +138,7 @@ class AddPanel extends ZCustomController {
                 let sectionCodes = layer[section.code];
                 if (!sectionCodes) {
                     console.error("Capa ", layer);
-                    throw "La capa no contiene la seccion " + section.code; 
+                    throw window.toLang("$[javascripts.nn14]") + section.code; 
                 }
                 if (!sectionCodes.length) {
                     section.data.find(r => r.code == "no").nLayers++;
@@ -230,7 +230,7 @@ class AddPanel extends ZCustomController {
             }
         }
         if (htmlFilters.length) {
-            this.filterPills.html = "<b style='margin-left: 6px;'>Filtros Activos: </b>" + htmlFilters + "<a href='#' class='filters-cleaner btn btn-sm btn-secondary geoos-panel-ok'>Limpiar Filtros</a>";
+            this.filterPills.html = "<b style='margin-left: 6px;'>Filtros Activos: </b>" + htmlFilters + "<a href='#' class='filters-cleaner btn btn-sm btn-secondary geoos-panel-ok'>$[javascripts.nn15]</a>";
             this.filterPills.show();
             $(this.filterPills.view).find(".add-panel-filter i").click(e => {
                 let item = $(e.currentTarget);
@@ -248,7 +248,7 @@ class AddPanel extends ZCustomController {
 
         // Results
         this.filteredLayers = this.filterLayers(null, this.edNameFilter.value);
-        let name = this.layerType == "variables"?"Variables":"Capas";
+        let name = this.layerType == window.toLang("$[javascripts.Var1]")?window.toLang("$[javascripts.Var1]"):window.toLang("$[mainMenu.Capas]");
         this.lblResume.text = name + ": (Encontradas " + this.filteredLayers.length + ")";
         let activeGroup = window.geoos.getActiveGroup();
         let htmlVars = "";
@@ -291,7 +291,7 @@ class AddPanel extends ZCustomController {
             let img = $(e.currentTarget);
             let code = img.parent().data("code");
             if (code == "rasterFormula") {
-                this.showDialog("common/WError", {message: "Las capas especiales se deben configurar y agregar a favoritos sólo desde 'Mi Panel'"});
+                this.showDialog("common/WError", {message: window.toLang("$[javascripts.nn16]")});
                 return;
             }
             let variable = this.filteredLayers.find(v => v.code == code);
@@ -323,16 +323,16 @@ class AddPanel extends ZCustomController {
     refreshResume() {
         //let nSelected = this.filteredLayers.reduce((sum, l) => (l.selected?(sum+1):sum), 0);
         let nSelected = this.layers.reduce((sum, l) => (l.selected?(sum+1):sum), 0);
-        let name = this.layerType == "variables"?"Variables":"Capas";
-        let name1 = this.layerType == "variables"?"Variable":"Capa";
+        let name = this.layerType == window.toLang("$[javascripts.Var7]")?window.toLang("$[javascripts.Var7]"):window.toLang("$[mainMenu.Capas]");
+        let name1 = this.layerType == window.toLang("$[javascripts.Var7]")?window.toLang("$[javascripts.Var2]"):window.toLang("$[javascripts.Capa1]");
         if (!nSelected) {
-            this.lblCountResume.text = "No hay " + name + " seleccionadas";
+            this.lblCountResume.text = window.toLang("$[javascripts.Var3]") + name + window.toLang("$[javascripts.Var4]");
             this.cmdAddLayers.disable();
         } else if (nSelected == 1) {
-            this.lblCountResume.text = "Una " + name1 + " seleccionada";
+            this.lblCountResume.text = window.toLang("$[javascripts.Var5]") + name1 + window.toLang("$[javascripts.Var6]");
             this.cmdAddLayers.enable();
         } else {
-            this.lblCountResume.text = nSelected + " " + name + " seleccionadas";
+            this.lblCountResume.text = nSelected + " " + name + window.toLang("$[javascripts.Var6]");
             this.cmdAddLayers.enable();
         }
     }
@@ -381,9 +381,9 @@ class AddPanel extends ZCustomController {
     }
 
     refreshInfo(layer) {
-        console.log("variable", layer);
+        console.log(window.toLang("$[javascripts.var2]"), layer);
         if (layer.type == "rasterFormula") {
-            this.showDialog("common/WError", {message: "Las capas especiales no tienen información adicional"});
+            this.showDialog("common/WError", {message: window.toLang("$[javascripts.nn17]")});
             return;
         }
         this.infoVarCode = layer.code;
@@ -394,9 +394,9 @@ class AddPanel extends ZCustomController {
         this.providerUrl.view.setAttribute("href", provider.url);
         this.providerUrl.text = provider.name;
         if (layer.type == "raster") {
-            this.layerDescription.html = layer.variable.options.description || "<p>No hay descripción de la Capa</p>";
-            this.layerDetails.html = layer.variable.options.details || "<p>No hay detalles de la Capa</p>";
-            this.layerAvailability.html = layer.variable.options.availability || "<p>No hay detalles de la disponibilidad en GEOOS para la Capa</p>";
+            this.layerDescription.html = layer.variable.options.description || "<p>$[javascripts.datafrase1]</p>";
+            this.layerDetails.html = layer.variable.options.details || "<p>$[javascripts.datafrase2]</p>";
+            this.layerAvailability.html = layer.variable.options.availability || "<p>$[javascripts.datafrase3]</p>";
         }
     }
 }

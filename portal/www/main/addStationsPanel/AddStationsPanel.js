@@ -22,11 +22,11 @@ class AddStationsPanel extends ZCustomController {
             return lista;
         }, []).sort((v1, v2) => (v1.name > v2.name?1:-1));
         this.sections = [{
-            code:"providers", name:"Filtrar por Proveedor o Agencia", data:dataProveedores
+            code:"providers", name: window.toLang("$[javascripts.nn10]"), data:dataProveedores
         }, {
-            code:"types", name:"Filtrar por Tipo de Estación", data:dataTipos
+            code:"types", name:window.toLang("$[javascripts.nn18]"), data:dataTipos
         }, {
-            code:"variables", name:"Filtrar por Sensor / Variable Monitoreada", data:dataVariables
+            code:"variables", name: window.toLang("$[javascripts.nn19]"), data:dataVariables
         }]
         this.filters = {};
         this.sections.forEach(section => this.filters[section.code] = [])
@@ -200,7 +200,7 @@ class AddStationsPanel extends ZCustomController {
             }
         }
         if (htmlFilters.length) {
-            this.stationsFilterPills.html = "<b style='margin-left: 6px;'>Filtros Activos: </b>" + htmlFilters + "<a href='#' class='filters-cleaner btn btn-sm btn-secondary geoos-panel-ok'>Limpiar Filtros</a>";
+            this.stationsFilterPills.html = "<b style='margin-left: 6px;'>$[javascripts.nn20]</b>" + htmlFilters + "<a href='#' class='filters-cleaner btn btn-sm btn-secondary geoos-panel-ok'>$[javascripts.nn15]</a>";
             this.stationsFilterPills.show();
             $(this.stationsFilterPills.view).find(".add-panel-filter i").click(e => {
                 let item = $(e.currentTarget);
@@ -308,7 +308,7 @@ class AddStationsPanel extends ZCustomController {
             let code = div.data("code");
             let station = this.filteredStations.find(v => v.code == code);
             this.toggle();
-            window.geoos.rightHelper.loadContent("main/rightHelper/exportStationData/Exporter", "Descargar Datos de Estación", "fas fa-download", {station});
+            window.geoos.rightHelper.loadContent("main/rightHelper/exportStationData/Exporter", window.toLang("$[javascripts.nn21]"), "fas fa-download", {station});
             return false;           
         });
         $(this.stationsContainer.view).find(".add-panel-variable").click(e => {

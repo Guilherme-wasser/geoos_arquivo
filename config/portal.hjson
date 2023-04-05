@@ -4,7 +4,7 @@
 
     #Available base Maps 
     maps:[{
-        code:"esri-world-physical", name:"Esri - World Physical Map"
+        code:"esri-world-physical", name:"Esri - World Physical Map MODIFICADO"
         url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}'
         options:{
             attribution: 'Tiles &copy; Esri &mdash; Source: US National Park Service'

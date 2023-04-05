@@ -383,41 +383,41 @@ class MyPanel extends ZCustomController {
         let groupId = groupDiv.data("group-id");
         let group = window.geoos.getGroup(groupId);
         let z = new ZPop(opener, [{
-            code:"duplicate", icon:"far fa-copy", label:"Duplicar Grupo", 
+            code:"duplicate", icon:"far fa-copy", label: window.toLang("$[javascripts.MP1]"), 
         }, {
-            code:"export", icon:"fas fa-download", label:"Exportar Grupo", 
+            code:"export", icon:"fas fa-download", label: window.toLang("$[javascripts.MP2]"), 
         }, {
-            code:"importLayer", icon:"fas fa-upload", label:"Importar Capa", 
-        }, {
-            code:"sep", icon:"-", label:"-", 
-        }, {
-            code:"favo", icon:"fas fa-star", label:"Agregar a Favoritos", 
-        }, {
-            code:"share", icon:"fas fa-share-square", label:"Compartir", 
+            code:"importLayer", icon:"fas fa-upload", label: window.toLang("$[javascripts.MP3]"), 
         }, {
             code:"sep", icon:"-", label:"-", 
         }, {
-            code:"delete", icon:"far fa-trash-alt", label:"Eliminar el Grupo", 
+            code:"favo", icon:"fas fa-star", label: window.toLang("$[javascripts.MP4]"), 
         }, {
-            code:"delete-layers", icon:"far fa-trash-alt", label:"Eliminar las capas", 
+            code:"share", icon:"fas fa-share-square", label: window.toLang("$[javascripts.MP5]"), 
         }, {
             code:"sep", icon:"-", label:"-", 
         }, {
-            code:"scalesPanel", icon:"fas fa-palette", label:"Escalas de Colores", 
+            code:"delete", icon:"far fa-trash-alt", label: window.toLang("$[javascripts.MP8]"), 
+        }, {
+            code:"delete-layers", icon:"far fa-trash-alt", label: window.toLang("$[javascripts.MP6]"), 
+        }, {
+            code:"sep", icon:"-", label:"-", 
+        }, {
+            code:"scalesPanel", icon:"fas fa-palette", label: window.toLang("$[javascripts.MP7]"), 
         }], {
             vMargin:10,
             onClick:async (code, item) => {
                 if (code == "delete") {
                     this.showDialog("common/WConfirm", {
-                        subtitle:"Eliminar grupo de Capas",
-                        message:"¿Confirma que desea eliminar el Grupo de Capas '" + group.name + "'?"
+                        subtitle: window.toLang("$[javascripts.MP9]"),
+                        message: window.toLang("$[javascripts.MP10]") + group.name + "'?"
                     }, async _ => {
                         try {
                             await window.geoos.deleteGroup(groupId);
                         } catch(error) {
                             console.log("error")
                             this.showDialog("common/WError", {
-                                subtitle:"Advertencia",
+                                subtitle: window.toLang("$[javascripts.MP11]"),
                                 message:error.toString()
                             });    
                         }
@@ -435,7 +435,7 @@ class MyPanel extends ZCustomController {
                     el.select();
                     document.execCommand('copy');
                     document.body.removeChild(el);
-                    this.showDialog("common/WInfo", {message:"Se ha copiado al portapapeles un enlace con el grupo exportado", subtitle:"Compartir Grupo de Capas"})
+                    this.showDialog("common/WInfo", {message: window.toLang("$[javascripts.MP12]"), subtitle: window.toLang("$[javascripts.MP13]")})
                 } else if (code == "favo") {
                     window.geoos.addFavGroup(group);
                     window.geoos.openFavorites();
@@ -447,8 +447,8 @@ class MyPanel extends ZCustomController {
                     //group.layers = [];
                     let n = group.layers.length;
                     this.showDialog("common/WConfirm", {
-                        subtitle:"Eliminar Todas las Capas",
-                        message:"¿Confirma que desea eliminar todas las capas?"
+                        subtitle: window.toLang("$[javascripts.MP14]"),
+                        message: window.toLang("$[javascripts.MP15]")
                     }, async _ => {
                         try {
                             await group.removeAllLayers();
@@ -457,8 +457,8 @@ class MyPanel extends ZCustomController {
                         } catch(error) {
                             console.log("error")
                             this.showDialog("common/WError", {
-                                subtitle:"Advertencia",
-                                message:"No se pudo eliminar las capas " + error.toString()
+                                subtitle: window.toLang("$[javascripts.MP11]"),
+                                message: window.toLang("$[javascripts.MP16]") + error.toString()
                             });    
                         }
                     })
@@ -500,19 +500,19 @@ class MyPanel extends ZCustomController {
         let layerId = layerDiv.data("layer-id");
         let layer = group.getLayer(layerId);
         let items = [{
-                code:"duplicate", icon:"far fa-copy", label:"Duplicar Capa", 
+                code:"duplicate", icon:"far fa-copy", label: window.toLang("$[javascripts.MP17]"), 
             }, {
-                code:"export", icon:"fas fa-download", label:"Exportar Capa", 
-            }, {
-                code:"sep", icon:"-", label:"-", 
-            }, {
-                code:"favo", icon:"fas fa-star", label:"Agregar a Favoritos", 
-            }, {
-                code:"biblio", icon:"fas fa-book", label:"Compartir en Biblioteca", 
+                code:"export", icon:"fas fa-download", label: window.toLang("$[javascripts.MP18]"), 
             }, {
                 code:"sep", icon:"-", label:"-", 
             }, {
-                code:"delete", icon:"far fa-trash-alt", label:"Eliminar la Capa", 
+                code:"favo", icon:"fas fa-star", label: window.toLang("$[javascripts.MP4]"), 
+            }, {
+                code:"biblio", icon:"fas fa-book", label: window.toLang("$[javascripts.MP19]"), 
+            }, {
+                code:"sep", icon:"-", label:"-", 
+            }, {
+                code:"delete", icon:"far fa-trash-alt", label: window.toLang("$[javascripts.MP20]"), 
             }
         ];
         if (layer instanceof GEOOSStationsLayer) {
@@ -528,8 +528,8 @@ class MyPanel extends ZCustomController {
             onClick:(code, item) => {
                 if (code == "delete") {
                     this.showDialog("common/WConfirm", {
-                        subtitle:"Eliminar Capa",
-                        message:"¿Confirma que desea eliminar la Capa '" + layer.name + "'?"
+                        subtitle: window.toLang("$[javascripts.MP21]"),
+                        message: window.toLang("$[javascripts.MP22]") + layer.name + "'?"
                     }, async _ => {
                         try {
                             await group.removeLayer(layerId, true);
@@ -538,7 +538,7 @@ class MyPanel extends ZCustomController {
                         } catch(error) {
                             console.log(error);
                             this.showDialog("common/WError", {
-                                subtitle:"Advertencia",
+                                subtitle: window.toLang("$[javascripts.MP11]"),
                                 message:error.toString()
                             });    
                         }
@@ -700,7 +700,7 @@ class MyPanel extends ZCustomController {
                     let str = event.target.result;                
                     let json = JSON.parse(str);
                     console.log("json", json);
-                    if (!json.name || json.opacity === undefined) throw "El archivo cargado no corresponde a una Capa exportada";
+                    if (!json.name || json.opacity === undefined) throw window.toLang("$[javascripts.MP23]");
                     let layer = GEOOSLayer.deserialize(json);
                     group.addLayer(layer);
                     this.refresh();
@@ -718,7 +718,7 @@ class MyPanel extends ZCustomController {
                 try {
                     let str = event.target.result;                
                     let json = JSON.parse(str);
-                    if (!json.name || json.layers === undefined) throw "El archivo cargado no corresponde a un Grupo exportado";
+                    if (!json.name || json.layers === undefined) throw window.toLang("$[javascripts.MP24]");
                     let newGroup = GEOOSGroup.deserialize(json);
                     newGroup.regenerateIds();
                     window.geoos.addExistingGroup(newGroup);

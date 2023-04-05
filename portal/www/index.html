@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="" style="height: 100%;">
+<html lang="pt-br" style="height: 100%;">
     <head>
         <title>GEOOS</title>
         <meta charset="utf-8">
@@ -122,7 +122,7 @@
                 if (navigator.languages && navigator.languages.length) {
                     return navigator.languages[0];
                 } else {
-                    return navigator.userLanguage || navigator.language || navigator.browserLanguage || 'pt';
+                    return navigator.userLanguage || navigator.language || navigator.browserLanguage || 'es';
                 }
             }
             document.addEventListener("DOMContentLoaded", async _ => {                
@@ -132,13 +132,13 @@
                 let lang = window.localStorage.getItem("lang");
                 if (!lang) {
                     lang = getNavigatorLanguage();
-                    if (!lang) lang = "es";
+                    if (!lang) lang = "pt-br";
                     if (lang.length > 2) lang = lang.substr(0,2);
                     window.localStorage.setItem("lang", lang);
                     console.log("Selecionando a linguagem padrão", lang);
                 }
                 window.language = lang;
-                const langPreprocessor = new ZLangPreprocessor(window.mensajes, "es");               
+                const langPreprocessor = new ZLangPreprocessor(window.mensajes, "pt-br");               
                 window.toLang = msg => (langPreprocessor.parseHTML(msg));
                 ZVC.options.htmlPreprocessor = html => (langPreprocessor.parseHTML(html))
                 await ZVC.fromElement("main");

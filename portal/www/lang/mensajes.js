@@ -286,6 +286,14 @@ const mensajes = {
         //ZoomPanel
         //Portal
         //index
+        //3DChartScaleAzxis.html
+        FactorEs: { es: "Factor de Escala", pt:"Fator de Escala"},
+        EsLat: { es: "Escalar Latitud / Longitud", pt:"Escalar Latitude / Longitude"},
+        EscEjeZ: { es: "Escalar Eje Z (metros)", pt:"Escala eixo Z (metros)"},
+        //Winfo.html
+        Winfo1: { es: "Información", pt:"Informação"},
+        //WConfirm.html
+        WConf1: { es: "Confirmación", pt:"Confirmação"},
         
     },
 
@@ -319,7 +327,7 @@ const mensajes = {
         nn4: { es: "¿Está seguro que desea eliminar permanentemente esta capa de la biblioteca?", pt: "Tem certeza de que deseja remover permanentemente esta camada da biblioteca?"},
         //Main js
         nn5: { es: "No hay layer codes", pt: "Não há códigos de camada"},
-        //AddStationsPanel
+        //AddStationsPanel + AddPanel.js
         nn6: { es: "  estaciones encontradas", pt: "  estações encontradas"},
         nn7: { es: "No hay estaciones seleccionadas", pt: "Nenhuma estação selecionada"},
         nn8: { es: "Una estación seleccionada", pt: "Uma estação selecionada"},
@@ -327,14 +335,24 @@ const mensajes = {
         nn10: { es: "Filtrar por Proveedor o Agencia", pt: "Filtrar por Provedor ou Agência"},
         nn11: { es: "Filtrar por Tipo de Información", pt: "Filtrar por tipo de informação"},
         nn12: { es: "Revisar provider, es obligatorio", pt: "Verifique o provedor, é obrigatório"},
-        //
+        nn13: { es: "Filtrar por Zona o Región", pt: "Filtrar por Zona ou Região"},
+        nn14: { es: "La capa no continene la seccion ", pt: "A camada não contém a seção "},
+        nn15: { es: "Limpiar Filtros", pt: "Limpar Filtros"},
+        nn16: { es: "Las capas especiales se deben configurar y agregar a favoritos sólo desde 'Mi Panel'", pt: "Camadas especiais devem ser configuradas e adicionadas aos favoritos apenas em 'Meu Painel'"},
+        nn17: { es: "Las capas especiales no tienen información adicional", pt: "Camadas especiais não possuem informações adicionais"},
+        nn18: { es: "Filtrar por Tipo de Estación", pt: "Filtrar por Tipo de Estação"},
+        nn19: { es: "Filtrar por Sensor / Variable Monitoreada", pt: "Filtrar por Sensor / Variável Monitorada"},
+        nn20: { es: "Filtros Activos: ", pt: "Filtros Ativos: "},
+        nn21: { es: "Descargar Datos de Estación", pt: "Baixar dados da estação"},
+        //AddPanel.js + etc
         Var1 : { es: "Variables", pt: "Variáveis"},
         Var2 : { es: "Variable", pt: "Variável"},
-        Var3 : { es: "No hay", pt: "não há"},
+        Var3 : { es: "No Hay ", pt: "Não Há "},
         Var4 : { es: "  Seleccionadas", pt: "  Selecionadas"},
         Var5 : { es: " Una", pt: " Uma"},
         Var6 : { es: " Seleccionada", pt: " Selecionada"},
         Var7 : { es: "Variables", pt: "Variáveis"},
+        Capa1 : { es: "Capa", pt: "Camada"},
         //
         datafrase1 : { es: "No hay descripción de la Capa", pt: "Não há descrição da camada"},
         datafrase2 : { es: "No hay detalles de la Capa", pt: "Sem detalhes da capa"},
@@ -375,10 +393,41 @@ const mensajes = {
         add1 : { es: "No hay descripción de la Capa", pt: "Não há descrição da Camada"},
         add2 : { es: "No hay detalles de la Capa", pt: "Sem detalhes da capa"},
         add3 : { es: "No hay detalles de la disponibilidad en GEOOS para la Capa", pt: "Não há detalhes da disponibilidade em GEOOS para a Camada"},
-
-
-        
-    }
+        //3DChartMain.js
+        lv1 : { es: "La variable que se grafica es '", pt: "A variável representada graficamente é '"},
+        lv2 : { es: "'. Para cambiarla haga click en el ícono de configuraciones", pt: "'. Para alterá-lo, clique no ícone de configurações"},
+        //ViewTool.js 
+        VT1 : { es: "ADVERTENCIA", pt: "AVISO"},
+        VT2 : { es: "Si no logras visualizar el analisis generado, puedes probar activando la 'aceleración de hardware' en tu navegador.", pt: "Se você não conseguir ver a análise gerada, tente habilitar a 'aceleração de hardware' em seu navegador."},
+        VT3 : { es: "Para más información visita las preguntas frequentes.", pt: "Para mais informações visite as perguntas frequentes."},
+        VT4 : { es: "¿Confirma que desea eliminar el análisis '", pt: "Tem certeza que deseja remover a análise '"},
+        //MyPanel.js
+        MP1 : { es: "Duplicar Grupo", pt: "Duplicar Grupo"},
+        MP2 : { es: "Exportar Grupo", pt: "Exportar Grupo"},
+        MP3 : { es: "Importar Capa", pt: "Importar Camada"},
+        MP4 : { es: "Agregar a Favoritos", pt: "Adicionar aos favoritos"},
+        MP5 : { es: "Compartir", pt: "Compartilhar"},
+        MP6 : { es: "Eliminar las capas", pt: "Eliminar as Camadas"},
+        MP7 : { es: "Escalas de Colores", pt: "Escalas de Cores"},
+        MP8 : { es: "Eliminar el Grupo", pt: "Eliminar o Grupo"},
+        MP9 : { es: "Eliminar grupo de Capas", pt: "Eliminar grupo de camadas"},
+        MP10 : { es: "¿Confirma que desea eliminar el Grupo de Capas '", pt: "Tem certeza que deseja excluir o grupo de camadas '"},
+        MP11 : { es: "Advertencia", pt: "Aviso"},
+        MP12 : { es: "Se ha copiado al portapapeles un enlace con el grupo exportado", pt: "Um link para o grupo exportado foi copiado para a área de transferência"},
+        MP13 : { es: "Compartir Grupo de Capas", pt: "Compartilhar Grupo de Camadas"},
+        MP14 : { es: "Eliminar Todas las Capas", pt: "Excluir todas as camadas"},
+        MP15 : { es: "¿Confirma que desea eliminar todas las capas?", pt: "Tem certeza de que deseja remover todas as camadas?"},
+        MP16 : { es: "No se pudo eliminar las capas ", pt: "Não foi possível excluir as camadas "},
+        MP17 : { es: "Duplicar Capa", pt: "Duplicar Camada"},
+        MP18 : { es: "Exportar Capa", pt: "Exportar Camada"},
+        MP19 : { es: "Compartir en Biblioteca", pt: "Compartilhar na Biblioteca"},
+        MP20 : { es: "Eliminar la capa", pt: "Eliminar a Camada"},
+        MP21 : { es: "Eliminar Capa", pt: "Eliminar Camada"},
+        MP22 : { es: "¿Confirma que desea eliminar la Capa '", pt: "Tem certeza que deseja excluir Layer '"},
+        MP23 : { es: "El archivo cargado no corresponde a una Capa exportada", pt: "O arquivo carregado não corresponde a uma Camada exportada"},
+        MP24 : { es: "El archivo cargado no corresponde a un Grupo exportado", pt: "O arquivo enviado não corresponde a um grupo exportado"},
+    
+    }   
     }
 
 if (window) {

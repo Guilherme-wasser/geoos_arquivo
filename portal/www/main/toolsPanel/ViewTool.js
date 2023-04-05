@@ -263,16 +263,16 @@ class ViewTool extends ZCustomController {
     }
 
     onCmdDeleteTool_click() {
-        this.showDialog("common/WConfirm", {message:"¿Confirma que desea eliminar el análisis '" + window.geoos.getSelectedTool().name + "'?"}, _ => {
+        this.showDialog("common/WConfirm", {message: window.toLang("$[javascripts.VT4]") + window.geoos.getSelectedTool().name + "'?"}, _ => {
             window.geoos.removeTool(window.geoos.getSelectedTool().id)
         });
     }
 
     onCmdInfoTool_click() {
         this.showDialog("common/WInfo", {
-            subtitle:"ADVERTENCIA", 
-            message:"Si no logras visualizar el analisis generado, puedes probar activando la 'aceleración de hardware' en tu navegador.",
-            message2:"Para más información visita las preguntas frequentes." 
+            subtitle: window.toLang("$[javascripts.VT1]"), 
+            message: window.toLang("$[javascripts.VT2]"),
+            message2: window.toLang("$[javascripts.VT3]") 
         });
     }
 

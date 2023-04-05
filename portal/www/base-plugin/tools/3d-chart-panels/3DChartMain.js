@@ -15,7 +15,7 @@ class Main3DChart extends ZCustomController {
         }
     }
     async refresh() {
-        this.lblHelp.text = "La variable que se grafica es '" + this.tool.variable.name + "'. Para cambiarla haga click en el ícono de configuraciones"
+        this.lblHelp.text = window.toLang("$[javascripts.lv1]") + this.tool.variable.name + window.toLang("$[javascripts.lv2]")
         let grid = this.tool.data.grid;
         if (!grid) return;
         this.tool.colorScale.setRange(grid.min, grid.max);
