@@ -5,25 +5,25 @@ class Final extends ZCustomController {
         this.options = options;
         let desc = "Desde ";
         if (options.dsOriginal) {
-            desc += "los datos originales reportados por la estación"
+            desc += window.toLang("$[javascripts.Final01]")
         } else {
             const descAcum = {
-                "5m":"5 minutos", "15m":"15 minutos", "30m":"30 minutos", "1h":"una hora",
-                "6h":"6 horas", "12h":"12 horas", "1d":"un día", "1M":"un mes"
+                "5m":"5 minutos", "15m":"15 minutos", "30m":"30 minutos", "1h": window.toLang("$[javascripts.Final16]"),
+                "6h":"6 horas", "12h":"12 horas", "1d":window.toLang("$[javascripts.Final02]"), "1M":window.toLang("$[javascripts.Final17]")
             }
-            desc += "las estadísticas acumuladas en grupos de " + descAcum[options.temporalidad] + " de la estación"
+            desc += window.toLang("$[javascripts.Final03]") + descAcum[options.temporalidad] + window.toLang("$[javascripts.Final04]")
         }
         let vars = Object.keys(options.variables).reduce((list, v) => {
             if (options.variables[v]) list.push(v);
             return list;
         }, [])
-        if (vars.length == 1) desc += ", exportar los valores de una variable";
-        else desc += ", exportar los valores de " + vars.length + " variables";
-        desc += " para el período comprendido entre ";
+        if (vars.length == 1) desc += window.toLang("$[javascripts.Final05]");
+        else desc += window.toLang("$[javascripts.Final06]") + vars.length + window.toLang("$[javascripts.Final10]");
+        desc += window.toLang("$[javascripts.Final08]");
         if (options.dsOriginal || options.temporalidad != "1M") {
-            desc += "el día " + options.fmtFromTime + " y el día " + options.fmtToTime;
+            desc += window.toLang("$[javascripts.Final09]") + options.fmtFromTime + window.toLang("$[javascripts.Final11]") + options.fmtToTime;
         } else {
-            desc += "el mes de " + options.fmtFromTime + " y el mes de " + fmtToTime;
+            desc += window.toLang("$[javascripts.Final12]") + options.fmtFromTime + window.toLang("$[javascripts.Final13]") + fmtToTime;
         }
         this.exportDesc.text = desc;
     }
@@ -43,7 +43,7 @@ class Final extends ZCustomController {
                     this.options.fromTime, this.options.toTime,
                     filter, columns
                 )
-                let head = "tiempo" + columns.reduce((st, col) => {
+                let head = window.toLang("$[javascripts.Final15]") + columns.reduce((st, col) => {
                     return st + ";" + col;
                 }, "");
 
@@ -82,7 +82,7 @@ class Final extends ZCustomController {
                     this.options.fromTime, this.options.toTime,
                     filter, this.options.temporalidad, true
                 ).promise);
-                let csv = "tiempo" + variables.reduce((st, v) => {
+                let csv =  window.toLang("$[javascripts.Final15]") + variables.reduce((st, v) => {
                     let vName = v;                    
                     if (vName.startsWith("rie.")) vName = vName.substr(4);
                     let unit = units[v] || "";

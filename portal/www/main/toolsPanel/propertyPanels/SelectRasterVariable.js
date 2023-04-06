@@ -6,7 +6,7 @@ class SelectRasterVariable extends ZCustomController {
 
     async refresh() {
         if (!this.tool.variable) {
-            let selector = GEOOSQuery.newEmptySelector("Seleccionar Variable", null, null, true);
+            let selector = GEOOSQuery.newEmptySelector(window.toLang("$[javascripts.SVble_01]"), null, null, true);
             this.edVariable.html = await selector.getHTML(true);
             selector.registerListeners(this.edVariable, {
                 singleSelection:true,

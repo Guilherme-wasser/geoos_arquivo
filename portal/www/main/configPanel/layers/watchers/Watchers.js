@@ -16,7 +16,7 @@ class Watchers extends ZCustomController {
     }
 
     async refresh() {
-        let selector = GEOOSQuery.newEmptySelector(">> Observar Nuevas Variables", this.layer.minZDimension, this.layer.name);
+        let selector = GEOOSQuery.newEmptySelector(window.toLang("$[javascripts.Watchers1]"), this.layer.minZDimension, this.layer.name);
         this.rowNew.html = selector.getHTML(true);
         selector.registerListeners(this.rowNew, {
             onSelect:variables => {

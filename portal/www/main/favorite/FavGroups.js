@@ -83,7 +83,7 @@ class FavGroups extends ZCustomController {
         let activator = $(e.currentTarget);
         let div = activator.parent().parent();
         let groupId = div.data("group-id");
-        this.showDialog("common/WConfirm", {message:"¿Confirma que desea eliminar el Grupo?"}, async _ => {
+        this.showDialog("common/WConfirm", {message: window.toLang("$[javascripts.FG1]")}, async _ => {
             await window.geoos.deleteFavGroup(groupId);
         })        
         // this.refresh();
@@ -95,7 +95,7 @@ class FavGroups extends ZCustomController {
         let layerId = div.data("layer-id");
         let groupId = div.data("group-id");
         //console.log("layerId: ", layerId, " groupId: ", groupId);
-        this.showDialog("common/WConfirm", {message:"¿Confirma que desea eliminar la Capa?"}, async _ => {
+        this.showDialog("common/WConfirm", {message: window.toLang("$[javascripts.MP22]")}, async _ => {
             await window.geoos.deleteFavLayerInGroup(groupId, layerId);
         });
         //this.refresh();

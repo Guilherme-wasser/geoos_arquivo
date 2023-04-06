@@ -239,7 +239,7 @@ class Top extends ZCustomController {
             span.textContent = toolDef.factories.menuLabel;
         } else {
             img.src = "img/top-icons/empty.svg";
-            span.textContent = "Próximamente";
+            span.textContent = window.toLang("$[mainMenu.Proximamente]");
         }
     }
     onOpWizardExpander_click() {

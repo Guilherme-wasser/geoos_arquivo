@@ -33,7 +33,7 @@ class WCode extends ZDialog {
         this.codigoRegistro = this.num_1.value.trim() + this.num_2.value.trim() + this.num_3.value.trim() + this.num_4.value.trim() + 
             this.num_5.value.trim() + this.num_6.value.trim();
         if (this.codigoRegistro.length < 6) {
-            this.showDialog("common/WError", {message:"Debe ingresar código de registro válido"});
+            this.showDialog("common/WError", {message: window.toLang("$[javascripts.WCode_01]")});
             return;
         }
         zPost("verificaCodigo.geoos", {

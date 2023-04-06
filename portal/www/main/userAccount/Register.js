@@ -1,5 +1,5 @@
-let mensajeEnviar = "Se le enviará un código de 6 dígitos para verificar su dirección de correo electrónico.";
-let mensajeReenviar = "Espere unos minutos que el código llegue a su correo. Para enviar nuevamente, use el botón de envío. Sólo el último código enviado será válido.";
+let mensajeEnviar = window.toLang("$[javascripts.REG_01]");
+let mensajeReenviar = window.toLang("$[javascripts.REG_02]");
 
 
 class Register extends ZCustomController {
@@ -61,14 +61,14 @@ class Register extends ZCustomController {
     async onCmdRegistrarse_click() {
         try {
             let nombre = this.edNombre.value.trim();
-            if (!nombre || nombre.length < 2) throw "Debe ingresar su nombre";
+            if (!nombre || nombre.length < 2) throw window.toLang("$[javascripts.REG_03]");
             let institucion = this.edInstitucion.value.trim();
             let pwd = this.edPwd.value.trim();
-            if (!pwd || pwd.length < 4) throw "Debe ingresar una contraseña de 4 caracteres o más."
+            if (!pwd || pwd.length < 4) throw window.toLang("$[javascripts.REG_04]")
             let pwd2 = this.edPwd2.value.trim();
-            if (pwd != pwd2) throw "La contraseña y su repetición son diferentes";
+            if (pwd != pwd2) throw window.toLang("$[javascripts.REG_05]");
             let email = this.edEmail.value.trim();
-            if (!this.emailValido(email)) throw "E-mail inválido";
+            if (!this.emailValido(email)) throw window.toLang("$[javascripts.REG_06]");
             this.cmdRegistrarse.hide();
             this.working2.show();
             await zPost("registraUsuario.geoos", {

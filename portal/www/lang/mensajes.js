@@ -89,6 +89,8 @@ const mensajes = {
         TipoTiempo: { es: "Tipo de Tiempo", pt:"Tipo de Tempo"},
         TiempoFijo: { es: "Tiempo Fijo", pt:"Horário Fixo"},
         Desplazamiento: { es: "Desplazamiento", pt:"Deslocamento"},
+        TiempoDelMapa: { es: "Tiempo del Mapa", pt:"Hora do Mapa"},
+        Desplazamiento2 : { es: "Desplazamiento inválido", pt:"Deslocamento inválido"},
         //Tolerance
         BuscarItems: { es: "Buscar Items +/-", pt:"Buscar Items +/-"},
         //FixedLevelsProperties
@@ -368,6 +370,7 @@ const mensajes = {
         datafrase12 : { es: "Mostrar Grilla de Coordenadas", pt: "Mostrar grelha de coordenadas"},
         datafrase13 : { es: "No hay datos", pt: "Não há dados"},
         datafrase14 : { es: "Cargando ...", pt: "Carregando ..."},
+
         //meses
         mes1 : { es: "Enero", pt: "Janeiro"},
         mes2 : { es: "Febrero", pt: "Fevereiro"},
@@ -382,13 +385,14 @@ const mensajes = {
         mes11 : { es: "Noviembre", pt: "Novembro"},
         mes12 : { es: "Diciembre", pt: "Dezembro"},
         //dias
-        Dia1 : { es: "Domingo", pt: "Domingo"},
-        Dia2 : { es: "Lunes", pt: "Segunda"},
-        Dia3 : { es: "Martes", pt: "Terça"},
-        Dia4 : { es: "Miércoles ", pt: "Quarta"},
-        Dia5 : { es: "Jueves", pt: "Quinta"},
-        Dia6 : { es: "Viernes", pt: "Sexta"},
-        Dia7 : { es: "Sábado", pt: "Sábado"},
+        //Dia1 : { es: "Domingo", pt: "Domingo"},
+        //Dia2 : { es: "Lunes", pt: "Segunda"},
+        //Dia3 : { es: "Martes", pt: "Terça"},
+        //Dia4 : { es: "Miércoles ", pt: "Quarta"},
+        //Dia5 : { es: "Jueves", pt: "Quinta"},
+        //Dia6 : { es: "Viernes", pt: "Sexta"},
+        //Dia7 : { es: "Sábado", pt: "Sábado"},
+
         //addstationspanel
         add1 : { es: "No hay descripción de la Capa", pt: "Não há descrição da Camada"},
         add2 : { es: "No hay detalles de la Capa", pt: "Sem detalhes da capa"},
@@ -426,7 +430,95 @@ const mensajes = {
         MP22 : { es: "¿Confirma que desea eliminar la Capa '", pt: "Tem certeza que deseja excluir Layer '"},
         MP23 : { es: "El archivo cargado no corresponde a una Capa exportada", pt: "O arquivo carregado não corresponde a uma Camada exportada"},
         MP24 : { es: "El archivo cargado no corresponde a un Grupo exportado", pt: "O arquivo enviado não corresponde a um grupo exportado"},
-    
+        
+        //FormulaConfig.js
+        FC1 : { es: "JavaScript por Punto en Browser", pt: "JavaScript por ponto no navegador"},
+        FC2 : { es: "JavaScript por Punto en Servidor", pt: "JavaScript por ponto no servidor"},
+        //Sources.js 
+        Dias1: { es: "Días", pt: "Dias"},
+        //WFormula.js
+        WF1: { es: "No se encontró la función 'z' en el código", pt: "Função 'z' não encontrada no código"},
+        //Tolerance.js
+        Anos1: { es: "Años", pt: "Anos"},
+        //Watchers.js
+        Watchers1: { es: ">> Observar Nuevas Variables", pt: ">> Observar Novas Variáveis"},
+        //FavGroups.js
+        FG1: { es: "¿Confirma que desea eliminar el Grupo?", pt: "Tem certeza de que deseja excluir o Grupo?"},
+        //FavStations.js
+        FG2: { es: "¿Confirma que desea eliminar la Estación?", pt: "Tem certeza de que deseja excluir a Estação?"},
+        //WPublish.js
+        WP_01: { es: "La imagen debe ser de tipo PNG o JPG", pt: "A imagem deve ser do tipo PNG ou JPG"},
+        WP_02: { es: "Debe cargar una imagen que represente la capa que está publicando", pt: "Você deve carregar uma imagem que represente a camada que você está publicando"},
+        WP_03: { es: "Debe ingresar un nombre para mostrar", pt: "Você deve inserir um nome de exibição"},
+        WP_04: { es: "Debe seleccionar al menos un tema o categoría para la capa de desea publicar.", pt: "Você deve selecionar pelo menos um tópico ou categoria para a camada que deseja publicar."},
+        //Final.js
+        Final01: { es: "los datos originales reportados por la estación", pt: "os dados originais relatados pela estação"},
+        Final02: { es: "un día", pt: "Um dia"},
+        Final03: { es: "las estadísticas acumuladas en grupos de ", pt: "as estatísticas acumuladas em grupos de"},
+        Final04: { es: " de la estación", pt: "da estação"},
+        Final05: { es: ", exportar los valores de una variable", pt: ", exporte os valores de uma variável"},
+        Final06: { es: ", exportar los valores de ", pt: ", exporte os valores de"},
+        Final07: { es: " variables", pt: " variáveis"},
+        Final08: { es: " para el período comprendido entre ", pt: "para el período comprendido entre"},
+        Final09: { es: "el día ", pt: "o dia"},
+        Final10: { es: " variables", pt: " variáveis"},
+        Final11: { es: " y el día ", pt: "e o dia"},
+        Final12: { es: "el mes de ", pt: "o mês de"},
+        Final13: { es: " y el mes de ", pt: "e o mês de"},
+        Final14: { es: "el día ", pt: "o dia"},
+        Final15: { es: "tiempo", pt: "tempo"},
+        Final16: { es: "una hora", pt: "Uma hora"},
+        Final17: { es: "un mes", pt: "Um mês"},
+        //Periodo.js
+        Pe01: { es: "El Período es Inválido", pt: "O período é inválido"},
+        Pe02: { es: "La exportación de los datos originales de una estación no puede ser para un período mayor a un mes", pt: "A exportação dos dados originais de uma estação não pode ser por um período superior a um mês"},
+        Pe03: { es: "Demasiados datos para exportar, por favor reducirlos. Puede acortar el período, escoger una agrupación temporal más alta o disminuir el número de variables", pt: "Muitos dados para exportar, reduza-os. Você pode encurtar o período, escolher um agrupamento temporal maior ou diminuir o número de variáveis."},
+        //SelVariables.js
+        SV_01: { es: "No se encontró el dataSet '", pt: "DataSet não encontrado '"},
+        SV_02: { es: "' en zRepo", pt: "' en zRepo"},
+        SV_03: { es: "No se encontró la variable ", pt: "Variável não encontrada "},
+        SV_04: { es: "Valor Promedio del Grupo", pt: "Valor Médio do Grupo"},
+        SV_05: { es: " Valor Mínimo en el Grupo", pt: "Valor Mínimo no Grupo"},
+        SV_06: { es: "Valor Máximo en el Grupo", pt: "Valor Máximo no Grupo"},
+        SV_07: { es: "N° Muestras en el Grupo", pt: "Nº de Amostras no Grupo"},
+        //WAnim.js
+        WA_01: { es: "Debe fijar el tiempo de inicio y de término antes de generar la animación", pt: "Você deve definir o horário de início e término antes de gerar a animação"},
+        WA_02: { es: "Debe fijar el tiempo de término después del tiempo de inicio", pt: "Você deve definir a hora de término após a hora de início"},
+        WA_03: { es: "Generando cuadros ...", pt: "Gerando quadros..."},
+        WA_04: { es: "Cuadro ", pt: "Gráfico"},
+        WA_05: { es: " generado en ", pt: " gerado em "},
+        WA_06: { es: "Generando mp4", pt: "Gerando mp4"},
+        WA_07: { es: "Espere la descarga", pt: "aguarde o download"},
+        //SelectRasterVariable.js
+        SVble_01: { es: "Seleccionar Variable", pt: "Selecionar Variável"},
+        //Profile.js
+        PROFILE_01: { es: "La imagen debe ser de tipo PNG o JPG", pt: "A imagem deve ser do tipo PNG ou JPG"},
+        PROFILE_02: { es: "Arrastre una foto hasta la imagen", pt: "Arraste uma foto para a imagem"},
+        //Register.js
+        REG_01: { es: "Se le enviará un código de 6 dígitos para verificar su dirección de correo electrónico.", pt: "Você receberá um código de 6 dígitos para verificar seu endereço de e-mail."},
+        REG_02: { es: "Espere unos minutos que el código llegue a su correo. Para enviar nuevamente, use el botón de envío. Sólo el último código enviado será válido.", pt: "Aguarde alguns minutos para que o código chegue em seu e-mail. Para enviar novamente, use o botão enviar. Somente o último código enviado será válido."},
+        REG_03: { es: "Debe ingresar su nombre", pt: "Você deve inserir seu nome"},
+        REG_04: { es: "Debe ingresar una contraseña de 4 caracteres o más.", pt: "Você deve digitar uma senha de 4 caracteres ou mais."},
+        REG_05: { es: "La contraseña y su repetición son diferentes", pt: "A senha e sua repetição são diferentes"},
+        REG_06: { es: "E-mail inválido", pt: "E-mail inválido"},
+        //WCAmbiaPwd.js
+        WCPwd_01: { es: "La contraseña y su repetición son diferentes", pt: "A senha e sua repetição são diferentes"},
+        WCPwd_02: { es: "La contraseña debe tener al menos cuatro caracteres de largo", pt: "A senha deve ter pelo menos quatro caracteres"},
+        WCPwd_03: { es: "Su contraseña ha sido modificada", pt: "Sua senha foi mudada"},
+        //WCode.js
+        WCode_01: { es: "Debe ingresar código de registro válido", pt: "Você deve inserir um código de registro válido"},
+        //WOlvidoPwd.js
+        Olvido_pwd_01: { es: "La contraseña debe tener al menos cuatro caracteres de largo", pt: "A senha deve ter pelo menos quatro caracteres"},
+        //GridPage.js
+        GPage_01: { es: "No Mostrar", pt: "Não Mostrar"},
+        GPage_02: { es: "Espaciado Automático", pt: "Espaçamento Automático"},
+        GPage_03: { es: "Cada 2 grados y 30 minutos", pt: "A cada 2 graus e 30 minutos"},
+        GPage_04: { es: "Cada 5 grados", pt: "a cada 5 graus"},
+        GPage_05: { es: "Cada 1 grado", pt: "a cada 1 grau"},
+        GPage_06: { es: "Cada 10 grados", pt: "a cada 10 graus"},
+        //Main.js
+        Mainjs_01: { es: "agregó capa", pt: "camada adicionada"},
+
     }   
     }
 

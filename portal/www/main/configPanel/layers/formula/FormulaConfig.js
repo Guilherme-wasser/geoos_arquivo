@@ -10,9 +10,9 @@ class FormulaConfig extends ZCustomController {
         this.edUnidad.value = this.layer.unit;
         this.edDecimales.value = this.layer.decimals;
         this.edFormulaType.setRows([{
-            code:"localJS", name:"JavaScript por Punto en Browser"
+            code:"localJS", name: window.toLang("$[javascripts.FC1]")
         }, {
-            code:"serverJSPoint", name:"JavaScript por Punto en Servidor"
+            code:"serverJSPoint", name: window.toLang("$[javascripts.FC2]")
         }], this.layer.formulaType);
     }
 

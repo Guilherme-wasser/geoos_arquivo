@@ -58,7 +58,7 @@ class WPublish extends ZDialog {
             let file = e.dataTransfer.files[0];
             let name = file.name.toLowerCase();
             if (!name.endsWith(".png") && !name.endsWith(".jpg") && !name.endsWith(".jpeg")) {
-                this.showDialog("common/WError", {message:"La imagen debe ser de tipo PNG o JPG"});
+                this.showDialog("common/WError", {message: window.toLang("$[javascripts.WP_01]")});
                 return;
             }
             let reader = new FileReader();
@@ -113,17 +113,17 @@ class WPublish extends ZDialog {
                     rectangle:true
                 });
             } else {
-                throw "Debe cargar una imagen que represente la capa que está publicando";
+                throw window.toLang("$[javascripts.WP_02]");
             }
             let nombre = this.edName.value.trim();
-            if (!nombre || nombre.length < 2) throw "Debe ingresar un nombre para mostrar";
+            if (!nombre || nombre.length < 2) throw window.toLang("$[javascripts.WP_03]");
             let descripcion = this.edDescripcion.value.trim();
             let temas = geoos.temasBiblioteca.reduce((list, t) => {
                 let ed = this.find("#edTema_" + t.code);
                 if (ed.checked) list.push(t.code);
                 return list;
             }, []);
-            if (!temas.length) throw "Debe seleccionar al menos un tema o categoría para la capa de desea publicar."
+            if (!temas.length) throw window.toLang("$[javascripts.WP_04]")
             let contactar = this.edContactarme.checked;
             if (!this.isEdit) await zPost("publicaBiblioteca.geoos", {nombre, descripcion, foto, temas, contactar, capa:JSON.stringify(this.layer.serialize())});
             else await zPost("saveBibliotecPublicada.geoos", {id: this._id, nombre, descripcion, foto, temas, contactar, verificado: this._isVerified, capa:JSON.stringify(this.layer.serialize())});

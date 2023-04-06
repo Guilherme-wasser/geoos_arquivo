@@ -15,7 +15,7 @@ class Main extends ZCustomController {
                     'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'
                 ],
                 shortWeekdays:["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
-                drillUpText:window.toLang("$[mainMenu.Volver]"),
+                drillUpText: window.toLang("$[mainMenu.Volver]"),
                 loading: window.toLang("$[javascripts.datafrase14]"),
                 noData: window.toLang("$[javascripts.datafrase13]")
             },
@@ -56,7 +56,7 @@ class Main extends ZCustomController {
                         let layer = layers.find(e => e.code == code);
                         if (layer) {
                             await window.geoos.addLayer(layer, initialGroup);
-                            console.log("agregó capa", code, initialGroup);
+                            console.log(window.toLang("$[javascripts.Mainjs_01]"), code, initialGroup);
                             added = true;
                         }
                     }

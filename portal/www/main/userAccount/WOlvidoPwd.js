@@ -43,11 +43,11 @@ class WOlvidoPwd extends ZDialog {
             let codigoRecuperacon = this.edCodigo.value.trim();
             let newPwd = this.edNewPwd.value.trim();
             let newPwd2 = this.edNewPwd2.value.trim();
-            if (newPwd != newPwd2) throw "La contraseña y su repetición son diferentes";
-            if (newPwd2.length < 4) throw "La contraseña debe tener al menos cuatro caracteres de largo"
+            if (newPwd != newPwd2) throw window.toLang("$[javascripts.WCPwd_01]");
+            if (newPwd2.length < 4) throw window.toLang("$[javascripts.Olvido_pwd_01]")
             await zPost("regeneraPwdUsuario.geoos", {email:email, codigoRegistro:codigoRecuperacon, pwd:newPwd});
             this.close();
-            this.showDialog("common/WInfo", {message:"Su contraseña ha sido modificada"})
+            this.showDialog("common/WInfo", {message: window.toLang("$[javascripts.WCPwd_03]")})
         } catch(error) {
             this.showDialog("common/WError", {message:error.toString()})
         }

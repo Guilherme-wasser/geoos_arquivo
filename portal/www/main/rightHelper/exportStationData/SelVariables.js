@@ -11,7 +11,7 @@ class SelVariables extends ZCustomController {
             let dsName = "rie." + this.options.station.proveedor;
             if (dsName == "rie.redema") dsName = "rie.datosRecientesEMA";
             this.options.dataSet = z.dataSets.find(d => d.code == dsName);
-            if (!this.options.dataSet) throw "No se encontró el dataSet '" + dsName + "' en zRepo"
+            if (!this.options.dataSet) throw window.toLang("$[javascripts.SV_01]") + dsName + window.toLang("$[javascripts.SV_02]")
             // buscar columna con codigoEstacion desde los triggers
             this.options.colCodigoEstacion = null;
             this.options.dataSet.triggers.forEach(t => {
@@ -42,7 +42,7 @@ class SelVariables extends ZCustomController {
                     if (this.options.variables[code + "-max"] === undefined) this.options.variables[code + "-max"] = false;
                     if (this.options.variables[code + "-n"] === undefined) this.options.variables[code + "-n"] = false;
                 } else {
-                    console.error("No se encontró la variable " + code);
+                    console.error(window.toLang("$[javascripts.SV_03]") + code);
                 }                    
             })
         }
@@ -76,19 +76,19 @@ class SelVariables extends ZCustomController {
                         <ul>
                             <li data-code='${v.code}-avg' class='var-selector wizard-radio mt-1'>
                                 <i class='far ${this.options.variables[v.code + "-avg"]?"fa-check-square":"fa-square"}'></i>
-                                Valor Promedio del Grupo
+                                $[javascripts.SV_04]
                             </li>
                             <li data-code='${v.code}-min' class='var-selector wizard-radio mt-1'>
                                 <i class='far ${this.options.variables[v.code + "-min"]?"fa-check-square":"fa-square"}'></i>
-                                Valor Mínimo en el Grupo
+                                $[javascripts.SV_05]
                             </li>
                             <li data-code='${v.code}-max' class='var-selector wizard-radio mt-1'>
                                 <i class='far ${this.options.variables[v.code + "-max"]?"fa-check-square":"fa-square"}'></i>
-                                Valor Máximo en el Grupo
+                                $[javascripts.SV_06]
                             </li>
                             <li data-code='${v.code}-n' class='var-selector wizard-radio mt-1'>
                                 <i class='far ${this.options.variables[v.code + "-n"]?"fa-check-square":"fa-square"}'></i>
-                                N° Muestras en el Grupo
+                                $[javascripts.SV_07]
                             </li>
                         </ul>
                     </li>

@@ -63,7 +63,7 @@ class WFormula extends ZDialog {
         try {
             let st = this.editor.getValue() + "\(z)";
             let ev = eval(st);            
-            if (!ev || typeof(ev) != "function") throw "No se encontró la función 'z' en el código";
+            if (!ev || typeof(ev) != "function") throw window.toLang("$[javascripts.WF1]");
             this.errorMsg.hide();
             this.layer.formula = this.editor.getValue();
             window.geoos.configPanel.refresh({type:"layer", element:this.layer})

@@ -1,21 +1,21 @@
 const secondarySteps = {
-    "auto":[{value:"-1", name:"No Mostrar"}, {value:"auto", name:"Espaciado Automático"}],
-    "10":[{value:"-1", name:"No Mostrar"}, {value:"5", name:"Cada 5 grados"}, {value:"1", name:"Cada 1 grado"}],
-    "5":[{value:"-1", name:"No Mostrar"}, {value:"2.5", name:"Cada 2 grados y 30 minutos"}, {value:"1", name:"Cada 1 grado"}, {value:"0.5", name:"Cada 30 minutos"}],
-    "1":[{value:"-1", name:"No Mostrar"}, {value:"0.5", name:"Cada 30 minutos"}, {value:"0.25", name:"Cada 15 minutos"}],
-    "0.5":[{value:"-1", name:"No Mostrar"}, {value:"0.25", name:"Cada 30 minutos"}]
+    "auto":[{value:"-1", name: window.toLang("$[javascripts.GPage_01]")}, {value:"auto", name: window.toLang("$[javascripts.GPage_02]")}],
+    "10":[{value:"-1", name: window.toLang("$[javascripts.GPage_01]")}, {value:"5", name: window.toLang("$[javascripts.GPage_04]")}, {value:"1", name: window.toLang("$[javascripts.GPage_05]")}],
+    "5":[{value:"-1", name: window.toLang("$[javascripts.GPage_01]")}, {value:"2.5", name: window.toLang("$[javascripts.GPage_03]")}, {value:"1", name: window.toLang("$[javascripts.GPage_05]")}, {value:"0.5", name:"Cada 30 minutos"}],
+    "1":[{value:"-1", name: window.toLang("$[javascripts.GPage_01]")}, {value:"0.5", name:"Cada 30 minutos"}, {value:"0.25", name:"Cada 15 minutos"}],
+    "0.5":[{value:"-1", name: window.toLang("$[javascripts.GPage_01]")}, {value:"0.25", name:"Cada 30 minutos"}]
 }
 
 class GridPage extends ZCustomController {
     onThis_init() {
         this.edStep1.setRows([{
-            value:"auto", name:"Espaciado Automático"
+            value:"auto", name: window.toLang("$[javascripts.GPage_02]")
         }, {
-            value:"10", name:"Cada 10 grados"
+            value:"10", name: window.toLang("$[javascripts.GPage_06]")
         }, {
-            value:"5", name:"Cada 5 grados"
+            value:"5", name: window.toLang("$[javascripts.GPage_04]")
         }, {
-            value:"1", name:"Cada 1 grado"
+            value:"1", name: window.toLang("$[javascripts.GPage_05]")
         }, {
             value:"0.5", name:"Cada 30 minutos"
         }]);

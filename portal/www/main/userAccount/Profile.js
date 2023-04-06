@@ -16,7 +16,7 @@ class Profile extends ZCustomController {
             let file = e.dataTransfer.files[0];
             let name = file.name.toLowerCase();
             if (!name.endsWith(".png") && !name.endsWith(".jpg") && !name.endsWith(".jpeg")) {
-                this.showDialog("common/WError", {message:"La imagen debe ser de tipo PNG o JPG"});
+                this.showDialog("common/WError", {message: window.toLang("$[javascripts.PROFILE_01]")});
                 return;
             }
             let reader = new FileReader();
@@ -55,7 +55,7 @@ class Profile extends ZCustomController {
             url:url,
             viewport:{width:128, height:128, type:"circle"}
         });
-        this.lblHelpFoto.text = "Arrastre una foto hasta la imagen";
+        this.lblHelpFoto.text = window.toLang("$[javascripts.PROFILE_02]");
         this.eliminaFoto = false;
     }
     refresh() {
@@ -85,7 +85,7 @@ class Profile extends ZCustomController {
                 });
             }
             let nombre = this.edNombre.value.trim();
-            if (!nombre || nombre.length < 2) throw "Debe ingresar su nombre";
+            if (!nombre || nombre.length < 2) throw window.toLang("$[javascripts.PROFILE_03]");
             let institucion = this.edInstitucion.value.trim();
             this.cmdSave.hide();
             this.working.show();

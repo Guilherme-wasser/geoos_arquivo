@@ -6,7 +6,7 @@ class Tolerance extends ZCustomController {
 
     async refresh() {
         let tolerancia = this.layer.tolerancia;
-        this.edUnidad.setRows([{code:"minuto", name:"Minutos"}, {code:"hora", name:"Horas"}, {code:"dia", name:"Días"}, {code:"mes", name:"Meses"}, {code:"año", name:"Años"}], tolerancia.unidad)
+        this.edUnidad.setRows([{code:"minuto", name:"Minutos"}, {code:"hora", name:"Horas"}, {code:"dia", name: window.toLang("$[javascripts.Dias1]")}, {code:"mes", name:"Meses"}, {code:"año", name: window.toLang("$[javascripts.Anos1]")}], tolerancia.unidad)
         this.edValor.value = tolerancia.valor;
     }
 

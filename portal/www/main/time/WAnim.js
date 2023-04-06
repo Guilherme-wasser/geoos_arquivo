@@ -40,13 +40,13 @@ class WAnim extends ZDialog {
     // https://gist.github.com/ilblog/5fa2914e0ad666bbb85745dbf4b3f106
     async animate() {
         if (!window.geoos.anim || isNaN(window.geoos.anim.start) || isNaN(window.geoos.anim.end)) {
-            this.showDialog("common/WError", {message:"Debe fijar el tiempo de inicio y de término antes de generar la animación"});
+            this.showDialog("common/WError", {message: window.toLang("$[javascripts.WA_01]")});
             return;
         }
         let start = window.geoos.anim.start;
         let end = window.geoos.anim.end;
         if (start >= end) {
-            this.showDialog("common/WError", {message:"Debe fijar el tiempo de término después del tiempo de inicio"});
+            this.showDialog("common/WError", {message: window.toLang("$[javascripts.WA_02]")});
             return;
         }
 
@@ -56,9 +56,9 @@ class WAnim extends ZDialog {
         window.geoos.anim.format = this.edFormat.value;
 
         this.grpRunning.show();
-        this.setEstado("Generando ...");
+        this.setEstado(window.toLang("$[mainMenu.Generando]"));
         this.setProgreso(0);
-        this.setMensaje("Generando cuadros ...");
+        this.setMensaje(window.toLang("$[javascripts.WA_03]"));
         this.timePanel.callSetTime(start);
         await this.timePanel.sleep(200);
         let ultimoTiempoFrame = 200 + await this.timePanel.waitForLayers();
@@ -67,7 +67,7 @@ class WAnim extends ZDialog {
         let size = window.geoos.mapPanel.size;
         while (window.geoos.time < end) {
             this.setProgreso((window.geoos.time - start) / (end - start) * 100);
-            this.setMensaje("Cuadro " + (++this.nFrames) + " generado en " + ultimoTiempoFrame + " [ms]");
+            this.setMensaje(window.toLang("$[javascripts.WA_04]") + (++this.nFrames) + window.toLang("$[javascripts.WA_05]") + ultimoTiempoFrame + " [ms]");
             // Decoraciones
             if (window.geoos.anim.title) window.geoos.interactions.setTitle(size.width, size.height, window.geoos.anim.title);
             if (window.geoos.anim.format) window.geoos.interactions.setTime(size.width, size.height, window.geoos.time, window.geoos.anim.format);
@@ -121,8 +121,8 @@ class WAnim extends ZDialog {
                     this.close();
                     break;    
                 case 'done':
-                    this.setEstado("Generando mp4");
-                    this.setMensaje("Espere la descarga");
+                    this.setEstado(window.toLang("$[javascripts.WA_06]"));
+                    this.setMensaje(window.toLang("$[javascripts.WA_07]"));
                     const blob = new Blob([msg.data.MEMFS[0].data], {
                         type: "video/mp4"
                     });

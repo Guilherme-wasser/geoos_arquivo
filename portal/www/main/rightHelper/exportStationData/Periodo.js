@@ -44,7 +44,7 @@ class Periodo extends ZCustomController {
                 code:"1M", name:"1 Mes", level:7
             }].filter(n => n.level >= maxTempLevel), options.temporalidad)
         }
-        let months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        let months = [window.toLang("$[javascripts.mes1]"), window.toLang("$[javascripts.mes2]"), window.toLang("$[javascripts.mes3]"), window.toLang("$[javascripts.mes4]"), window.toLang("$[javascripts.mes5]"), window.toLang("$[javascripts.mes6]"), window.toLang("$[javascripts.mes7]"), window.toLang("$[javascripts.mes8]"), window.toLang("$[javascripts.mes9]"), window.toLang("$[javascripts.mes10]"), window.toLang("$[javascripts.mes11]"), window.toLang("$[javascripts.mes12]")];
         months = months.map((m, idx) => ({index:idx, name:m}));
         if (!options.fromYear) {
             let now = moment.tz(window.timeZone);
@@ -86,11 +86,11 @@ class Periodo extends ZCustomController {
             let tempo = this.edTemporalidad.value;
             this.options.temporalidad = tempo;
             let fromYear = parseInt(this.edFromYear.value);
-            if (isNaN(fromYear) || fromYear < 1950 || fromYear > 2200) throw "El Período es Inválido";
+            if (isNaN(fromYear) || fromYear < 1950 || fromYear > 2200) throw window.toLang("$[javascripts.Pe01]");
             let fromMonth = parseInt(this.edFromMonth.value);
             let fromDate = parseInt(this.edFromDate.value);
             if (tempo != "1M" || this.options.dsOriginal) {
-                if (isNaN(fromDate) || fromDate < 1 || fromDate > 31) throw "El Período es Inválido";
+                if (isNaN(fromDate) || fromDate < 1 || fromDate > 31) throw window.toLang("$[javascripts.Pe01]");
             }
             let fromTime = moment.tz(window.timeZone);
             fromTime.year(fromYear); fromTime.month(fromMonth);
@@ -105,11 +105,11 @@ class Periodo extends ZCustomController {
             this.options.fromTime = fromTime.valueOf();
 
             let toYear = parseInt(this.edToYear.value);
-            if (isNaN(toYear) || toYear < 1950 || toYear > 2200) throw "El Período es Inválido";
+            if (isNaN(toYear) || toYear < 1950 || toYear > 2200) throw window.toLang("$[javascripts.Pe01]");
             let toMonth = parseInt(this.edToMonth.value);
             let toDate = parseInt(this.edToDate.value);
             if (tempo != "1M" || this.options.dsOriginal) {
-                if (isNaN(toDate) || toDate < 1 || toDate > 31) throw "El Período es Inválido";
+                if (isNaN(toDate) || toDate < 1 || toDate > 31) throw window.toLang("$[javascripts.Pe01]");
             }
             let toTime = moment.tz(window.timeZone);
             toTime.year(toYear); toTime.month(toMonth);
@@ -122,13 +122,13 @@ class Periodo extends ZCustomController {
                 this.options.fmtToTime = toTime.format("MM/YYYY");
             }
             this.options.toTime = toTime.valueOf();
-            if (this.options.toTime < this.options.fromTime) throw "El Período es Inválido";
+            if (this.options.toTime < this.options.fromTime) throw window.toLang("$[javascripts.Pe01]");
             this.triggerEvent("enableNext");
 
             // Validar por estimacion del n° de registros
             if (this.options.dsOriginal) {
                 let days = toTime.diff(fromTime, "days");
-                if (days > 31) throw "La exportación de los datos originales de una estación no puede ser para un período mayor a un mes"
+                if (days > 31) throw window.toLang("$[javascripts.Pe02]")
             } else {
                 let nFilas, nVars = Object.keys(this.options.variables).reduce((sum, v) => (sum + (this.options.variables[v]?1:0)), 0);
                 if (tempo == "1M") {
@@ -139,7 +139,7 @@ class Periodo extends ZCustomController {
                     }
                     nFilas = nFilasDia[tempo] * (parseInt(toTime.diff(fromTime, "days")) + 1);
                     //console.log("n estimado", nFilas, "*", nVars, "=", nFilas * nVars);
-                    if (nFilas * nVars > 100000) throw "Demasiados datos para exportar, por favor reducirlos. Puede acortar el período, escoger una agrupación temporal más alta o disminuir el número de variables";
+                    if (nFilas * nVars > 100000) throw window.toLang("$[javascripts.Pe03]");
                 }
             }
         } catch(error) {

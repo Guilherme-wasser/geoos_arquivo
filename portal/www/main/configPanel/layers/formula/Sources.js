@@ -38,7 +38,7 @@ class Sources extends ZCustomController {
             }
             let timeDesc;
             if (s.time.type == "map") {
-                let units = {minutes:"minutos", hours:"horas", days:"días"}
+                let units = {minutes:"minutos", hours:"horas", days: window.toLang("$[javascripts.Dias1]")}
                 timeDesc = "Tiempo del Mapa";
                 if (s.time.offset) {
                     timeDesc += " " + (s.time.offset > 0?"más ":"menos ") + Math.abs(s.time.offset) + " " + units[s.time.unit];

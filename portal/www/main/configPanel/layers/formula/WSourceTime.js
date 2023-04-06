@@ -1,11 +1,11 @@
 class WSourceTime extends ZDialog {
     onThis_init(options) {
         this.source = options.source;
-        this.edType.setRows([{code:"fixed", name:"Tiempo Fijo"}, {code:"map", name:"Tiempo del Mapa"}], this.source.time.type);
+        this.edType.setRows([{code:"fixed", name: window.toLang("$[mainMenu.TiempoFijo]")}, {code:"map", name: window.toLang("$[mainMenu.TiempoDelMapa]")}], this.source.time.type);
         this.onEdType_change();
         let defUnit = "minutes";
         if (this.source.time.type == "map" && this.source.time.offset) defUnit = this.source.time.unit
-        this.edTimeUnit.setRows([{code:"minutes", name:"Minutos"}, {code:"hours", name:"Horas"}, {code:"days", name:"Días"}], defUnit)
+        this.edTimeUnit.setRows([{code:"minutes", name:"Minutos"}, {code:"hours", name:"Horas"}, {code:"days", name: window.toLang("$[javascripts.Dias1]")}], defUnit)
         this.edOffset.value = this.source.time.offset || 0;
         this.time = moment.tz(Date.now(), window.timeZone);
         if (this.source.time.type == "fixed") {
@@ -39,7 +39,7 @@ class WSourceTime extends ZDialog {
         try {
             if (this.edType.value == "map") {
                 let offset = parseFloat(this.edOffset.value);
-                if (isNaN(offset)) throw "Desplazamiento inválido";
+                if (isNaN(offset)) throw window.toLang("$[mainMenu.Desplazamiento2]");
                 this.source.time = {type:"map", offset, unit:this.edTimeUnit.value}
             } else {
                 let time = this.edDate.value;
