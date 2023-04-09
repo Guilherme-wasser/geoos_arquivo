@@ -357,7 +357,7 @@ const mensajes = {
         Var5 : { es: " Una", pt: " Uma"},
         Var6 : { es: " Seleccionada", pt: " Selecionada"},
         Var7 : { es: "Variables", pt: "Variáveis"},
-        Capa1 : { es: "Capa", pt: "Camada"},
+        Capa1 : { es: " Capa", pt: " Camada"},
         //
         datafrase1 : { es: "No hay descripción de la Capa", pt: "Não há descrição da camada"},
         datafrase2 : { es: "No hay detalles de la Capa", pt: "Sem detalhes da capa"},
