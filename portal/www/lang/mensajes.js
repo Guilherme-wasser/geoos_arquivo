@@ -283,6 +283,7 @@ const mensajes = {
 
         //MapTypePage
         SelMapBase: { es: "Seleccione el Mapa Base", pt:"Selecione o Mapa Base"},
+        SelMapBase01: { es: "Mostrar_Nombres", pt:"Mostrar_Nomes"},
         //UserConfigPanel
         General: { es: "General", pt:"Geral"},
         Mapa: { es: "Mapa", pt:"Mapa"},
@@ -544,6 +545,7 @@ const mensajes = {
         geost_02: { es: "Escala de Colores", pt: "Escala de Cores"},
         //geoos-user-objects-layer.js
         geost_03: { es: "Propriedades del Objeto", pt: "Propriedades do Objeto"},
+        
 
     }   
     }
