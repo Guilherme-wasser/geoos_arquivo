@@ -229,9 +229,9 @@ class GEOOSUserObject {
     }
     getPropertyPanels() {
         return [{
-            code:"user-object-properties", name:"Propiedades del Objeto", path:"./userObjects/UserObjectProperties"
+            code:"user-object-properties", name: window.toLang("$[javascripts.geost_03]"), path:"./userObjects/UserObjectProperties"
         }, {
-            code:"user-object-watchers", name:"Observar Variables", path:"./userObjects/UOWatchers"
+            code:"user-object-watchers", name: window.toLang("$[javascripts.geost_01]"), path:"./userObjects/UOWatchers"
         }]
     }
     getCenter() {throw "getCenter not overritten for object"}

@@ -8,7 +8,7 @@ class Map extends ZCustomController {
             attributionControl:false,
             minZoom:3, maxZoom:12,
             maxBounds:[southWest, northEast]
-        }).setView([-33.034454, -71.592093], 6);
+        }).setView([-25.5944, -48.5119], 10);
 
         this.map.on("click", e => {
             if (this.ignoreNextClick) {

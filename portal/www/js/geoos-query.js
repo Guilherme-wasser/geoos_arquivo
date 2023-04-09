@@ -100,11 +100,11 @@ class GEOOSQuery {
     getLegendColorHTML() {
         let html = "";
         html += `<div class="row mt-1">`;
-        html += `  <div id="selLegend$" class="textt-left mt-1">Leyendas</span>`;
+        html += window.toLang("$[javascripts.ley_01]");
         html += `  </div>`;
         html += `  <div id="selColor${this.id}" class="col" style="cursor: pointer;" >`;
         html += `    <i class="far ${this.color?"fa-dot-circle":"fa-circle"} mr-2 float-left mt-1"></i>`;
-        html += `    <span class="float-left mt-1">Colorear</span>`;
+        html += window.toLang("$[javascripts.ley_02]");
         html += `  </div>`;
         html += `</div>`;
         return html;

@@ -201,15 +201,15 @@ class GEOOS {
         this._providers.sort((p1, p2) => (p1.name > p2.name?1:-1));
         
         this.regions.sort((r1, r2) => (r1.name > r2.name?1:-1));
-        this.regions.splice(0,0,{code:"no", name:"Sin Región Especificada"})        
+        this.regions.splice(0,0,{code:"no", name: window.toLang("$[javascripts.geoos_01]")})        
         this.regions.forEach(r => r.nVars = 0);
 
         this.subjects.sort((r1, r2) => (r1.name > r2.name?1:-1));
-        this.subjects.splice(0,0,{code:"no", name:"Sin Tema Especificado"})        
+        this.subjects.splice(0,0,{code:"no", name: window.toLang("$[javascripts.geoos_02]")})        
         this.subjects.forEach(r => r.nVars = 0);
 
         this.types.sort((r1, r2) => (r1.name > r2.name?1:-1));
-        this.types.splice(0,0,{code:"no", name:"Sin Tipo Especificado"})        
+        this.types.splice(0,0,{code:"no", name: window.toLang("$[javascripts.geoos_03]")})        
         this.types.forEach(r => r.nVars = 0);
         await this.buildStationsMetadata();
     }    
@@ -239,13 +239,13 @@ class GEOOS {
                         for (let v of e.variables) {
                             let variable = await client.getVariable(v);
                             if (!variable) {
-                                console.warn("No se encontró la variable " + v + " referenciada desde la estación " + e.name + " en el servidor " + server.url);
+                                console.warn(window.toLang("$[javascripts.geoos_04]") + v + window.toLang("$[javascripts.geoos_05]") + e.name + window.toLang("$[javascripts.geoos_06]") + server.url);
                             } else {
                                 this.estaciones.variables[v] = variable;
                             }
                         }
                     } else {
-                        console.warn("La estación " + e.name + " en " + server.url + " no define variables", e);
+                        console.warn(window.toLang("$[javascripts.geoos_07]") + e.name + window.toLang("$[javascripts.geoos_08]") + server.url + window.toLang("$[javascripts.geoos_09]"), e);
                     }
                 }
             }
@@ -572,7 +572,7 @@ class GEOOS {
     }
     async deleteGroup(id) {
         try {
-            if (this.groups.length == 1) throw "[ERROR] No puede eliminar el último grupo";
+            if (this.groups.length == 1) throw window.toLang("$[javascripts.geoos_10]");
             if (this.selection.type == "group" && this.selection.element.id == id) {
                 await this.unselect();
             }
@@ -585,7 +585,7 @@ class GEOOS {
             this.groups.splice(idx,1);
             await this.events.trigger("portal", "groupDeleted", group)
         } catch(error) {
-            throw ("[ERROR] No se pudo eliminar el grupo", error);
+            throw (window.toLang("$[javascripts.geoos_10]"), error);
         }
     }
 
@@ -779,7 +779,7 @@ class GEOOS {
     removeStation(code) {
         let g = this.getActiveGroup();  
         let l = g.getStationsLayer();
-        if (!l) throw "No hay capa de estaciones";
+        if (!l) throw window.toLang("$[javascripts.geoos_11]");
         l.removeStation(code);
         if (!l.hasStations()) {
             g.removeStationsLayer();
@@ -790,7 +790,7 @@ class GEOOS {
     removeStations(list) {
         let g = this.getActiveGroup();
         let l = g.getStationsLayer();
-        if (!l) throw "No hay capa de estaciones";
+        if (!l) throw window.toLang("$[javascripts.geoos_11]");
         l.removeStations(list);
         if (!l.hasStations()) {
             g.removeStationsLayer();
@@ -1009,7 +1009,7 @@ class GEOOS {
             document.head.appendChild(link);
             console.log("  -> " + list[0])
         } else {
-            console.error("Archivos del tipo de '" + list[0] + "' no manejado");
+            console.error(window.toLang("$[javascripts.geoos_12]") + list[0] + window.toLang("$[javascripts.geoos_13]"));
         }
     }
 

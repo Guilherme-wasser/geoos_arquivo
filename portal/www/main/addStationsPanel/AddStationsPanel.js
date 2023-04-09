@@ -10,17 +10,17 @@ class AddStationsPanel extends ZCustomController {
         window.geoos.events.on("top", "clickStations", _ => this.toggle())
         let dataProveedores = Object.keys(window.geoos.estaciones.proveedores)
             .reduce((lista, p) => [...lista, window.geoos.estaciones.proveedores[p]], [])
-            .map(p => window.geoos.providers
+            .map(p => window.geoos.providers
                 .find(gp => gp.code == p.code) || p)
-            .sort((p1, p2) => (p1.name > p2.name?1:-1));
+            .sort((p1, p2) => (p1.name > p2.name?1:-1));
         let dataTipos = Object.keys(window.geoos.estaciones.tipos).reduce((lista, t) => {
             lista.push(window.geoos.estaciones.tipos[t]);
             return lista;
-        }, []).sort((t1, t2) => (t1.name > t2.name?1:-1));
+        }, []).sort((t1, t2) => (t1.name > t2.name?1:-1));
         let dataVariables = Object.keys(window.geoos.estaciones.variables).reduce((lista, v) => {
             lista.push(window.geoos.estaciones.variables[v]);
             return lista;
-        }, []).sort((v1, v2) => (v1.name > v2.name?1:-1));
+        }, []).sort((v1, v2) => (v1.name > v2.name?1:-1));
         this.sections = [{
             code:"providers", name: window.toLang("$[javascripts.nn10]"), data:dataProveedores
         }, {
@@ -200,7 +200,7 @@ class AddStationsPanel extends ZCustomController {
             }
         }
         if (htmlFilters.length) {
-            this.stationsFilterPills.html = "<b style='margin-left: 6px;'>$[javascripts.nn20]</b>" + htmlFilters + "<a href='#' class='filters-cleaner btn btn-sm btn-secondary geoos-panel-ok'>$[javascripts.nn15]</a>";
+            this.stationsFilterPills.html = window.toLang("$[javascripts.nn20]") + htmlFilters + "<a href='#' class='filters-cleaner btn btn-sm btn-secondary geoos-panel-ok'>Eliminar Filtros</a>";
             this.stationsFilterPills.show();
             $(this.stationsFilterPills.view).find(".add-panel-filter i").click(e => {
                 let item = $(e.currentTarget);
@@ -223,12 +223,12 @@ class AddStationsPanel extends ZCustomController {
         // Results
         this.filteredStations = this.filterStations(null, this.edStationsNameFilter.value);
         this.lblStationsResume.text = this.filteredStations.length +  window.toLang("$[javascripts.nn6]");
-        let providers = this.filteredStations.reduce((map, s) => {
+        let providers = this.filteredStations.reduce((map, s) => {
             map[s.proveedor] = true;
             return map;
         }, {})
         let providersList = Object.keys(providers).reduce((list, p) => {
-            let geoosProvider = window.geoos.providers.find(gp => (gp.code == p));
+            let geoosProvider = window.geoos.providers.find(gp => (gp.code == p));
             if (geoosProvider) list.push({code:p, name:geoosProvider.name});
             else list.push({code:p, name:p});
             return list;

@@ -109,6 +109,7 @@ const mensajes = {
         //LayerProperties
         ValorNivel: { es: "Valor en Nivel", pt:"Valor no Nível"},
         Opacidad: { es: "Opacidad", pt:"Opacidade"},
+        Opacidad2: { es: "Opacidad: ", pt:"Opacidade: "},
         //Stations
         ZNort: { es: "Zona Norte", pt:"Zona Norte"},
         ZCentro: { es: "Zona Centro", pt:"Zona Centro"},
@@ -133,6 +134,7 @@ const mensajes = {
         //FavLayers
         CapasFavoritas: { es: "Capas Favoritas", pt:"Camadas Favoritas"},
         //FavStations
+        Est_01: { es: "Estaciones", pt:"EStações"},
         EstacionesFavoritas: { es: "Estaciones Favoritas", pt:"Estações Favoritas"},
         //UserMarksPanel
         Favoritos: { es: "Favoritos", pt:"Favoritos"},
@@ -518,6 +520,30 @@ const mensajes = {
         GPage_06: { es: "Cada 10 grados", pt: "a cada 10 graus"},
         //Main.js
         Mainjs_01: { es: "agregó capa", pt: "camada adicionada"},
+        //geoos.js 
+        geoos_01: { es: "Sin Región Especificada", pt: "Sem Região Especifica"},
+        geoos_02: { es: "Sin Tema Especificado", pt: "Sem Tema Especificado"},
+        geoos_03: { es: "Sin Tipo Especificado", pt: "Sem Tipo Especificado"},
+        geoos_04: { es: "No se encontró la variable ", pt: "Não encontrou a variável "},
+        geoos_05: { es: " referenciada desde la estación ", pt: " referenciado da estação "},
+        geoos_06: { es: " en el servidor ", pt: " no servidor "},
+        geoos_07: { es: "La estación ", pt: "A estação"},
+        geoos_08: { es: " en ", pt: " em "},
+        geoos_09: { es: " no define variables", pt: "não define variáveis"},
+        geoos_10: { es: "[ERROR] No puede eliminar el último grupo", pt: "[ERRO] Não é possível excluir o último grupo"},
+        geoos_11: { es: "No hay capa de estaciones", pt: "Não há camada de estações"},
+        geoos_12: { es: "Archivos del tipo de '", pt: "Arquivos do tipo '"},
+        geoos_13: { es: "' no manejado", pt: "' não tratado"},
+        //Werro html
+        werro_01: { es: "Ha ocurrido un Error en la Operación", pt: "Ocorreu um erro de operação"},
+        //geoos-query.js
+        ley_01: { es: "         Leyendas", pt: "         Legendas"},
+        ley_02: { es: "Colorear", pt: "Colorir"},
+        //geoos-stations-layer.js
+        geost_01: { es: "Observar Variables", pt: "Observar Variáveis"},
+        geost_02: { es: "Escala de Colores", pt: "Escala de Cores"},
+        //geoos-user-objects-layer.js
+        geost_03: { es: "Propriedades del Objeto", pt: "Propriedades do Objeto"},
 
     }   
     }

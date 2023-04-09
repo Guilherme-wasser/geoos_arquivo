@@ -185,11 +185,11 @@ class GEOOSStationsLayer extends GEOOSLayer {
 
     getPropertyPanels() {
         let panels = super.getPropertyPanels().concat({
-            code:"layer-watchers", name:"Observar Variables", path:"./layers/watchers/Watchers"
+            code:"layer-watchers", name: window.toLang("$[javascripts.geost_01]"), path:"./layers/watchers/Watchers"
         })
         if (this.watchers.reduce((n, w) => (w.color?(n+1):n), 0) > 0) {
             panels.push({
-                code:"color-scale", name:"Escala de Colores", path:"./layers/watchers/WatchersColorScale"
+                code:"color-scale", name: window.toLang("$[javascripts.geost_02]"), path:"./layers/watchers/WatchersColorScale"
             })
         }
         panels.push(

@@ -30,7 +30,7 @@ class LayerProperties extends ZCustomController {
         this.refreshOpacityLabel();
     } 
     refreshOpacityLabel() {
-        this.lblOpacity.text = "Opacidad: " + this.layer.opacity + "%";
+        this.lblOpacity.text = window.toLang("$[mainMenu.Opacidad2]") + this.layer.opacity + "%";
     }
     onEdLevel_change() {
         this.layer.level = parseInt(this.edLevel.value);
