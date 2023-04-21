@@ -27,7 +27,7 @@ class ToolDistance extends GEOOSTool {
     getPropertyPanels() {
         let basePath = window.geoos.getPlugin("base").basePath;
         return [{
-            code:"tool-props", name:"Nombre del Análisis", path:"./propertyPanels/PropToolName"
+            code:"tool-props", name: window.toLang("$[javascripts.datafrase8]"), path:"./propertyPanels/PropToolName"
         }]
     }
 

@@ -35,9 +35,9 @@ class GEOOSAnalyzerTimeSerie extends GEOOSAnalyzer {
     getPropertyPanels() {
         let basePath = window.geoos.getPlugin("base").basePath;
         return [{
-            code:"time-serie-vars", name:"Selección de Variables", path:basePath + "/analysis/time-serie/TimeSerieVars"
+            code:"time-serie-vars", name: window.toLang("$[javascripts.timeserie_01]"), path:basePath + "/analysis/time-serie/TimeSerieVars"
         }, {
-            code:"time-serie-time", name:"Configurar Temporalidad", path:basePath + "/analysis/time-serie/TimeSerieTime"
+            code:"time-serie-time", name: window.toLang("$[javascripts.timeserie_02]"), path:basePath + "/analysis/time-serie/TimeSerieTime"
         }]
     }
     getMainPanel() {
@@ -132,7 +132,7 @@ class GEOOSAnalyzerTimeSerie extends GEOOSAnalyzer {
                 t1.year(t1.year() + this.timeTo + 1); t1.milliseconds(t1.milliseconds() - 1); // Fin del día anterior
                 t0 = t0.valueOf();
                 t1 = t1.valueOf();
-             } else throw "temporalidad " + this.temporality + " no está manejada en serie de tiempo";            
+             } else throw window.toLang("$[javascripts.timeserie_03]") + this.temporality + window.toLang("$[javascripts.timeserie_04]");            
         } else {
             t0 = this.timeFromDate;
             t1 = this.timeToDate;            
@@ -199,7 +199,7 @@ class GEOOSAnalyzerTimeSerie extends GEOOSAnalyzer {
     }
 }
 
-GEOOSAnalyzer.register("time-serie", "Serie de Tiempo", 
+GEOOSAnalyzer.register("time-serie", window.toLang("$[javascripts.timeserie_05]"), 
     o => (o.type == "station" || o.type == "vector-object" || o.type == "user-object" || o.type == "monstation"), 
     (o, listeners) => (new GEOOSAnalyzerTimeSerie(o, listeners)),
     350

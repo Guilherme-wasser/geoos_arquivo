@@ -15,7 +15,7 @@ const mensajes = {
         Agregar: { es: "Agregar", pt:"Adicionar"},
         Objetos: { es: "Objetos", pt:"Objetos"},
         Capas: { es: "Capas", pt:"Camadas"},
-        Estaciones: { es: "Estaciones", pt:"Temporadas"},
+        Estaciones: { es: "Estaciones", pt:"Estações"},
         punto: { es: "Punto", pt:"Ver"},
         tema: { es: "Tema", pt: "Emitir"},
         Contactar: { es: "Contactar", pt: "Contato"},
@@ -299,12 +299,36 @@ const mensajes = {
         Winfo1: { es: "Información", pt:"Informação"},
         //WConfirm.html
         WConf1: { es: "Confirmación", pt:"Confirmação"},
-        
+        //WminZfilter.html
+        WminZ_01: { es: "Filtrar resultados", pt:"Filtrar resultados"},
+        WminZ_02: { es: "Seleccionar [", pt:"Selecionar ["},
+        WminZ_03: { es: "Muchos valores. Use opción 'Buscar'", pt:"Muitos valores. Use a opão buscar"},
+        //WSeleccionaFecha.html
+        WSelF_01: { es: "Ingreso de Fecha", pt:"Entrada de data"},
+        //WselectVariables.html 
+        WselVar_01: { es: "Seleccionar", pt:"Selecionar"},
+        //TimeSerieTime. html
+        TST_00: { es: "Tiempo", pt:"Tempo"},
+        TST_01: { es: "Temporalidad", pt:"Temporalidade"},
+        TST_02: { es: "Desde", pt:"De"},
+        TST_03: { es: "días", pt:"dias"},
+        TST_04: { es: "Hasta", pt:"Até"},
+  
     },
 
     //javascripts
     javascripts: {
 
+        //WselectVariables.js
+        WselVariables_01: { es: "Variables en Centro", pt:"Variáveis ​no Centro"},
+        WselVariables_02: { es: "Medidas por las Estaciones", pt:"Medições por Estações"},
+        WselVariables_03: { es: "Otras Variables en el mismo Punto", pt:"Outras variáveis ​​no mesmo ponto"},
+        WselVariables_04: { es: "Monitoreadas en la Estaciones", pt:"Monitorados nas Estações"},
+        WselVariables_05: { es: "Otras Variables en el mismo Punto", pt:"Outras variáveis ​​no mesmo ponto"},
+        WselVariables_06: { es: "Seleccionar", pt:"Selecionar"},
+        WselVariables_07: { es: "Seleccionar", pt:"Selecionar"},
+
+        //
         importarCapa: { es: "Importar Capa", pt: "Importar Capa"},
         nuevoGrupodecapas: { es: "Nuevo Grupo de Capas", pt: "Novo Grupo de Camadas"},
         PropriedadesDelGrupo: { es: "Propiedades del Grupo", pt: "Propriedades do Grupo"},
@@ -331,7 +355,7 @@ const mensajes = {
         nn3: { es: "No se encontraron capas. Repita la búsqueda", pt: "Nenhuma camada encontrada. pesquisa repetida"},
         nn4: { es: "¿Está seguro que desea eliminar permanentemente esta capa de la biblioteca?", pt: "Tem certeza de que deseja remover permanentemente esta camada da biblioteca?"},
         //Main js
-        nn5: { es: "No hay layer codes", pt: "Não há códigos de camada"},
+        nn5: { es: " No hay layer codes", pt: " Não há códigos de camada"},
         //AddStationsPanel + AddPanel.js
         nn6: { es: "  estaciones encontradas", pt: "  estações encontradas"},
         nn7: { es: "No hay estaciones seleccionadas", pt: "Nenhuma estação selecionada"},
@@ -349,9 +373,10 @@ const mensajes = {
         nn19: { es: "Filtrar por Sensor / Variable Monitoreada", pt: "Filtrar por Sensor / Variável Monitorada"},
         nn20: { es: "Filtros Activos: ", pt: "Filtros Ativos: "},
         nn21: { es: "Descargar Datos de Estación", pt: "Baixar dados da estação"},
+        nn22: { es: "Limpiar Filtro", pt: "Limpar Filtro"},
         //AddPanel.js + etc
         Var1 : { es: "Variables", pt: "Variáveis"},
-        Var2 : { es: "Variable", pt: "Variável"},
+        Var2 : { es: " Variable", pt: " Variável"},
         Var3 : { es: "No Hay ", pt: "Não Há "},
         Var4 : { es: "  Seleccionadas", pt: "  Selecionadas"},
         Var5 : { es: " Una", pt: " Uma"},
@@ -359,7 +384,7 @@ const mensajes = {
         Var7 : { es: "Variables", pt: "Variáveis"},
         Capa1 : { es: " Capa", pt: " Camada"},
         //
-        datafrase1 : { es: "No hay descripción de la Capa", pt: "Não há descrição da camada"},
+        datafrase1 : { es: " No hay descripción de la Capa", pt: " Não há descrição da camada"},
         datafrase2 : { es: "No hay detalles de la Capa", pt: "Sem detalhes da capa"},
         datafrase3 : { es: "No hay detalles de la disponibilidad en GEOOS para la Capa", pt: "Não há detalhes da disponibilidade em GEOOS para a Camada"},
         datafrase4 : { es: "Vista 3D de Terreno y Nubosidad", pt: "Terreno 3D e Nebulosidade"},
@@ -397,7 +422,7 @@ const mensajes = {
         //Dia7 : { es: "Sábado", pt: "Sábado"},
 
         //addstationspanel
-        add1 : { es: "No hay descripción de la Capa", pt: "Não há descrição da Camada"},
+        add1 : { es: " No hay descripción de la Capa", pt: " Não há descrição da Camada"},
         add2 : { es: "No hay detalles de la Capa", pt: "Sem detalhes da capa"},
         add3 : { es: "No hay detalles de la disponibilidad en GEOOS para la Capa", pt: "Não há detalhes da disponibilidade em GEOOS para a Camada"},
         //3DChartMain.js
@@ -543,10 +568,57 @@ const mensajes = {
         //geoos-stations-layer.js
         geost_01: { es: "Observar Variables", pt: "Observar Variáveis"},
         geost_02: { es: "Escala de Colores", pt: "Escala de Cores"},
+        geost_04: { es: "Estaciones", pt: "Estações"},
+
         //geoos-user-objects-layer.js
         geost_03: { es: "Propriedades del Objeto", pt: "Propriedades do Objeto"},
+        //geoos-raster-layer.js
+        geosr_01: { es: "Sin Información", pt: "Sem Informação"},
+        geosr_02: { es: "Configurar Capa de Fórmula", pt: "Definir Camada de Fórmula"},
+        geosr_03: { es: "Variables de Entrada a la Fórmula", pt: "Variáveis ​​de entrada de fórmula"},
+        //isolenes.js
+        geosi_01: { es: "Configurar Isolineas", pt: "Configurar Isolinhas"},
+        geosi_02: { es: "Extraer Niveles Fijos", pt: "Extrair Níveis Fixos"},
+        geosi_03: { es: "Isolineas", pt: "Isolinhas"},
+        //data-points.js
+        geosdata_01: { es: "Puntos con Datos", pt: "Pontos com Dados"},
+        //vectores.js
+        geosvec_01: { es: "Vectores", pt: "Vetores"},
+        //timeserie.js
+        timeserie_01: { es: "Selección de Variables", pt: "Seleção de variável"},
+        timeserie_02: { es: "Configurar Temporalidad", pt: "Configurar a temporalidade"},
+        timeserie_03: { es: "temporalidad ", pt: "temporalidade "},
+        timeserie_04: { es: " no está manejada en serie de tiempo", pt: "não é baseado em séries temporais"},
+        timeserie_05: { es: "Serie de Tiempo", pt: "Série de tempo"},
+        //timeserietime.js
+        timeserietime_00: { es: "Relativo al Mapa", pt: "Relativo ao Mapa"},
+        timeserietime_01: { es: "Límites Fijos", pt: "Limites Fixos"},
+        timeserietime_02: { es: "Inicio del Período", pt: "Início do Período"},
+        timeserietime_03: { es: "Fin del Período", pt: "Fim do Período"},
+        timeserietime_04: { es: "Mensual", pt: "Mensal"},
         
-
+        //geoos-query.js
+        geoos_query_01: { es: "promedio", pt: "média"},
+        geoos_query_02: { es: " en mapa", pt: " no mapa"},
+        geoos_query_03: { es: "Selección en Mapa", pt: "Seleção no mapa"},
+        geoos_query_04: { es: "No se encontró la dimensión '", pt: "Dimensão não encontrada '"},
+        geoos_query_05: { es: "No se encontró la estación ", pt: "estação não encontrada"},
+        geoos_query_06: { es: "No se encontró el filtro por ", pt: "Filtro não encontrado por "},
+        geoos_query_07: { es: "No se puede agregar estacion ", pt: "Não é possível adicionar estação"},
+        //Exporter.js
+        exp_01: { es: "Estación: ", pt: "Estação: "},
+        exp_02: { es: "Estación", pt: "Estação"},
+        exp_03: { es: "y", pt: "e"},
+        //Timeserievars.js
+        timeserie_01: { es: "Seleccionar Variable Principal", pt: "Selecionar a variável principal"},
+        timeserie_02: { es: "Comparar con Variable", pt: "Comparar com Variável"},
+        //SelectorFecha.js
+        expS_01: { es: "Temporalidad ", pt: "Temporalidade"},
+        expS_02: { es: " no soportada", pt: " não suportada"},
+        //WMinZFilters.js
+        expSW_01: { es: "No se encontraron resultados", pt: "Resultados nao encontrados"},
+        expSW_02: { es: "Muchos valores. Refine la búsqueda", pt: "Muitos valores. Refaça a busca"},
+        
     }   
     }
 

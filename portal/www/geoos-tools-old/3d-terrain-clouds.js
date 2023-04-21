@@ -54,7 +54,7 @@ class Tool3DTerrainClouds extends GEOOSTool {
 
     getPropertyPanels() {
         return [{
-            code:"tool-props", name:"Nombre del Análisis", path:"./propertyPanels/PropToolName"
+            code:"tool-props", name:window.toLang("$[javascripts.datafrase8]"), path:"./propertyPanels/PropToolName"
         }, {
             code:"p3d-axis-scale", name:"Escalar Ejes", path:"geoos-tools/3d-chart-panels/3DChartScaleAxis"
         }]

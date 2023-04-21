@@ -14,27 +14,27 @@ class WSelectVariables extends ZDialog {
         if (this.dimCode) {
             if (this.dimCode != "rie.estacion") {
                 this.edLayerType.setRows([{
-                    code:"variables", name:"Variables en Centro"
+                    code:"variables", name: window.toLang("$[javascripts.WselVariables_01]")
                 }, {
                     code:"minz", name:"Asociadas a " + this.layerName
                 }], "variables")
             } else {
                 this.edLayerType.setRows([{
-                    code:"stations", name:"Medidas por las Estaciones"
+                    code:"stations", name: window.toLang("$[javascripts.WselVariables_02]")
                 }, {
-                    code:"variables", name:"Otras Variables en el mismo Punto"
+                    code:"variables", name: window.toLang("$[javascripts.WselVariables_03]")
                 }], "stations")
             }
         } else if (this.monstationsLayerCode) {
             this.edLayerType.setRows([{
-                code:"monstations", name:"Monitoreadas en la Estaciones"
+                code:"monstations", name: window.toLang("$[javascripts.WselVariables_04]")
             }, {
-                code:"variables", name:"Otras Variables en el mismo Punto"
+                code:"variables", name: window.toLang("$[javascripts.WselVariables_05]")
             }], "stations")
 
         } else {
             this.edLayerType.setRows([{
-                code:"variables", name:"Variables en Centro"
+                code:"variables", name: window.toLang("$[javascripts.WselVariables_01]")
             }], "variables")
         }
         this.sections = [{
@@ -182,7 +182,7 @@ class WSelectVariables extends ZDialog {
             }
         }
         if (htmlFilters.length) {
-            this.filterPills.html = "<b style='margin-left: 6px;'>Filtros Activos: </b>" + htmlFilters + "<a href='#' class='filters-cleaner'>Limpiar Filtros</a>";
+            this.filterPills.html = "<b style='margin-left: 6px;'>Filtros Ativos: </b>" + htmlFilters + "<a href='#' class='filters-cleaner'>Limpar Filtros</a>";
             this.filterPills.show();
             $(this.filterPills.view).find(".add-panel-filter i").click(e => {
                 let item = $(e.currentTarget);
@@ -201,7 +201,7 @@ class WSelectVariables extends ZDialog {
 
         // Results
         this.filteredLayers = this.filterLayers(null, this.edNameFilter.value);
-        let name = this.edLayerType.value == "variables"?"Variables":"Capas";
+        let name = this.edLayerType.value == "variables"?"Variables": window.toLang("$[mainMenu.Capas]");
         this.lblResume.text = name + ": (Encontradas " + this.filteredLayers.length + ")";
         let activeGroup = window.geoos.getActiveGroup();
         let htmlVars = "";

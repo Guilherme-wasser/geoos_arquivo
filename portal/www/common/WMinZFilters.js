@@ -188,7 +188,7 @@ class WFiltrosMinZ extends ZDialog {
             rows.push({
                 code:"sel-filas",
                 icon:"fas fa-list",
-                label:"Seleccionar [" + n + "]",
+                label: window.toLang("$[javascripts.WminZ_02]") + n + "]",
                 items:dimVal.map(r => ({
                     tipo:"valor",
                     icon:"fas fa-bullseye",
@@ -201,7 +201,7 @@ class WFiltrosMinZ extends ZDialog {
                     tipo:"warng",
                     icon:"fas fa-exclamation-triangle",
                     code:"warn-more",
-                    label:"Muchos valores. Use opción 'Buscar'"
+                    label: window.toLang("$[javascripts.WminZ_03]")
                 })
             }
             /*
@@ -218,7 +218,7 @@ class WFiltrosMinZ extends ZDialog {
                     code:"limpiar",
                     tipo:"limpiar",
                     icon:"fas fa-ban",
-                    label:"Limpiar Filtro"
+                    label: window.toLang("$[javascripts.nn22]")
                 });
             }
             if (this.zpop) this.zpop.close();            
@@ -250,7 +250,7 @@ class WFiltrosMinZ extends ZDialog {
                         tipo:"warng",
                         icon:"fas fa-exclamation-triangle",
                         code:"warn-none",
-                        label:"No se encontraron resultados"
+                        label: window.toLang("$[javascripts.expSW_01]")
                     }];
                     let dimVal = await this.consulta.zRepoServer.client.getValores(nodo.clasificador.dimensionCode, textFilter, null, 0, (n > 50?50:n));
                     let items = dimVal.map(r => ({
@@ -264,7 +264,7 @@ class WFiltrosMinZ extends ZDialog {
                             tipo:"warng",
                             icon:"fas fa-exclamation-triangle",
                             code:"warn-more",
-                            label:"Muchos valores. Refine la búsqueda"
+                            label: window.toLang("$[javascripts.expSW_02]")
                         })
                     }
                     console.log("return items", items);

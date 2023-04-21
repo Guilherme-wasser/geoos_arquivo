@@ -1,0 +1,194 @@
+17:52:10 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/testBr.hjson'
+17:52:15 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/testBr.hjson'
+17:52:20 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/testBr.hjson'
+17:52:25 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/testBr.hjson'
+17:52:30 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/testBr.hjson'
+17:52:35 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/testBr.hjson'
+17:52:40 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/testBr.hjson'
+17:52:45 [info] Reading config from /home/config/config.hjson
+17:52:45 [info]   -> reading dataSet config from /home/config/derra-test.hjson
+17:52:45 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+17:52:45 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+17:52:45 [info]   -> reading dataSet config from /home/config/testBr.hjson
+17:52:45 [debug] Starting http web server at port 8080
+17:52:45 [debug] starting RasterServer web server for derra-test
+17:52:45 [debug] starting RasterServer web server for oce-test
+17:52:45 [debug] starting GeoJsonServer web server for bcn-test
+17:52:45 [debug] starting RasterServer web server for testBr
+17:52:45 [info] http web server started at port 8080
+17:55:29 [info] GEOOS GEOServer [0.65 ]initialized
+17:55:30 [info] Reading config from /home/config/config.hjson
+17:55:30 [info]   -> reading dataSet config from /home/config/derra-test.hjson
+17:55:30 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+17:55:30 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+17:55:30 [info]   -> reading dataSet config from /home/config/testBr.hjson
+17:55:30 [debug] Starting http web server at port 8080
+17:55:30 [debug] starting RasterServer web server for derra-test
+17:55:30 [debug] starting RasterServer web server for oce-test
+17:55:30 [debug] starting GeoJsonServer web server for bcn-test
+17:55:30 [debug] starting RasterServer web server for testBr
+17:55:30 [info] http web server started at port 8080
+18:05:45 [debug] Importing testBr_2023-04-21_19-00.nc using NetCDF Raster Importer
+18:05:47 [error] Error importing file testBr_2023-04-21_19-00.nc: TypeError: Cannot convert undefined or null to object
+18:05:47 [error]   -> file moved to /home/data/files-with-errors
+18:10:06 [warn] Updating config from /home/config/config.hjson
+18:10:06 [info]   -> reading dataSet config from /home/config/derra-test.hjson
+18:10:06 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+18:10:06 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+18:10:06 [info]   -> reading dataSet config from /home/config/testBr.hjson
+18:11:12 [debug] Importing testBr_2023-04-21_20-00.nc using NetCDF Raster Importer
+18:11:14 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:14 [info] Creating directory: /home/data/testBr
+18:11:14 [info] Creating directory: /home/data/testBr/2023
+18:11:14 [info] Creating directory: /home/data/testBr/2023/04
+18:11:14 [info] Creating directory: /home/data/testBr/2023/04/21
+18:11:14 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:15 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:15 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:15 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:15 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:15 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:15 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:16 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:16 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:16 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:16 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:16 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:17 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:17 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:17 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:17 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:17 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:17 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:18 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:18 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:18 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:18 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:18 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:18 [debug]   -> Importing temperature - 2023-04-21 20:00
+18:11:19 [debug] File Imported: testBr_2023-04-21_20-00.nc
+18:11:19 [debug] Moving file: /home/data/working/testBr_2023-04-21_20-00.nc to '/home/data/finished'
+18:20:26 [warn] Updating config from /home/config/config.hjson
+18:20:26 [info]   -> reading dataSet config from /home/config/derra-test.hjson
+18:20:26 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+18:20:26 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+18:20:26 [info]   -> reading dataSet config from /home/config/testBr.hjson
+18:20:49 [debug] Importing testBr_2023-04-21_21-00.nc using NetCDF Raster Importer
+18:20:51 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:51 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:51 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:52 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:52 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:52 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:52 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:52 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:53 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:53 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:53 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:53 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:53 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:53 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:54 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:54 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:54 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:54 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:54 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:54 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:55 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:55 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:55 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:55 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:55 [debug]   -> Importing temperature - 2023-04-21 21:00
+18:20:56 [debug] File Imported: testBr_2023-04-21_21-00.nc
+18:20:56 [debug] Moving file: /home/data/working/testBr_2023-04-21_21-00.nc to '/home/data/finished'
+18:41:46 [warn] Updating config from /home/config/config.hjson
+18:41:46 [info]   -> reading dataSet config from /home/config/derra-test.hjson
+18:41:46 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+18:41:46 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+18:41:46 [info]   -> reading dataSet config from /home/config/testBr.hjson
+18:41:56 [warn] Updating config from /home/config/config.hjson
+18:41:56 [info]   -> reading dataSet config from /home/config/derra-test.hjson
+18:41:56 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+18:41:56 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+18:41:56 [info]   -> reading dataSet config from /home/config/testBr.hjson
+18:42:11 [debug] Importing testBr_2023-04-21_16-00.nc using NetCDF Raster Importer
+18:42:14 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:14 [info] Creating directory: /home/data/testBr/2023
+18:42:14 [info] Creating directory: /home/data/testBr/2023/04
+18:42:14 [info] Creating directory: /home/data/testBr/2023/04/21
+18:42:14 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:14 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:15 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:15 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:15 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:15 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:15 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:15 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:16 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:16 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:16 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:16 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:16 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:16 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:17 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:17 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:17 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:17 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:17 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:18 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:18 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:18 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:18 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:18 [debug]   -> Importing temperature - 2023-04-21 16:00
+18:42:18 [debug] File Imported: testBr_2023-04-21_16-00.nc
+18:42:18 [debug] Moving file: /home/data/working/testBr_2023-04-21_16-00.nc to '/home/data/finished'
+18:51:19 [info] GEOOS GEOServer [0.65 ]initialized
+18:51:20 [info] Reading config from /home/config/config.hjson
+18:51:20 [info]   -> reading dataSet config from /home/config/derra-test.hjson
+18:51:20 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+18:51:20 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+18:51:20 [info]   -> reading dataSet config from /home/config/testBr.hjson
+18:51:20 [debug] Starting http web server at port 8080
+18:51:20 [debug] starting RasterServer web server for derra-test
+18:51:20 [debug] starting RasterServer web server for oce-test
+18:51:20 [debug] starting GeoJsonServer web server for bcn-test
+18:51:20 [debug] starting RasterServer web server for testBr
+18:51:20 [info] http web server started at port 8080
+18:59:21 [info] GEOOS GEOServer [0.65 ]initialized
+18:59:22 [info] Reading config from /home/config/config.hjson
+18:59:22 [info]   -> reading dataSet config from /home/config/derra-test.hjson
+18:59:22 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+18:59:22 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+18:59:22 [info]   -> reading dataSet config from /home/config/testBr.hjson
+18:59:22 [debug] Starting http web server at port 8080
+18:59:22 [debug] starting RasterServer web server for derra-test
+18:59:22 [debug] starting RasterServer web server for oce-test
+18:59:22 [debug] starting GeoJsonServer web server for bcn-test
+18:59:22 [debug] starting RasterServer web server for testBr
+18:59:22 [info] http web server started at port 8080
+19:00:58 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:03 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:08 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:13 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:18 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:23 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:28 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:33 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:38 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:43 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:48 [error] Config check error: Error: ENOENT: no such file or directory, stat '/home/config/derra-test.hjson'
+19:01:53 [warn] Updating config from /home/config/config.hjson
+19:01:53 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+19:01:53 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+19:01:53 [info]   -> reading dataSet config from /home/config/testBr.hjson
+19:01:53 [info] Stopping web server ...
+19:01:53 [info] Web Server stopped
+19:01:53 [debug] Starting http web server at port 8080
+19:01:53 [debug] starting RasterServer web server for oce-test
+19:01:53 [debug] starting GeoJsonServer web server for bcn-test
+19:01:53 [debug] starting RasterServer web server for testBr
+19:01:53 [info] http web server started at port 8080
+19:02:03 [warn] Updating config from /home/config/config.hjson
+19:02:03 [info]   -> reading dataSet config from /home/config/oce-test.hjson
+19:02:03 [info]   -> reading dataSet config from /home/config/bcn-test.hjson
+19:02:03 [info]   -> reading dataSet config from /home/config/testBr.hjson

@@ -5,8 +5,20 @@ const descTempos = {
     "1M":"mensual", "3M":"trimestral", "4M":"cuatrimestral", "6M":"semestral",
     "1y":"anual"
 }
+//descTempos_pt
+const descTempos_pt = {
+    "5m":"cada 5 minutos", "15m":"cada 15 minutos", "30m":"cada 30 minutos",
+    "1h":"por hora", "6h":"cada 6 horas", "12h":"cada 12 horas",
+    "1d":"diario", 
+    "1M":"mensual", "3M":"trimestral", "4M":"quadrimestral", "6M":"semestral",
+    "1y":"anual"
+}
 const descAcums = {
     "n":"nº muestras", "sum":"acumulado", "avg":"promedio", "min":"mínimo", "max":"máximo"
+}
+//descAcums.pt-br
+const descAcums_pt = {
+    "n":"nº amostras", "sum":"acumulado", "avg":"médio", "min":"mínimo", "max":"máximo"
 }
 const nivelesTemporalidad = ["5m", "15m", "30m", "1h", "6h", "12h", "1d", "1M", "3M", "4M", "6M", "1y"];
 const rangosTemporalidad = {
@@ -430,8 +442,8 @@ class MinZQuery extends GEOOSQuery {
         html += "<div class='row mt-1'>";
         html += "  <div class='col-sm-5 pr-0'>";
         html += "    <select id='edAcumulador" + this.id + "' class='custom-select custom-select-sm' >";
-        html += Object.keys(descAcums).reduce((html, a) => {
-            return html + "<option value='" + a + "' " + (this.accum == a?" selected":"") + ">" + descAcums[a] + "</option>";
+        html += Object.keys(descAcums_pt).reduce((html, a) => {
+            return html + "<option value='" + a + "' " + (this.accum == a?" selected":"") + ">" + descAcums_pt[a] + "</option>";
         }, "");
         html += "    </select>";
         html += "  </div>";
@@ -439,7 +451,7 @@ class MinZQuery extends GEOOSQuery {
         html += "    <select id='edTemporalidad" + this.id + "' class='custom-select custom-select-sm' >";
         let nivel = nivelesTemporalidad.indexOf(this.variable.temporality);
         html += nivelesTemporalidad.slice(nivel).reduce((html, t) => {
-            return html + "<option value='" + t + "' " + (this.temporality == t?" selected":"") + ">" + descTempos[t] + "</option>";
+            return html + "<option value='" + t + "' " + (this.temporality == t?" selected":"") + ">" + descTempos_pt[t] + "</option>";
         }, "");
         html += "    </select>";
         html += "  </div>";
@@ -471,8 +483,8 @@ class MinZQuery extends GEOOSQuery {
                 html += descFiltros.reduce((html, f, i) => {
                     html += "<li class='filtro-" + this.id + " selectable-name'>";
                     if (!i) html += "Para ";
-                    else html += "y ";
-                    html += f.etiqueta + "</li>";
+                    else html += window.toLang("$[javascripts.exp_03]");
+                    html += window.toLang("$[javascripts.exp_02]") + window.toLang("$[javascripts.geoos_query_02]")+ "</li>";
                     return html;
                 }, "")
                 html += "</ul>";
@@ -493,8 +505,8 @@ class MinZQuery extends GEOOSQuery {
             let etiquetaValor;
             // Tomar datos del último clasificador para mostrar
             if (filtro.valor && filtro.valor.startsWith("${codigo-objeto}")) {
-                st += " en mapa";
-                etiquetaValor = "Selección en Mapa";
+                st += window.toLang("$[javascripts.geoos_query_02]");
+                etiquetaValor = window.toLang("$[javascripts.geoos_query_03]");
             } else {
                 let c = clasificadoresPath[clasificadoresPath.length - 1];            
                 let row = await this.zRepoServer.client.getValorDimension(c.dimensionCode, filtro.valor);            
@@ -606,7 +618,7 @@ class MinZQuery extends GEOOSQuery {
                 }
             }
             let dim = dimensiones.find(d => d.code == c.dimensionCode);
-            if (!dim) throw "No se encontró la dimensión '" + c.dimensionCode + "' desde " + dimOVar.name;
+            if (!dim) throw window.toLang("$[javascripts.SV_03]") + c.dimensionCode + "' desde " + dimOVar.name;
             if (dim.classifiers && dim.classifiers.length) {
                 nodo.nodos = [];
                 y = this.construyeArbolFiltrosDesde(nodo.nodos, dim, path, x0 + 1, y, nodo.editable && !nodo.filtro, max);
@@ -631,7 +643,7 @@ class MinZQuery extends GEOOSQuery {
     eliminaFiltro(filtro) {
         let idx = this.filters.findIndex(f => f.ruta == filtro.ruta);
         if (idx < 0) {
-            throw "No se encontró el filtro por " + filtro.ruta;
+            throw window.toLang("$[javascripts.geoos_query_06]") + filtro.ruta;
         }
         this.filters.splice(idx, 1);
     }

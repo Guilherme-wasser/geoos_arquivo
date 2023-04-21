@@ -11,7 +11,7 @@ class DataPointsVisualizerHelper extends RasterVisualizer {
         this.aborter = null;
     }
     get code() {return "data-points"}
-    get name() {return "Puntos con Datos"}
+    get name() {return window.toLang("$[javascripts.geosdata_01]")}
 
     async create() {
         this.visualizer = this.layer.konvaLeafletLayer.addVisualizer(this.code, new DataPointsVisualizer({

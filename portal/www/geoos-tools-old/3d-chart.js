@@ -28,7 +28,7 @@ class Tool3DChart extends GEOOSTool {
 
     getPropertyPanels() {
         return [{
-            code:"tool-props", name:"Nombre del Análisis", path:"./propertyPanels/PropToolName"
+            code:"tool-props", name:window.toLang("$[javascripts.datafrase8]"), path:"./propertyPanels/PropToolName"
         }, {
             code:"raster-var", name:"Selección de Variable", path:"./propertyPanels/SelectRasterVariable"
         }, {

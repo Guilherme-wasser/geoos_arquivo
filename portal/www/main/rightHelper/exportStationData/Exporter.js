@@ -1,6 +1,6 @@
 class Exporter extends ZCustomController {
     onThis_init(options) {
-        let desc = "Estación: " + options.station.name;
+        let desc = window.toLang("$[javascripts.exp_01]") + options.station.name;
         desc += " [" + window.geoos.estaciones.tipos[options.station.tipo].name + "]";
         desc += " de " + window.geoos.estaciones.proveedores[options.station.proveedor].name;
         this.lblEstacion.text = desc;

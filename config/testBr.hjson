@@ -1,0 +1,24 @@
+{ 
+    dataSet: {type: "raster", format:"netCDF"} 
+
+    deleteFinishedFiles: false 
+
+    temporality:{
+	value: 1, unit: hours
+	searchCriteria: middle
+    }
+
+    clippingArea:{
+	w:-48.8581905, e:-48.3748151,
+	s:-26.5087355, n:-26.0348053
+    } 
+    
+    variables: { 
+    	temperature: { 
+        	selector:{standard_name:"sea_water_temperature"} 
+        	name: Temperature 
+        	unit: degC
+  	  } 
+	} 
+ 
+}

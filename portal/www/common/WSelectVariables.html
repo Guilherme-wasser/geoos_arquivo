@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 id="title" class="modal-title">Buscar Variables</h6>
+                <h6 id="title" class="modal-title">$[mainMenu.BuscarVariCap]</h6>
                 <i id="cmdCloseWindow" class="geoos-panel-close" data-z-clickable="true"></i>
             </div>
             <div class="modal-body">
@@ -18,12 +18,12 @@
                     <div class="ml-3 d-flex flex-column" style="flex: 1 2 100%; padding: 5px;">
                         <div id="filterPills" class="add-panel-filters mb-2">
                         </div>
-                        <div id="edNameFilter" style="max-width: 600px;" data-z-component="common/TextSearch" data-z-placeholder="Buscar Variable o Capa"></div>
+                        <div id="edNameFilter" style="max-width: 600px;" data-z-component="common/TextSearch" data-z-placeholder=$[mainMenu.NombreVarFil]></div>
                         <div id="lblResume" class="add-panel-resume"></div>
                         <div id="variablesContainer" class="add-panel-variables" style="flex:1 10 100%; overflow-y: auto; min-height:150px; max-height: 200px;">
                             <div class="add-panel-variable" data-section="${layer.code}">
                                 <i class="far fa-lg fa-dot-circle float-left mr-2"></i>
-                                Nombre de la Variable Filtrada
+                                $[mainMenu.NombreVarFil]
                                 <img class="add-panel-variable-icon" style="height: 16px;" src="img/icons/info.svg" />
                                 <img class="add-panel-variable-icon" style="height: 16px;" src="img/icons/favo.svg" />
                                 <img class="add-panel-variable-icon inactive" style="height: 16px;" src="img/icons/variable-added.svg" />
@@ -31,21 +31,21 @@
                         </div>
                         <div style="margin-top: 10px;">
                             <div id="lblCountResume" class="add-panel-count-resume float-left"></div>
-                            <button id="cmdCancelLayers" type="button" class="btn btn-sm btn-secondary geoos-panel-cancel float-right ml-2">Cancelar</button>
-                            <button id="cmdAddLayers" type="button" class="btn btn-sm btn-secondary geoos-panel-ok float-right">Seleccionar</button>
+                            <button id="cmdCancelLayers" type="button" class="btn btn-sm btn-secondary geoos-panel-cancel float-right ml-2">$[comunes.cancelar]</button>
+                            <button id="cmdAddLayers" type="button" class="btn btn-sm btn-secondary geoos-panel-ok float-right">$[mainMenu.WselVar_01]</button>
                         </div>
                         <div id="infoPanel" class="add-panel-info-panel ">
                             <div id="infoContent" class="info-content" >
                                 <ul id="tabAddPanelVars" class="nav nav-tabs justify-content-end" role="tablist">
                                     <span id="lblVarName" class="ml-2 mr-auto mt-1" style="font-weight: bold;"></span>
                                     <li class="nav-item">
-                                      <a id="tabGeneralDescVar" class="nav-link active" data-toggle="tab" href="#generalDescPageVar" role="tab">Descripción General</a>
+                                      <a id="tabGeneralDescVar" class="nav-link active" data-toggle="tab" href="#generalDescPageVar" role="tab">$[mainMenu.DescGel]</a>
                                     </li>
                                     <li class="nav-item">
-                                      <a id="tabDetailsVar" class="nav-link" data-toggle="tab" href="#detailsPageVar" role="tab">Detalles</a>
+                                      <a id="tabDetailsVar" class="nav-link" data-toggle="tab" href="#detailsPageVar" role="tab">$[mainMenu.Detalles]</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a id="tabAvailabilityVar" class="nav-link" data-toggle="tab" href="#availabilityPageVar" role="tab">Disponibilidad GEOOS</a>
+                                        <a id="tabAvailabilityVar" class="nav-link" data-toggle="tab" href="#availabilityPageVar" role="tab">$[mainMenu.DispGeo]</a>
                                     </li>
                                     <span id="cmdCloseInfoPanel" class="geoos-panel-close ml-4" data-z-clickable="true"></span>
                                 </ul>

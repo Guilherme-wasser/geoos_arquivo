@@ -95,7 +95,7 @@ class GEOOSRasterLayer extends GEOOSLayer {
         let stErrores = null;
         for (let error of errores) {
             if (error) {
-                if (error.toLowerCase() == "no data") error = "No hay Datos";
+                if (error.toLowerCase() == "no data") error = window.toLang("$[javascripts.datafrase13]");
                 if (!stErrores) stErrores = error;
                 else {
                     if (stErrores.indexOf(error) < 0) stErrores += ", " + error;
@@ -129,7 +129,7 @@ class GEOOSRasterLayer extends GEOOSLayer {
         } else if (stEstado) {
             return stEstado
         } else {
-            return "Sin Información";
+            return window.toLang("$[javascripts.geosr_01]");
         }
     }
 }
@@ -252,10 +252,10 @@ class GEOOSRasterFormulaLayer extends GEOOSLayer {
     getPropertyPanels() {
         let panels = super.getPropertyPanels();
         panels.push({
-            code:"formula-config", name:"Configurar Capa de Fórmula", path:"./layers/formula/FormulaConfig"
+            code:"formula-config", name: window.toLang("$[javascripts.geosr_02]"), path:"./layers/formula/FormulaConfig"
         })
         panels.push({
-            code:"formula-sources", name:"Variables de Entrada a la Fórmula", path:"./layers/formula/Sources"
+            code:"formula-sources", name: window.toLang("$[javascripts.geosr_03]"), path:"./layers/formula/Sources"
         })
         panels.push({
             code:"formula-formula", name:"Fórmula", path:"./layers/formula/Formula"

@@ -1,4 +1,5 @@
 const unidadesTiempo = {"1d":"días", "1M":"meses", "1y":"años"}
+const unidadesTiempo_pt = {"1d":"dias", "1M":"meses", "1y":"anos"}
 
 class TimeSerieTime extends ZCustomController {
     onThis_init(options) {
@@ -24,7 +25,7 @@ class TimeSerieTime extends ZCustomController {
             rangoDefault = [-4, 2];
         }
         if (nivel <= 7) {
-            niveles.push({codigo:"1M", nombre:"Mensual"});
+            niveles.push({codigo:"1M", nombre:window.toLang("$[javascripts.timeserietime_04]")});
             if (nivelDefault == "1y") nivelDefault = "1M";
         }
         niveles.push({codigo:"1y", nombre:"Anual"});
@@ -36,13 +37,13 @@ class TimeSerieTime extends ZCustomController {
             this.analyzer.timeTo = rangoDefault[1];            
         }
         this.edTemporalidad.setRows(niveles, tempo);
-        this.unidadFrom.text = unidadesTiempo[tempo];
-        this.unidadTo.text = unidadesTiempo[tempo];
+        this.unidadFrom.text = unidadesTiempo_pt[tempo];
+        this.unidadTo.text = unidadesTiempo_pt[tempo];
         // Actualizar titulo
         this.edTipoTiempo.setRows([{
-            codigo:"relative", nombre:"Relativo al Mapa"
+            codigo:"relative", nombre: window.toLang("$[javascripts.timeserietime_00]")
         }, {
-            codigo:"fixed", nombre:"Límites Fijos"
+            codigo:"fixed", nombre: window.toLang("$[javascripts.timeserietime_01]")
         }], this.analyzer.timeType);    
         if (this.analyzer.timeType == "relative") {
             this.tiempoRelativo.show();
@@ -58,19 +59,19 @@ class TimeSerieTime extends ZCustomController {
             }
             this.edFromDate.temporalidad = this.analyzer.temporality;
             this.edFromDate.finPeriodo = false;
-            this.edFromDate.titulo = "Inicio del Período";
+            this.edFromDate.titulo = window.toLang("$[javascripts.timeserietime_02]");
             this.edFromDate.value = this.analyzer.timeFromDate;
             this.edToDate.temporalidad = this.analyzer.temporality;
             this.edToDate.finPeriodo = true;
-            this.edToDate.titulo = "Fin del Período";
+            this.edToDate.titulo = window.toLang("$[javascripts.timeserietime_03]");
             this.edToDate.value = this.analyzer.timeToDate;
         }
     }
 
     async onEdTemporalidad_change() {
         this.analyzer.temporality = this.edTemporalidad.value;
-        this.unidadFrom.text = unidadesTiempo[this.analyzer.temporality];
-        this.unidadTo.text = unidadesTiempo[this.analyzer.temporality];
+        this.unidadFrom.text = unidadesTiempo_pt[this.analyzer.temporality];
+        this.unidadTo.text = unidadesTiempo_pt[this.analyzer.temporality];
     }
     async onEdFrom_change() {
         let v = parseFloat(this.edFrom.value);

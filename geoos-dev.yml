@@ -27,3 +27,22 @@ services:
             - ./portal:/usr/src/app
             - ./config:/home/config
         command: "npm run-script debug"
+
+    geoserver:
+        image: docker.homejota.net/geoos/gdal-node16-nco-cdo
+        deploy:
+            restart_policy:
+                condition: on-failure
+        ports:
+            - 9231:9231/tcp # nodemon debugger
+            - 8080:8080 # web server
+        working_dir: /usr/src/app
+        environment:
+            LOG_LEVEL: debug
+        volumes:
+            - ./geoserver:/usr/src/app
+            - ./data:/home/data
+            - ./config:/home/config
+            - ./log:/home/log
+            - ./www:/home/www
+        command: "npm run-script debug"

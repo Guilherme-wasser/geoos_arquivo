@@ -27,20 +27,46 @@
     ## Providers (data producers or owners)  
     providers:{ 
       bcn:{
-         name: "Biblioteca del Congreso Nacional", url:"https://www.bcn.cl"
+         name: "Banco de dados de teste", url:"https://www.bcn.cl"
          # Imagen relativa a /opt/geoos/www
          logo:"img/bcn.png"
         }
+
+      testeBr: {
+            name: "teste BR Temperature", url:"https://conf.cl/"
+            logo:"img/conaf.png"
+        }
+
    } 
-   } 
+    
 
     ## DataSets   
     ## For each dataSet defined here, there should be a config file at /home/config/${dataSet-code}.hjson   
-    dataSets:{ 
-       bcn-test: {name: "Prueba BCN", provider:"bcn"}
+    dataSets:{
+
+  
+	      oce-test: {
+	       name: "Prueba Raster",
+	       provider:"bcn"
+	      }
+ 
+        bcn-test: {
+         name: "Prueba BCN",
+         provider:"bcn"
+        }
+
+       testBr: {
+          name:"Temperature Mar",
+          provider:"testeBr"
+      }
+
    } 
 
     ## Scales  
-    colorScales:[] 
-
+    colorScales:[
+	{
+	name:"green to red", type:"linear-hsl" config:{s:"100%", l:"50%"}
+	}
+    ] 
+}
 			

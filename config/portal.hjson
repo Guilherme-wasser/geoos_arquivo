@@ -59,7 +59,9 @@
 
 
     # Servers
-    geoServers:["https://geoserver.geoos.org"]
+    #geoServers:["https://geoserver.geoos.org","http://localhost:8080"]
+    #geoServers: ["https://geoserver.geoos.org"]
+    geoServers: ["http://localhost:8080"]
     zRepoServers:[{url:"https://zrepo.geoos.org", token:"geoos-public"}]
     
     # Variables Clasification

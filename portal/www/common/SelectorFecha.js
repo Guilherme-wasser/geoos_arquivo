@@ -31,7 +31,7 @@ class SelectorFecha extends ZCustomController {
     }
     get temporalidad() {return this._temporalidad}
     set temporalidad(t) {
-        if (t != "1d" && t != "1M" && t != "1y") throw "Temporalidad " + t + " no soportada";
+        if (t != "1d" && t != "1M" && t != "1y") throw window.toLang("$[javascripts.expS_01]") + t + window.toLang("$[javascripts.expS_02]");
         this._temporalidad = t, this.refresca();
     }
 

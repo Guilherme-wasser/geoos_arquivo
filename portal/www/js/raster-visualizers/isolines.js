@@ -19,7 +19,7 @@ class IsolinesRasterVisualizer extends RasterVisualizer {
         this.aborter = null;
     }
     get code() {return "isolines"}
-    get name() {return "Isolineas"}
+    get name() {return window.toLang("$[javascripts.geosi_03]")}
     get autoIncrement() {return this.config.autoIncrement?true:false}
     set autoIncrement(a) {this.config.autoIncrement = a; this.startQuery()}
     get increment() {return this.config.increment}
@@ -113,9 +113,9 @@ class IsolinesRasterVisualizer extends RasterVisualizer {
 
     getPropertyPanels() {
         return [{
-            code:"isolines-properties", name:"Configurar Isolineas", path:"./layers/visualizers/IsolinesProperties"
+            code:"isolines-properties", name: window.toLang("$[javascripts.geosi_01]"), path:"./layers/visualizers/IsolinesProperties"
         }, {
-            code:"fixed-levels-properties", name:"Extraer Niveles Fijos", path:"./layers/visualizers/FixedLevelsProperties"
+            code:"fixed-levels-properties", name: window.toLang("$[javascripts.geosi_02]"), path:"./layers/visualizers/FixedLevelsProperties"
         }]
     }
 }

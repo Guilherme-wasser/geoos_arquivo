@@ -22,7 +22,7 @@ class GEOOSStationsLayer extends GEOOSLayer {
             try {
                 layer.addStation(code, true);
             } catch(error) {
-                console.error("No se puede agregar estacion ", code, error);
+                console.error(window.toLang("$[javascripts.geoos_query_07]"), code, error);
             }
         }
         layer.watchers = s.watchers?s.watchers.reduce((list, w) => [...list, GEOOSQuery.deserialize(w)], []):[];
@@ -38,7 +38,7 @@ class GEOOSStationsLayer extends GEOOSLayer {
     addStation(code, silent) {
         if (this.containsStation(code)) return;
         let e = window.geoos.estaciones.estaciones[code];
-        if (!e) throw "No se encontró la estación " + code;
+        if (!e) throw window.toLang("$[javascripts.geoos_query_05]") + code;
         let point = {
             id:e.code, station:e, lat:e.lat, lng:e.lng, watching:[], 
             options:{
@@ -54,7 +54,7 @@ class GEOOSStationsLayer extends GEOOSLayer {
     }
     removeStation(code, silent) {
         let idx = this.points.findIndex(p => (p.id == code));
-        if (idx < 0) throw "No se encontró la estación " + code;
+        if (idx < 0) throw window.toLang("$[javascripts.geoos_query_05]") + code;
         this.points.splice(idx, 1);
         if (!silent) this.refresh();
         //console.log("en station layer", this.points);
@@ -193,7 +193,7 @@ class GEOOSStationsLayer extends GEOOSLayer {
             })
         }
         panels.push(
-            {code:"stations-name", name:"Estaciones", path:"./layers/watchers/Stations"}
+            {code:"stations-name", name: window.toLang("$[javascripts.geost_04]"), path:"./layers/watchers/Stations"}
         )
         return panels;
     }
