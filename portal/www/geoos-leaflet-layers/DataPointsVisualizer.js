@@ -32,7 +32,7 @@ class DataPointsVisualizer extends KonvaLeafletVisualizer {
         let lng = this.box.lng0, lat = this.box.lat0;
         let n = (this.box.lng1 - this.box.lng0) / this.box.dLng * (this.box.lat1 - this.box.lat0) / this.box.dLat;
         if (n > 9000) {
-            throw "Demasiados puntos. Aumente Zoom"
+            throw window.toLang("$[javascripts.demasiado_punto]")
         }
         for (let iRow=0; iRow<this.nrows; iRow++) {
             lng=this.box.lng0;

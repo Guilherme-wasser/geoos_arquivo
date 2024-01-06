@@ -92,7 +92,7 @@ class Tool3DChart extends GEOOSTool {
             this.config.colorScale = JSON.parse(JSON.stringify(this.variable.variable.options.colorScale));
         } else if (!this.config.colorScale) {            
             this.config.colorScale = {
-                name:"Verde a Rojo", auto:true, clipOutOfRange:false
+                name:"Red to Green", auto:true, clipOutOfRange:false
             }
         } 
         this.config.colorScale.unit = this.variable.unit;

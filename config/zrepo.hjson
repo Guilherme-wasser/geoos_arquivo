@@ -1,0 +1,105 @@
+{
+  # Security - Comment to disable, after local users have been created 
+  adminLogin: demo 
+  adminPassword: test 
+  timeZone: "America/Santiago" 
+  masterToken: "demo-token" 
+  tokens: {
+    tokenKey: geoos-public
+  }
+
+  # Domains 
+  domains : 
+    cie-covid: "Ministerio de Ciencia y Tecnología"
+    ine: "Instituto Nacional de Estadística"
+
+  # Dimensions 
+  dimensions: {
+    ine.region: {name: "Region", classifiers: []}
+  }
+
+  # Variables 
+  variables: {
+    cie-covid.casos_nuevos: {
+      name: "Casos nuevos COVID-19"
+      temporality: "1d"
+      classifiers: [{fieldName: "region", name: "Region", defaultValue: "00", dimensionCode: "ine.region"}]
+      options: {unit: "Nº"}
+    }
+  }
+
+  # dataSets 
+  dataSets: {
+    cie-covid.reporte_casos_nuevos: {
+      name: "COVID - Casos nuevos por región"
+      temporality: "1d"
+      columns: [
+        {code: "fecha", name: "Fecha", shortName: "Fecha", type: "date", time: true, key: true}
+        {code: "reg15", name: "Arica y Parinacota", shortName: "R15", type: "number"} 
+        {code: "reg1", name: "Tarapacá", shortName: "R1", type: "number"} 
+        {code: "reg2", name: "Antofagasta", shortName: "R2", type: "number"} 
+        {code: "reg3", name: "Atacama", shortName: "R3", type: "number"} 
+        {code: "reg4", name: "Coquimbo", shortName: "R4", type: "number"} 
+        {code: "reg5", name: "Valparaíso", shortName: "R5", type: "number"} 
+        {code: "reg13", name: "Metropolitana", shortName: "R13", type: "number"} 
+        {code: "reg6", name: "O'Higgins", shortName: "R6", type: "number"} 
+        {code: "reg7", name: "Maule", shortName: "R7", type: "number"} 
+        {code: "reg16", name: "Ñuble", shortName: "R16", type: "number"} 
+        {code: "reg8", name: "Biobio", shortName: "R8", type: "number"} 
+        {code: "reg9", name: "Araucanía", shortName: "R9", type: "number"} 
+        {code: "reg14", name: "Los Ríos", shortName: "R14", type: "number"} 
+        {code: "reg10", name: "Los Lagos", shortName: "R10", type: "number"} 
+        {code: "reg11", name: "Aysen", shortName: "R11", type: "number"} 
+        {code: "reg12", name: "Magallanes", shortName: "R12", type: "number"} 
+      ]
+    }
+  } 
+
+  imports: [{
+    type: "sync"
+    url: "https://raw.githubusercontent.com/geoos/documentacion/main/datos/CasosNuevosCumulativo_T.csv"
+    label: "Buscar nuevos datos"
+    askForTime: false
+    batchSize: 100
+    format: "csv", skipFirstLine: true, separator: ","
+    incremental: true, # Solo fechas mayores a la última
+    mapFrom: {
+      fecha: {columnIndex: 0, timeFormat: "YYYY-MM-DD"},
+      reg15: 1, reg1: 2, reg2: 3, reg3: 4, reg4: 5, reg5: 6, reg13: 7, reg6: 8, reg7: 9, reg16: 10, reg8: 11, reg9: 12, reg14: 13, reg10: 14, reg11: 15, reg12: 16 
+    }
+  }]
+
+  triggers: [{ 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg15", data: [{constant: "15", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg1", data: [{constant: "1", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg2", data: [{constant: "2", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg3", data: [{constant: "3", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg4", data: [{constant: "4", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg5", data: [{constant: "5", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg13", data: [{constant: "13", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg6", data: [{constant: "6", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg7", data: [{constant: "7", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg16", data: [{constant: "16", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg8", data: [{constant: "8", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg9", data: [{constant: "9", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg14", data: [{constant: "14", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg10", data: [{constant: "10", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg11", data: [{constant: "11", to: "region"}] 
+  }, { 
+    type: "postVariable", variable: "cie-covid.casos_nuevos", value: "reg12", data: [{constant: "12", to: "region"}] 
+  }] 
+}

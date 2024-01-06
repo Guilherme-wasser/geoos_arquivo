@@ -120,24 +120,24 @@ class Portal extends ZModule {
     }
     async enviaCodigoRegistro(email) {
         try {            
-            if (!config.getConfig().smtp) throw "No se ha configurado un servidor de correo en este portal";
+            if (!config.getConfig().smtp) throw window.toLang("$[javascripts.Mailer_02]");
             let colCodes = await mongo.collection("userCode");
             await colCodes.deleteMany({_id:email});
             let colUser = await mongo.collection("user");
             let user = await colUser.findOne({_id:email});
-            if (user) throw "El correo ingresado ya se encuentra registrado en GEOOS. Use la opción 'Iniciar Sesión'. Desde ahí puede luego seleccionar 'Olvidó Contraseña' si es necesario.";
+            if (user) throw window.toLang("$[javascripts.Mailer_03]");
             let codigoRegistro = this.generaCodigoRandom();
             await colCodes.deleteOne({_id:email});
             await colCodes.insertOne({_id:email, code:codigoRegistro, time:Date.now()});
             let html = mailer.parseTemplate(config.getConfig().smtp.templateRegistra, {codigoRegistro});
-            await mailer.sendMail(email, "Registro de Cuenta en GEOOS", null, html);
+            await mailer.sendMail(email, window.toLang("$[javascripts.Mailer_04]"), null, html);
         } catch(error) {
             throw error;
         }
     }
     async enviaCodigoRecuperacion(email) {
         try {     
-            if (!config.getConfig().smtp) throw "No se ha configurado un servidor de correo en este portal";            
+            if (!config.getConfig().smtp) throw window.toLang("$[javascripts.Mailer_02]");            
             let colCodes = await mongo.collection("userCode");
             await colCodes.deleteMany({_id:email});
             let colUser = await mongo.collection("user");
@@ -157,7 +157,7 @@ class Portal extends ZModule {
         try {
             let colUser = await mongo.collection("user");
             let user = await colUser.findOne({_id:email});
-            if (user) throw "El usuario con el correo indicado ya se encuentra registrado. Use la opción 'Olvidó Contraseña' desde el panel de inicio de sesión'";
+            if (user) throw window.toLang("$[javascripts.Mailer_03]");
             let colCodes = await mongo.collection("userCode");
             let codeDoc = await colCodes.findOne({_id:email});
             if (!codeDoc || codeDoc.code != codigoRegistro || (Date.now() - codeDoc.time) > 2 * 3600 * 1000) throw "El código ingresado es inválido o está vencido (tiene una duración de 2 horas)";

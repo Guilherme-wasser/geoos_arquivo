@@ -618,7 +618,14 @@ const mensajes = {
         //WMinZFilters.js
         expSW_01: { es: "No se encontraron resultados", pt: "Resultados nao encontrados"},
         expSW_02: { es: "Muchos valores. Refine la búsqueda", pt: "Muitos valores. Refaça a busca"},
-        
+        //DataPointsVisualizer.js
+        demasiado_punto: { es: "Demasiados puntos. Aumente Zoom", pt: "Existem muitos dados, aumente o zoom"},
+        //Mailer
+        Mailer_01: { es: "No se ha configurado un servidor SMTP en este portal", pt: "Não existe servidor SMTP configurado para este portal"},
+        Mailer_02: { es: "No se ha configurado un servidor correo en este portal", pt: "Não existe servidor de correio configurado para este portal"},
+        Mailer_03: { es: "El correo ingresado ya se encuentra registrado en GEOOS. Use la opción 'Iniciar Sesión'. Desde ahí puede luego seleccionar 'Olvidó Contraseña' si es necesario.", pt: "O e-mail informado já está cadastrado no GEOOS. Use a opção 'Entrar'. A partir daí, você pode selecionar 'Esqueceu a senha', se necessário."},
+        Mailer_04: { es: "Registro de Cuenta en GEOOS", pt: "Registo de Conta GEOOS"},
+
     }   
     }
 

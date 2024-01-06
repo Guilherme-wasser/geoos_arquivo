@@ -1,9 +1,17 @@
 class GEOOSTool {
+    static tools = []; // Inicialização direta da propriedade estática
+
     static register(code, name, factories) {
-        if (!GEOOSTool.tools) GEOOSTool.tools = [];
         GEOOSTool.tools.push({code, name, factories});
     }
-    static getToolDef(code) {return GEOOSTool.tools.find(t => t.code == code)}    
+    static getToolDef(code) {
+        if (!GEOOSTool.tools) {
+            console.error("GEOOSTool.tools is not initialized");
+            return null; // ou alguma outra ação apropriada
+        }
+        return GEOOSTool.tools.find(t => t.code == code);
+    }
+       
 
     static deserialize(s) {
         return GEOOSTool.getToolDef(s.type).factories.deserialize(s.id, s.name, s.config);

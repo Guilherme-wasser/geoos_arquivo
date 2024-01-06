@@ -5,7 +5,7 @@ class GEOOS {
         this.stationSelected = [];
         this.stationUnselected = [];
         this.selection = {type:null}
-        moment.locale("es")
+        moment.locale("pt-br")
         this._time = Date.now();
         this.calculatePortalSize();
         window.addEventListener("resize", _ => this.triggerResize());        

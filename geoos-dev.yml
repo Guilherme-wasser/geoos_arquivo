@@ -1,48 +1,68 @@
-#
-# docker stack deploy -c geoos.yml geoos
-#
+# 
+# docker stack deploy -c geoos-dev.yml geoos
+# 
 version: '3.6'
+
 services:
-    db:
-        image: mongo:4.4.1-bionic
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: geoos-admin
-            MONGO_INITDB_ROOT_PASSWORD: geoos-password
-        volumes:
-            - ./mongo-data:/data
+  db:
+    image: mongo:4.4.1-bionic
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: geoos-admin
+    #  MONGO_INITDB_ROOT_PASSWORD: geoos-password
+    volumes:
+      - ./mongo-data:/data/db
 
-    portal:
-        image: node:14-alpine
-        deploy:
-            restart_policy:
-                condition: on-failure
-        ports:
-            - 9234:9234/tcp # nodemon debugger
-            - 8090:8090/tcp
-        working_dir: /usr/src/app
-        environment:
-            MONGO_URL: "mongodb://geoos-admin:geoos-password@db:27017"
-            MONGO_DATABASE: geoos
-        volumes:
-            - ./portal:/usr/src/app
-            - ./config:/home/config
-        command: "npm run-script debug"
+  portal:
+    image: node:14-alpine
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports:
+      - 9234:9234/tcp # nodemon debugger
+      - 8090:8090/tcp
+    working_dir: /usr/src/app
+    environment:
+      MONGO_URL: "mongodb://db:27017"
+      MONGO_DATABASE: geoos
+    volumes:
+      - ./portal:/usr/src/app
+      - ./config:/home/config
+    command: "npm run-script debug"
 
-    geoserver:
-        image: docker.homejota.net/geoos/gdal-node16-nco-cdo
-        deploy:
-            restart_policy:
-                condition: on-failure
-        ports:
-            - 9231:9231/tcp # nodemon debugger
-            - 8080:8080 # web server
-        working_dir: /usr/src/app
-        environment:
-            LOG_LEVEL: debug
-        volumes:
-            - ./geoserver:/usr/src/app
-            - ./data:/home/data
-            - ./config:/home/config
-            - ./log:/home/log
-            - ./www:/home/www
-        command: "npm run-script debug"
+  geoserver:
+    image: docker.homejota.net/geoos/gdal-node16-nco-cdo
+    #image: docker.homejota.net/geoos/gdal-node14-arm
+    #image: docker.homejota.net/geoos/gdal-node14
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports:
+      - 9231:9231/tcp # nodemon debugger
+      - 8080:8080 # web server
+    working_dir: /usr/src/app
+    environment:
+      LOG_LEVEL: debug
+    volumes:
+      - ./geoserver:/usr/src/app
+      - ./data:/home/data
+      - ./config:/home/config
+      - ./log:/home/log
+      - ./www:/home/www
+    command: "npm run-script debug"
+
+  zrepo:
+    image: docker.homejota.net/geoos/zrepo
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports:
+      - 9235:9235/tcp # nodemon debugger
+      - 8096:8096/tcp
+    environment:
+      MONGO_URL: "mongodb://db:27017"
+      MONGO_DATABASE: zrepo
+      LOG_LEVEL: debug
+    volumes:
+      - ./config:/home/config
+      - ./log:/home/log
+    command: "npm run-script debug"

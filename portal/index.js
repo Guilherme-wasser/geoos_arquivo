@@ -12,9 +12,35 @@ async function startHTTPServer() {
 
         zServer.registerModule("geoos", portal);
 
-        app.use("/", express.static(__dirname + "/www"));
+        app.get("/", (req, res) => {
+            res.sendFile(__dirname + "/www/main/welcome/");
+        });
+
+        app.get("/docs", (req, res) => {
+            res.redirect("http://localhost:8000");
+        });
+
+        //app.use((req, res, next) => {
+        //    if (req.path.endsWith('.js')) {
+        //        res.type('application/javascript');
+        //    }
+        //    next();
+        //});
+        
+
+        // Serve os arquivos estáticos do portal principal na rota "/portal"
+        app.use("/portal", express.static(__dirname + "/www"));
+
         app.use(bodyParser.urlencoded({limit: '50mb', extended:true}));
         app.use(bodyParser.json({limit: '50mb', extended: true}));
+
+
+        //Middleware para definir X-Content-Type-Options: nosniff
+        //app.use((req, res, next) => {
+        //   res.header("X-Content-Type-Options", "nosniff");
+        //   next();
+        //});
+
         app.use((req, res, next) => {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");

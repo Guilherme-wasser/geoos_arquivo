@@ -1,0 +1,44 @@
+{
+    "dataSet": {
+        "type": "vector",
+        "format": "geoJSON"
+    },
+    "temporality": "none",
+    "maxFilesInCache": 30,
+    "maxTiledFilesInCache": 30,
+    "filesDefault": {
+        "Cache": true,
+        "searchTolerance": 0,
+        "options": {
+            "subjects": ["geopolitica"]
+        }
+    },
+    "files": {
+        "microregioes": {
+            "cache": true,
+            "tiledCache": true,
+            "commonName": "Microregiões",
+            "metadata": {
+                "idProperty": "CD_MICRO",
+                "nameProperty": "NM_MICRO",
+                "centroid": true,
+                "copyProperties": {
+                    "nomeEstado": "SIGLA_UF",
+                    "area": "AREA_KM2"
+                }
+            },
+            "options": {
+                "getFeatureStyle": {
+                    "stroke": "black",
+                    "strokeWidth": 1.4,
+                    "fill": "rgba(255, 255, 255, 0.5)"
+                },
+                "getSelectedFeatureStyle": {
+                    "stroke": "black",
+                    "strokeWidth": 2.0,
+                    "fill": "rgba(100,100,250,0.4)"
+                }
+            }
+        }
+    }
+}

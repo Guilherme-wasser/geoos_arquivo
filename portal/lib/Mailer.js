@@ -45,7 +45,7 @@ class Mailer {
     sendMail(to, subject, text, html) {
         if (this.lastConfigTime != config.lastConfigTime) {
             if (!config.getConfig().smtp || !config.getConfig().smtp.transport) {
-                throw "No se ha configurado un servidor SMTP en este portal";                
+                throw window.toLang("$[javascripts.Mailer_01]");                
             }
             this.lastConfigTime = config.lastConfigTime;
             this._transport = nodemailer.createTransport(smtpTransport(config.getConfig().smtp.transport));

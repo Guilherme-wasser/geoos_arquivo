@@ -27,16 +27,22 @@
     ## Providers (data producers or owners)  
     providers:{ 
       bcn:{
-         name: "Banco de dados de teste", url:"https://www.bcn.cl"
+         name: "teste2", url:"https://www.bcn.cl"
          # Imagen relativa a /opt/geoos/www
          logo:"img/bcn.png"
         }
 
-      testeBr: {
-            name: "teste BR Temperature", url:"https://conf.cl/"
-            logo:"img/conaf.png"
+      casper:{
+         name: "modelos do litoral Paranaense", url:"https://www.bcn.cl"
+         # Imagen relativa a /opt/geoos/www
+         logo:"img/bcn.png"
         }
 
+      ine:{
+         name: "Instituto Nacional de Estadística", url:"https://www.bcn.cl"
+         # Imagen relativa a /opt/geoos/www
+         logo:"img/bcn.png"
+        }
    } 
     
 
@@ -44,29 +50,63 @@
     ## For each dataSet defined here, there should be a config file at /home/config/${dataSet-code}.hjson   
     dataSets:{
 
-  
-	      oce-test: {
-	       name: "Prueba Raster",
+        sbabitonga: {
+        name: "sbabitonga",
+	       provider:"casper"
+	      }
+
+        tbabitonga: {
+        name: "tbabitonga",
+	       provider:"casper"
+	      }
+
+        vmbabitonga: {
+	       name: "vmbabitonga",
+	       provider:"casper"
+	      }
+
+        sshbabitonga: {
+	       name: "sshbabitonga",
+	       provider:"casper"
+	      }
+
+        vetor: {
+	       name: "vetor",
+	       provider:"casper"
+	      }
+
+        estac: {
+	       name: "estac",
+	       provider:"casper"
+	      }
+
+        bcn-test: {
+	       name: "Aeropuertos do CHILE",
 	       provider:"bcn"
 	      }
- 
-        bcn-test: {
-         name: "Prueba BCN",
-         provider:"bcn"
-        }
 
-       testBr: {
-          name:"Temperature Mar",
-          provider:"testeBr"
-      }
+        microreg: {
+        name: "Microregiões",
+	       provider:"casper"
+	      } 
 
-   } 
+        prmuni: {
+        name: "Municípios do Paraná",
+	       provider:"casper"
+	      }
+
+        ine-region: {
+        name: "regioes do chile, teste do app",
+	       provider:"ine"
+	      }
+
+     }   
 
     ## Scales  
     colorScales:[
-	{
-	name:"green to red", type:"linear-hsl" config:{s:"100%", l:"50%"}
-	}
-    ] 
-}
+	    {
+	      name:"green to red", type:"linear-hsl" config:{s:"100%", l:"50%"}
+	    }
+     ] 
+  }
 			

@@ -1,0 +1,82 @@
+{
+    "dataSet": {
+        "type": "vector",
+        "format": "geoJSON"
+    },
+
+    deleteFinishedFiles: true,
+
+    "temporality": {
+        "value": "5",
+        "unit": "minutes"
+        "searchCriteria": "middle"
+    },
+
+    "maxFilesInCache": 30,
+    "maxTiledFilesInCache": 30,
+    "filesDefault": {
+        "Cache": true,
+        "searchTolerance": 0,
+        "options": {
+            "subjects": ["interes"]
+        }
+    },
+
+    "files": {
+        "estacoes": {
+            "cahe": true,
+            "tiledCache": true,
+            "commonName": "estacao",
+            "metadata": {
+                "idProperty": "id",
+                "nameProperty": "nome_estacao",
+                "centroid": true,
+                "copyProperties": {
+                    "nome_estacao": "nome_estacao",
+                    "data": "data_utc",
+                    "temperaturaInterna": "temperatura_interna",
+                    "umidadeInterna": "umidade_interna",
+                    "pressaoRelativa": "pressao_relativa_hg",
+                    "pressaoAbsoluta": "pressao_absoluta_hg",
+                    "temperatura": "temperatura",
+                    "bateriaExterna": "bateria_externa_OK_1_Baixo_0",
+                    "umidadeExterna": "umidade_externa",
+                    "direcaoVento": "direcao_vento",
+                    "velocidadeVento": "velocidade_vento",
+                    "velocidadeMaxVento10min": "velocidade_max_vento_em_10min",
+                    "velocidadeMaxVentoUltimoDia": "velocidade_max_vento_no_ultimo_dia",
+                    "taxaChuvaPorHora": "taxa_chuva_por_hora",
+                    "eventoChuva": "evento_chuva",
+                    "chuvaDiaria": "chuva_diaria",
+                    "chuvaMensal": "chuva_mensal",
+                    "chuvaTotal": "chuva_total",
+                    "radiacaoSolar": "radiacao_solar_watts_p_m2",
+                    "ultravioleta": "ultravioleta",
+                    "bateriaCo2": "bateria_de_co2_1_ok_0_Baixo",
+                    "sensacaoTermica": "sensacao_termica",
+                    "pontoOrvalho": "ponto_orvalho",
+                    "sensacaoTermicaInterna": "sensacao_termica_in",
+                    "pontoOrvalhoInterno": "ponto_orvalho_interno",
+                    "ultimaChuvaPorHora": "ultima_chuva_por_hora",
+                    "fusoHorario": "fuso_horario",
+                    "dataLegivel": "data_legivel"
+                }
+            },
+            "options": {
+                "getFeatureStyle": {
+                    "stroke": "black",
+                    "strokeWidth": 1.4,
+                    "radius": 6,
+                    "fill": "gray"
+                },
+                "getSelectedFeatureStyle": {
+                    "stroke": "black",
+                    "strokeWidth": 2.0,
+                    "fill": "rgba(50,50,250,0.4)",
+                    "radius": 7
+                    }    
+                }
+            }
+        }
+    }
+

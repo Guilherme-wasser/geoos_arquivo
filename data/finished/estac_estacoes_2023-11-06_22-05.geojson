@@ -1,0 +1,52 @@
+{
+    "type": "FeatureCollection",
+    "name": "estac",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "nome_estacao": "LOCG01",
+                "data_utc": 1699308240000,
+                "temperatura_interna": 73.9,
+                "umidade_interna": 69,
+                "pressao_relativa_hg": 29.817,
+                "pressao_absoluta_hg": 30.145,
+                "temperatura": 21.222222222222225,
+                "bateria_externa_OK_1_Baixo_0": 1,
+                "umidade_externa": 70,
+                "direcao_vento": 84,
+                "velocidade_vento": 1.8,
+                "velocidade_max_vento_em_10min": 3.4,
+                "velocidade_max_vento_no_ultimo_dia": 70,
+                "taxa_chuva_por_hora": 0,
+                "evento_chuva": 0,
+                "chuva_diaria": 0,
+                "chuva_mensal": 1.161,
+                "chuva_total": 165.083,
+                "radiacao_solar_watts_p_m2": 0,
+                "ultravioleta": 0,
+                "bateria_de_co2_1_ok_0_Baixo": 1,
+                "sensacao_termica": 21.227777777777774,
+                "ponto_orvalho": 59.95,
+                "sensacao_termica_in": 74.2,
+                "ponto_orvalho_interno": 61.8,
+                "ultima_chuva_por_hora": "2023-11-03T17:01:00.000Z",
+                "fuso_horario": "America/Sao_Paulo",
+                "data_legivel": "2023-11-06T22:04:00.000Z"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -48.5419,
+                    -25.8175
+                ]
+            }
+        }
+    ]
+}

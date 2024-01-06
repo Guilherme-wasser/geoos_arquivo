@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-Vindo ao GEOOS</title>
+    <link rel="stylesheet" href="/portal/css/style.css">
+</head>
+<body>
+    <div id="welcomeScreen" data-z-controller="Welcome">
+        <h1>Bem-Vindo ao GEOOS</h1>
+        <button id="enterPortal">IR PARA PORTAL</button>
+
+        <script>
+            document.getElementById('enterPortal').addEventListener('click', function() {
+                window.location.href = '/portal'; // Isso redirecionará para o diretório do portal
+            });
+        </script>
+
+        <button id="enterDocs">IR PARA DOCUMENTAÇÃO</button>
+
+        <script>
+            document.getElementById('enterDocs').addEventListener('click', function() {
+                window.location.href = 'docs'; // Isso redirecionará para o diretório documentação
+            });
+        </script>
+
+    </div>
+
+    <!-- Certifique-se de que os caminhos dos scripts estão corretos -->
+    <script src="../../zvc/zvc.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

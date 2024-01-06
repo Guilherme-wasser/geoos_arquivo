@@ -1,0 +1,110 @@
+{
+    dataSet: {type: "vector", format:"geoJSON"}
+    temporality:"none"
+    maxFilesInCache: 30
+    maxTiledFilesInCache: 30
+
+    filesDefault:{
+        cache:true
+        searchTolerance:0,
+        options:{
+            subjects:["geopolitica"]
+        }
+    }
+
+    # ogr2ogr /home/data/transform/comunas.geojson /home/data/transform/Comunas/comunas.shp -simplify 80 -t_srs WGS84
+    # ogr2ogr /home/data/transform/INE/regiones.geojson /home/data/transform/INE/Cifras_Regiones_2017.shp -t_srs WGS84 -simplify 1000
+    files:{
+        comunas:{
+            cache:true
+            tiledCache:true
+            commonName:"Comunas de Chile"
+            metadata:{
+                idProperty:"COMUNA"
+                nameProperty:"NOM_COMUNA"
+                centroid:true
+                center:true
+                copyProperties:{
+                    vivi_particulares:"PARTICULAR"
+                    vivi_colectivas:"COLECTIVAS"
+                    num_hombres:"HOMBRES"
+                    num_mujeres:"MUJERES"
+                    provincia:"PROVINCIA"
+                    region:"REGION"
+                    densidad:"DENSIDAD"
+                    indice_mas:"INDICE_MAS"
+                    indice_dep":"INDICE_DEP"
+                    indice_dep_ju":"INDICE_DEP_JU"
+                    indice_dep_ve":"INDICE_DEP_VE"
+
+                }
+            }
+            options:{
+                getFeatureStyle:{stroke:"black", strokeWidth:0.8}
+                getHoverFeatureStyle:{stroke:"blue", strokeWidth:1.2, fill:"rgba(50,50,250,0.2)"}
+                getSelectedFeatureStyle:{stroke:"black", strokeWidth:2.0, fill:"rgba(50,50,250,0.4)"}
+                minZDimension:"ine.comuna"
+            }
+        }
+        provincias:{
+            cache:true
+            tiledCache:true
+            commonName:"Provincias de Chile"
+            metadata:{
+                idProperty:"PROVINCIA"
+                nameProperty:"NOM_PROVIN"
+                centroid:true
+                center:true
+                copyProperties:{
+                    vivi_particulares:"PARTICULAR"
+                    vivi_colectivas:"COLECTIVAS"
+                    num_hombres:"HOMBRES"
+                    num_mujeres:"MUJERES"
+                    provincia:"PROVINCIA"
+                    region:"REGION"
+                    densidad:"DENSIDAD"
+                    indice_mas:"INDICE_MAS"
+                    indice_dep":"INDICE_DEP"
+                    indice_dep_ju":"INDICE_DEP_JU"
+                    indice_dep_ve":"INDICE_DEP_VE"
+                }
+            }
+            options:{
+                minZDimension:"ine.provincia"
+                defaults:{
+                    analyzerCode:"time-serie"
+                    analyzers:[
+                        {code:"time-serie", watcher1:{type:"raster", id:"default", format:"time-serie", geoServer:"geoos-main", dataSet:"noaa-gfs4", variable:"TMP_2"}}
+                    ]
+                }
+            }
+        }
+        region:{
+            cache:true
+            tiledCache:true
+            commonName:"Regiones de Chile"
+            metadata:{
+                idProperty:"REGION"
+                nameProperty:"NOM_REGION"
+                centroid:true
+                center:true
+                copyProperties:{
+                    vivi_particulares:"PARTICULAR"
+                    vivi_colectivas:"COLECTIVAS"
+                    num_hombres:"HOMBRES"
+                    num_mujeres:"MUJERES"
+                    provincia:"PROVINCIA"
+                    region:"REGION"
+                    densidad:"DENSIDAD"
+                    indice_mas:"INDICE_MAS"
+                    indice_dep":"INDICE_DEP"
+                    indice_dep_ju":"INDICE_DEP_JU"
+                    indice_dep_ve":"INDICE_DEP_VE"
+                }
+            }
+            options:{
+                minZDimension:"ine.region"
+            }
+        }
+    }
+}
