@@ -3,32 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-Vindo ao GEOOS</title>
-    <link rel="stylesheet" href="/portal/css/style.css">
+    <title>Observatório do Mar</title>
+    <style>
+    
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: hsl(0, 10%, 6%); /* Cor de fundo como fallback */
+        color: #e9e1e1; /* Altera a cor das letras para preto */
+        text-align: center;
+        padding: 180px;
+        z-index: 0;
+    }
+
+    
+    #welcomeScreen {
+        margin: auto;
+        width: 80%;
+    }
+    
+    button {
+        background-color: #ADD8E6; /* Azul claro para os botões */
+        color: black; /* Cor da letra dos botões para preto */
+        padding: 12px 20px; /* Aumento do padding para um visual mais robusto */
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px; /* Bordas mais arredondadas */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
+        transition: background-color 0.3s, box-shadow 0.3s; /* Efeito de transição suave */
+    }
+    
+    button:hover {
+        background-color: #87CEFA; /* Tom de azul mais claro no hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra maior para efeito de elevação */
+    }
+
+    #topImage {
+            height: 100px; /* Altura da imagem */
+            display: flex;
+            justify-content: center; /* Centraliza a imagem horizontalmente */
+            z-index: 1000;
+        }
+    
+    </style>
 </head>
 <body>
+    <div id="topImage">
+        <img src="/portal/www/img/CEM.png" alt="Imagem" style="height: 100%;"> <!-- Imagem é inserida diretamente -->
+    </div>
     <div id="welcomeScreen" data-z-controller="Welcome">
-        <h1>Bem-Vindo ao GEOOS</h1>
+        <h1>Clique em portal para acessar nossa WebGIS.<br> Clique em documentação para acessar nossos manuais e passo a passo.<br>Duvidas entre em contato.</h1>
         <button id="enterPortal">IR PARA PORTAL</button>
-
-        <script>
-            document.getElementById('enterPortal').addEventListener('click', function() {
-                window.location.href = '/portal'; // Isso redirecionará para o diretório do portal
-            });
-        </script>
-
         <button id="enterDocs">IR PARA DOCUMENTAÇÃO</button>
-
-        <script>
-            document.getElementById('enterDocs').addEventListener('click', function() {
-                window.location.href = 'docs'; // Isso redirecionará para o diretório documentação
-            });
-        </script>
-
     </div>
 
-    <!-- Certifique-se de que os caminhos dos scripts estão corretos -->
+    <!-- Scripts devem ser colocados no final do body -->
     <script src="../../zvc/zvc.js"></script>
     <script src="index.js"></script>
+    <script>
+        // Os event listeners podem ser movidos para o arquivo index.js
+        document.getElementById('enterPortal').addEventListener('click', function() {
+            window.location.href = '/portal';
+        });
+        
+        document.getElementById('enterDocs').addEventListener('click', function() {
+            window.location.href = 'docs';
+        });
+    </script>
 </body>
 </html>

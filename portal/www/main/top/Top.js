@@ -210,7 +210,7 @@ class Top extends ZCustomController {
         window.geoos.toolsPanel.openAddTool(window.geoos.user.config.toolsConfig.tool2)
     }
     onOpWizard3_click() {
-        if (!window.geoos.user.config.toolsConfig.tool3) return;
+        if (!window.geoos.user.config.toolsConfig.tool2) return;
         window.geoos.toolsPanel.openAddTool(window.geoos.user.config.toolsConfig.tool3)
     }
 

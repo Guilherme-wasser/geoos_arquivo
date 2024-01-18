@@ -1,0 +1,82 @@
+#meuBotao {
+    position: fixed;
+    z-index: 10000;
+    top: 65px;
+    left: 900px;
+    background-color: #f0f0f0; /* Exemplo de cor de fundo */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+#janelaPopUp {
+    display: none; 
+    width: 6cm; 
+    height: auto; 
+    background-color: white; 
+    position: fixed;
+    left: 50%; 
+    top: 50%; 
+    /* Remova a linha abaixo */
+    /* transform: translate(-50%, -50%); */
+    z-index: 10001;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+#janelaPopUp button {
+    background-color: #4CAF50; /* Exemplo de cor de fundo para botões */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 10px 15px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave ao mudar de cor */
+}
+#janelaPopUp button:hover {
+    background-color: #45a049; /* Cor ao passar o mouse */
+}
+#janelaPopUp .header {
+    cursor: move;
+    background-color: #ddd;
+    padding: 10px;
+    margin: -20px -20px 10px;
+}
+#janelaPopUp .close {
+    float: right;
+    cursor: pointer;
+}
+#janelaPopUp input {
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Borda do campo de entrada */
+    padding: 5px; /* Espaçamento interno */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+/* Adicionar estilo para o botão arrastável */
+.draggable-button {
+    cursor: move;
+    margin: 5px; /* Margem para facilitar o arrasto */
+}
+#limparCoordenadas {
+    background-color: #f44336; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 10px 15px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave ao mudar de cor */
+}
+#limparCoordenadas:hover {
+    background-color: #d32f2f; /* Cor ao passar o mouse */
+}
+#iconeCarregamento {
+    display: none;
+    position: fixed; /* Posiciona fixo na tela */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta a posição exata do centro */
+    z-index: 10000; /* Garante que fique na frente de outros elementos */
+}
+
+#iconeCarregamento img {
+    width: 30px; /* Largura do ícone de carregamento */
+    height: 30px; /* Altura do ícone de carregamento */
+}

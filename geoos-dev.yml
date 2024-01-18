@@ -51,18 +51,20 @@ services:
     command: "npm run-script debug"
 
   zrepo:
-    image: docker.homejota.net/geoos/zrepo
+    image: node:14-alpine
     deploy:
       restart_policy:
         condition: on-failure
     ports:
       - 9235:9235/tcp # nodemon debugger
       - 8096:8096/tcp
+    working_dir: /usr/src/app
     environment:
       MONGO_URL: "mongodb://db:27017"
       MONGO_DATABASE: zrepo
       LOG_LEVEL: debug
     volumes:
+      - ./z-repo:/usr/src/app
       - ./config:/home/config
       - ./log:/home/log
     command: "npm run-script debug"
