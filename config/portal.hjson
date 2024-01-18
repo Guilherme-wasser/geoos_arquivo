@@ -59,15 +59,16 @@
         }
     ]
 
-    #plugins: ["base-plugin","http://localhost:7090"]
+    plugins: ["base-plugin"],
+    #plugins: ["http://localhost:7090"]
 
     # Here
     hereAPIKey: "eG2NCop0Fa_k1JUQUaiZvkt-pQKlSlYODS_UwKqaD6c"
 
     # Servers
-    #geoServers: ["https://geoserver.geoos.org", "http://localhost:8080"]
-    geoServers: ["http://localhost:8080"]
-    #zRepoServers: [{ url: "https://zrepo.geoos.org", token: "geoos-public" }]
+    geoServers: ["https://geoserver.geoos.org", "http://localhost:8080"]
+    #geoServers: ["http://localhost:8080"]
+    zRepoServers: [{ url: "https://zrepo.geoos.org", token: "geoos-public" }]
     zRepoServers: [{ url: "http://localhost:8096", token: "demo-token" }]
     
     # Variables Classification

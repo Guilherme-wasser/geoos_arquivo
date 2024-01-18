@@ -39,13 +39,13 @@
         }
     },
     "variables": {
-        "u": {
+        "U": {
             "selector": {standard_name: "eastward_sea_water_velocity"},
             "name": "velocidade da água do mar para leste",
             "unit": "m s-1",
             "options": {"hidden": false}
         },
-        "v": {
+        "V": {
             "selector": {standard_name: "northward_sea_water_velocity"},
             "name": "velocidade da água do mar para norte",
             "unit": "m s-1",
@@ -53,11 +53,11 @@
         },
     "UV_Vector": {
         "calculated": {
-            "U": "u",
-            "V": "v",
+            "U": "U",
+            "V": "V",
             "formula": "sqrt(U*U + V*V)"
         },
-        vector:{uComponent:"U", vComponent:"V"}
+        "vector":{uComponent:"U", vComponent:"V"}
         "name": "Velocidade da água do mar",
         "unit": "m s-1",
         }

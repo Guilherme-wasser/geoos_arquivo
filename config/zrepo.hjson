@@ -1,30 +1,26 @@
 {
-  # Security - Comment to disable, after local users have been created 
-  adminLogin: demo 
-  adminPassword: test 
-  timeZone: "America/Santiago" 
-  masterToken: "demo-token" 
-  tokens: {
-    tokenKey: geoos-public
-  }
+  "adminLogin": "demo",
+  "adminPassword": "test",
+  "timeZone": "America/Santiago",
+  "masterToken": "demo-token",
+  "public-token": "demo-token",
+  "tokens": {}
 
-  # Domains 
-  domains : 
-    cie-covid: "Ministerio de Ciencia y Tecnología"
+  domains: {
+    cie-covid: "Ministerio de Ciencia y Tecnología",
     ine: "Instituto Nacional de Estadística"
-
-  # Dimensions 
-  dimensions: {
-    ine.region: {name: "Region", classifiers: []}
   }
 
-  # Variables 
+  dimensions: {
+    ine.region: {"name": "Region", "classifiers": []}
+  }
+
   variables: {
     cie-covid.casos_nuevos: {
-      name: "Casos nuevos COVID-19"
-      temporality: "1d"
-      classifiers: [{fieldName: "region", name: "Region", defaultValue: "00", dimensionCode: "ine.region"}]
-      options: {unit: "Nº"}
+      name: "Casos nuevos COVID-19",
+      temporality: "1d",
+      classifiers: [{"fieldName": "region", "name": "Region", "defaultValue": "00", "dimensionCode": "ine.region"}],
+      options: {"unit": "Nº"}
     }
   }
 
@@ -53,7 +49,7 @@
         {code: "reg12", name: "Magallanes", shortName: "R12", type: "number"} 
       ]
     }
-  } 
+  }
 
   imports: [{
     type: "sync"
