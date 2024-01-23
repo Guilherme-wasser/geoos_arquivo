@@ -100,6 +100,15 @@
 	       provider:"ine"
 	      }
 
+        unicons: {
+        name: "Unidades de conservação do litoral Paranaense",
+	       provider:"casper"
+	      } 
+
+        embrapasolo: {
+        name: "Solos Embrapa 2008 Paraná",
+	       provider:"casper"
+	      } 
      }   
 
     ## Scales  

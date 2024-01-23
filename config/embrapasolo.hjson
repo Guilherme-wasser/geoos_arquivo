@@ -1,0 +1,80 @@
+{
+    "dataSet": {
+        "type": "vector",
+        "format": "geoJSON"
+    },
+    "temporality": "none",
+    "maxFilesInCache": 30,
+    "maxTiledFilesInCache": 30,
+    "filesDefault": {
+        "Cache": true,
+        "searchTolerance": 0,
+        "options": {
+            "subjects": ["geopolitica"]
+        }
+    },
+    "files": {
+        "solos-embrapa-pr": {
+            "cache": true,
+            "tiledCache": true,
+            "commonName": "Solos Embrapa 2008 litoral do Paraná",
+            "metadata": {
+                "centroid": true,
+                    "copyProperties": {
+                        "Classificação SBCS": "SBCS",
+                        "Área em Hectares": "Hectares",
+                        "Tipo de Unidade": "TIPO_UNIDA",
+                        "Ordem do Solo 1": "ORDEM_1",
+                        "Sub-Ordem do Solo 1": "SUB_ORDEM_",
+                        "Grupo do Solo 1": "GRANDE_GRU",
+                        "Subgrupo do Solo 1": "SUB_GRUPO_",
+                        "Família do Solo 1": "FAMILIA_1_",
+                        "Família do Solo 11": "FAMILIA_11",
+                        "Família do Solo 12": "FAMILIA_12",
+                        "Família do Solo 13": "FAMILIA_13",
+                        "Família do Solo 14": "FAMILIA_14",
+                        "Fase Vegetativa 1": "FASE_VEGET",
+                        "Fase de Relevo 1": "FASE_RELEV",
+                        "Observações": "OBSERVA·³O",
+                        "Ordem do Solo 2": "ORDEM_2",
+                        "Sub-Ordem do Solo 2": "SUB_ORDEM1",
+                        "Grupo do Solo 2": "GRANDE_G_1",
+                        "Subgrupo do Solo 2": "SUB_GRUPO1",
+                        "Família do Solo 2": "FAMILIA_2_",
+                        "Família do Solo 21": "FAMILIA_21",
+                        "Família do Solo 23": "FAMILIA_23",
+                        "Família do Solo 24": "FAMILIA_24",
+                        "Família do Solo 26": "FAMILIA_26",
+                        "Fase Vegetativa 2": "FASE_VEG_1",
+                        "Fase de Relevo 2": "FASE_REL_1",
+                        "Ordem do Solo 3": "ORDEM_3",
+                        "Sub-Ordem do Solo 3": "SUB_ORDE_1",
+                        "Grupo do Solo 3": "GRANDE_G_2",
+                        "Subgrupo do Solo 3": "SUB_GRUP_1",
+                        "Família do Solo 3": "FAMILIA_3_",
+                        "Família do Solo 31": "FAMILIA_31",
+                        "Família do Solo 32": "FAMILIA_32",
+                        "Família do Solo 33": "FAMILIA_33",
+                        "Família do Solo 34": "FAMILIA_34",
+                        "Família do Solo 36": "FAMILIA_36",
+                        "Fase Vegetativa 3": "FASE_VEG_2",
+                        "Fase de Relevo 3": "FASE_REL_2",
+                        "Geometria": "geometry"
+                    }
+
+            },
+            "options": {
+                "getFeatureStyle": {
+                    "stroke": "black",
+                    "strokeWidth": 1.4,
+                    "fill": "rgba(255, 255, 255, 0.5)"
+                },
+                "getSelectedFeatureStyle": {
+                    "stroke": "black",
+                    "strokeWidth": 2.0,
+                    "fill": "rgba(100,100,250,0.4)"
+                }
+            }
+        }
+    }
+}

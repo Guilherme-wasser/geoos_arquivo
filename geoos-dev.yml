@@ -6,9 +6,10 @@ version: '3.6'
 services:
   db:
     image: mongo:4.4.1-bionic
-    #environment:
-    #  MONGO_INITDB_ROOT_USERNAME: geoos-admin
-    #  MONGO_INITDB_ROOT_PASSWORD: geoos-password
+    environment:
+      #MONGO_INITDB_ROOT_USERNAME: geoos-admin
+      #MONGO_INITDB_ROOT_PASSWORD: geoos-password
+      LOG-LEVEL: debug
     volumes:
       - ./mongo-data:/data/db
 
@@ -24,6 +25,7 @@ services:
     environment:
       MONGO_URL: "mongodb://db:27017"
       MONGO_DATABASE: geoos
+      LOG-LEVEL: debug
     volumes:
       - ./portal:/usr/src/app
       - ./config:/home/config

@@ -1,0 +1,47 @@
+{
+    "dataSet": {
+        "type": "vector",
+        "format": "geoJSON"
+    },
+    "temporality": "none",
+    "maxFilesInCache": 30,
+    "maxTiledFilesInCache": 30,
+    "filesDefault": {
+        "Cache": true,
+        "searchTolerance": 0,
+        "options": {
+            "subjects": ["geopolitica"]
+        }
+    },
+    "files": {
+        "unidades": {
+            "cache": true,
+            "tiledCache": true,
+            "commonName": "unidades de conservação",
+            "metadata": {
+                "idProperty": "id",
+                "nameProperty": "NOME",
+                "centroid": true,
+                "copyProperties": {
+                    "nome": "NOME"
+                    "nomeEstado": "UF",
+                    "uso": "USO",
+                    "Jurisdicao": "JURISDI",
+                    "Fonte": "FONTE"
+                }
+            },
+            "options": {
+                "getFeatureStyle": {
+                    "stroke": "black",
+                    "strokeWidth": 1.4,
+                    "fill": "rgba(255, 255, 255, 0.5)"
+                },
+                "getSelectedFeatureStyle": {
+                    "stroke": "black",
+                    "strokeWidth": 2.0,
+                    "fill": "rgba(100,100,250,0.4)"
+                }
+            }
+        }
+    }
+}
