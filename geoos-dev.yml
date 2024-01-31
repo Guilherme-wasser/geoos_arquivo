@@ -70,3 +70,22 @@ services:
       - ./config:/home/config
       - ./log:/home/log
     command: "npm run-script debug"
+
+ # noaa-gfs4:
+  #  image: node:14-alpine
+   # deploy:
+    #  restart_policy:
+     #   condition: on-failure
+    #ports:
+    #  - 9230:9230/tcp # nodemon debugger
+    #working_dir: /usr/src/app
+    #environment:
+    #  LOG_LEVEL: debug
+    #  DOWNLOADER_ACTIVE: "false"
+    #  N_PARALLEL_DOWNLOADS: 5
+    #volumes:
+    #  - ./../../noaa-gfs4:/usr/src/app
+    #  - ./../../dev-data/data:/home/data
+    #  - ./../../dev-data/config:/home/config
+    #  - ./../../dev-data/log:/home/log
+    #command: "npm run-script debug"    

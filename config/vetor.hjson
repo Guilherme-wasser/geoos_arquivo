@@ -3,7 +3,7 @@
         "type": "raster", 
         "format":"netCDF"
     },
-    "deleteFinishedFiles": false,
+    "deleteFinishedFiles": true,
     "temporality": {
         "value": 15, 
         "unit": "minutes",

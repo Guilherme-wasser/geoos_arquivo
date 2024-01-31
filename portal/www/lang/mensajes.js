@@ -142,12 +142,12 @@ const mensajes = {
         MisCapas: { es: "Mis Capas", pt:"Minhas Camadas"},
         MisEStaciones: { es: "Mis Estaciones", pt:"Minhas Estações"},
         //AboutPage
-        EsUnGeoPortal: { es: "es un GeoPortal que permite consultar información georreferenciada de diferentes tipos, incluyendo imagenes de datos satelitales, resultados de modelos de pronósticos, valores de sensores de estaciones meteorológicas en tiempo real, datos tabulares históricos clasificados por zonas geográficas, entre otros tipos.", pt:"é um GeoPortal que permite consultar informação georreferenciada de diferentes tipos, incluindo imagens de dados de satélite, resultados de modelos de previsão, valores de sensores de estações meteorológicas em tempo real, dados tabulares históricos classificados por áreas geográficas, entre outros tipos."},
+        EsUnGeoPortal: { es: "es un GeoPortal que permite consultar información georreferenciada de diferentes tipos, incluyendo imagenes de datos satelitales, resultados de modelos de pronósticos, valores de sensores de estaciones meteorológicas en tiempo real, datos tabulares históricos clasificados por zonas geográficas, entre otros tipos.", pt:" é um GeoPortal que permite consultar informação georreferenciada de diferentes tipos, incluindo imagens de dados de satélite, resultados de modelos de previsão, valores de sensores de estações meteorológicas em tempo real, dados tabulares históricos classificados por áreas geográficas, entre outros tipos."},
         //ColabPage <latim>
         //Updates
-        NotaVersion1: { es: "Nota de version GEOOs 2.3", pt:"Nota de versão do GEOOs 2.3"},
+        NotaVersion1: { es: "Nota de version B.S.O 2.3", pt:"Nota de versão do B.S.O 2.3"},
         NotaVersion2: { es: "1. Grupo inicial personalizado (configurable desde Favoritos)", pt:"1. Grupo inicial personalizado (configurável em Favoritos)"},
-        NotaVersion3: { es: "Al iniciar GEOOs aparece un grupo de capas por defecto, el cual desde el Panel Favoritos puede ser cambiado. Basta con agregar cualquier grupo desde Mi Panel y hacer click en el pin para seleccionarlo como grupo por defecto", pt:"Ao iniciar GEOOs, um grupo de camadas aparece por padrão, o que pode ser alterado no Painel de Favoritos. Basta adicionar qualquer grupo do Meu Painel e clicar no alfinete para selecioná-lo como grupo padrão"},
+        NotaVersion3: { es: "Al iniciar B.S.O aparece un grupo de capas por defecto, el cual desde el Panel Favoritos puede ser cambiado. Basta con agregar cualquier grupo desde Mi Panel y hacer click en el pin para seleccionarlo como grupo por defecto", pt:"Ao iniciar GEOOs, um grupo de camadas aparece por padrão, o que pode ser alterado no Painel de Favoritos. Basta adicionar qualquer grupo do Meu Painel e clicar no alfinete para selecioná-lo como grupo padrão"},
         NotaVersion4: { es: "2. Se puede ver que estacion se agrego a Mi panel desde panel lateral", pt:"2. Você pode ver qual estação foi adicionada ao meu painel no painel lateral"},
         NotaVersion5: { es: "3. Barra de colores", pt:"3. Barra de cores"},
         NotaVersion6: { es: "Cuando se selecciona una capa y un visualizados, en la parte inferior derecha de la pantalla aparece una barra de colores en donde se muestra el significado de la gama de colores de esa capa, si presiona sobre la paleta, puede cambiar los colores por los que mas le acomoden", pt:"Quando uma camada e uma exibição são selecionadas, uma barra de cores aparece na parte inferior direita da tela onde é mostrado o significado da gama de cores dessa camada, se você pressionar na paleta, poderá alterar as cores para as quais elas se adequam você mais"},
@@ -155,12 +155,12 @@ const mensajes = {
         //UserHelpPanel
         Ayuda: { es: "Ayuda", pt:"Ajuda"},
         Novedades: { es: "Novedades", pt:"Novidades"},
-        QueEsGeoos: { es: "Qué es GEOOs", pt:"O Que é GEOOs"},
+        QueEsGeoos: { es: "Qué es B.S.O", pt:"O Que é B.S.O"},
         FAQ: { es: "FAQ", pt:"FAQ"},
         Colaboradores: { es: "Colaboradores", pt:"Colaboradores"},
         //WHelp
         Acerca: { es: "Acerca de ...", pt:"Acerca de ..."},
-        ProyectoG: { es: "Proyecto GEOOs", pt:"Projeto GEOOs"},
+        ProyectoG: { es: "Proyecto B.S.O", pt:"Projeto B.S.O"},
         //InforBar
         //Map
         //WAudio

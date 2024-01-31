@@ -33,9 +33,9 @@
         }
 
       casper:{
-         name: "modelos do litoral Paranaense", url:"https://www.bcn.cl"
+         name: "modelos do litoral Paranaense", url:"https://litoral.ufpr.br/"
          # Imagen relativa a /opt/geoos/www
-         logo:"img/bcn.png"
+         logo:"img/bso.jpeg"
         }
 
       ine:{
@@ -107,6 +107,11 @@
 
         embrapasolo: {
         name: "Solos Embrapa 2008 Paraná",
+	       provider:"casper"
+	      }
+
+        modelo: {
+        name: "Rastro de Óleo",
 	       provider:"casper"
 	      } 
      }   

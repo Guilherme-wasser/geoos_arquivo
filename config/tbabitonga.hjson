@@ -1,6 +1,6 @@
 {
     dataSet: {type: "raster", format:"netCDF"}
-    deleteFinishedFiles: false
+    deleteFinishedFiles: true
     temporality:{
         value: 1, unit: hours
         searchCriteria: middle

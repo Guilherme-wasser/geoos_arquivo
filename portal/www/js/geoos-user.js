@@ -4,7 +4,7 @@ class GEOOSUser {
             name:"Usuario Anónimo", 
             toolsConfig:{tool1:"3d-chart", tool2:"3d-terrain-clouds"},
             mapConfig:{
-                selectedMap:"stamen-terrain",
+                selectedMap:"esri-world-imagery",
                 namesLayer:false,
                 grid:{
                     show:true, 
