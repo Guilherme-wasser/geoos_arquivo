@@ -94,15 +94,32 @@
         <div id="janelaPopUp">
             <div class="header">
                 <span class="close">&times;</span>
-                <p>Insira as Coordenadas:</p>
+                <p>MODELO HIDRODINAMICO</p>
             </div>
             <input type="text" id="coordX" placeholder="Coordenada X" />
             <input type="text" id="coordY" placeholder="Coordenada Y" />
+            <input type="text" id="initialDate" placeholder="(YYYY-MM-DD:HH:mm:ss)" />
+            <input type="text" id="endDate" placeholder="(YYYY-MM-DD:HH:mm:ss)" />
+            <select id="emissionTemporal">
+                <option value="Instantaneous">Instantânea</option>
+                <option value="Continuous">Contínua</option>
+            </select>
+            <input type="number" id="spillDuration" placeholder="Duração do Derramamento (horas)" />
+            <select id="oilClass">
+                <option value="HeavyOil">Óleo Pesado</option>
+                <option value="MediumOil">Óleo Médio</option>
+                <option value="LightOil">Óleo Leve</option>
+                <option value="VeryLightOil">Óleo Muito Leve</option>
+            </select>
+            <input type="number" id="pointVolume" placeholder="Volume do Ponto (m³)" step="0.01" />
+            <input type="number" id="nbrPartic" placeholder="Número de Partículas" />
+            <input type="number" id="diffusionH" placeholder="Difusão Horizontal (m²/s)" step="0.01" />
             <br/>
             <button id="inserirCoordMapa">Inserir Coordenadas pelo Mapa</button>
             <button id="irParaCoordenadas">Ir</button>
             <button id="limparCoordenadas">Limpar</button>
-            <button id="enviarCoordenadas">Enviar</button>
+            <button id="enviarCoordenadas">Criar arquivo .json para alimentar modelo</button>
+            <button id="executarScriptPython1">teste</button>
         </div>
         <div id="iconeCarregamento" style="display: none;">
             <img src="https://i.imgur.com/llF5iyg.gif" alt="Carregando...">

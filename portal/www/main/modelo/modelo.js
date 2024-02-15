@@ -12,6 +12,8 @@ class Modelo extends ZCustomController {
         this.find(".close").onclick = () => this.onJanelaPopUpFechar_click();
         this.find("#inserirCoordMapa").onclick = () => this.startMapClickListening();
         this.find("#enviarCoordenadas").onclick = () => this.enviarCoordenadasNc();
+        this.find("#executarScriptPython1").onclick = () => this.executarScriptPython();
+
         // Adiciona o manipulador de eventos para o novo botão
         this.irParaCoordenadas = () => {
             const lat = parseFloat(this.find("#coordX").value);
@@ -36,25 +38,115 @@ class Modelo extends ZCustomController {
         this.find("#limparCoordenadas").onclick = () => this.limparDadosDoMapa();
     }
 
-    // Método para enviar coordenadas
+    // Método para enviar coordenadas, ajustado para integração direta com eventos de UI
     enviarCoordenadasNc() {
-        if (this.currentMarker) {
-            const latLng = this.currentMarker.getLatLng();
-            const coordenadas = { lat: latLng.lat, lng: latLng.lng };
+        // Coleta de dados dos campos de entrada
+        const coordX = this.find("#coordX").value;
+        const coordY = this.find("#coordY").value;
+        const initialDate = this.find("#initialDate").value;
+        const endDate = this.find("#endDate").value;
+        const emissionTemporal = this.find("#emissionTemporal").value;
+        const spillDuration = this.find("#spillDuration").value;
+        const oilClass = this.find("#oilClass").value;
+        const pointVolume = this.find("#pointVolume").value;
+        const nbrPartic = this.find("#nbrPartic").value;
+        const diffusionH = this.find("#diffusionH").value;
 
-            // Exibir ícone de carregamento
-            this.mostrarIconeCarregamento(true);
+        // Construção do objeto com os dados a serem enviados
+        const dataToSend = {
+            lon: parseFloat(coordX),
+            lat: parseFloat(coordY),
+            initial_date: initialDate,
+            end_date: endDate,
+            emission_temporal: emissionTemporal,
+            spill_duration: parseInt(spillDuration, 10),
+            oil_class: oilClass,
+            point_volume: parseFloat(pointVolume),
+            nbr_partic: parseInt(nbrPartic, 10),
+            diffusion_h: parseFloat(diffusionH)
+        };
 
-            // Simula o envio de coordenadas e o recebimento do arquivo netcdf
-            setTimeout(() => {
-                this.mostrarIconeCarregamento(false);
-                // Aqui você pode adicionar a lógica para lidar com o arquivo netcdf recebido
-            }, 3000); // Ajuste este tempo conforme necessário
+        fetch('/salvar-coordenadas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dataToSend),
+        })
+        .then(response => {
+            if (response.ok && response.headers.get("Content-Type").includes("application/json")) {
+                return response.json(); // Processa a resposta como JSON
+            }
+            throw new Error('A resposta do servidor não é JSON');
+        })
+        .then(data => {
+            console.log('Dados enviados com sucesso:', data);
+            this.mostrarIconeCarregamento(false); // Oculta ícone de carregamento
+        })
+        .catch((error) => {
+            console.error('Erro ao enviar dados:', error);
+            this.mostrarIconeCarregamento(false); // Oculta ícone de carregamento mesmo em caso de falha
+        });
 
-            console.log("Coordenadas enviadas:", coordenadas);
-        } else {
-            alert("Por favor, insira as coordenadas primeiro.");
+        // Mostrar ícone de carregamento
+        this.mostrarIconeCarregamento(true);
+    }
+
+    async addModeloModeloLayer() {
+        try {
+            //é um método que retorna todas as camadas disponíveis
+            let availableLayers = await window.geoos.getAvailableLayers("vector");
+    
+            // Encontrar a camada específica com o código "modelo.modelo"
+            let modeloLayer = availableLayers.find(l => l.code === "modelo.modelo" && l.type === "vector");
+    
+            // Verificar se a camada foi encontrada
+            if (!modeloLayer) {
+                console.error("Camada 'modelo.modelo' não encontrada.");
+                return;
+            }
+    
+            // Adicionar a camada encontrada ao grupo ativo ou ao contexto desejado
+            let group = window.geoos.getActiveGroup();
+            if (!group) {
+                console.error("Nenhum grupo ativo encontrado para adicionar a camada.");
+                return;
+            }
+    
+            // Criar uma instância da camada com base na configuração encontrada
+            let geoosLayer = GEOOSLayer.create(modeloLayer);
+    
+            // Adicionar a instância da camada ao grupo
+            await group.addLayer(geoosLayer);
+    
+            // Disparar um evento para notificar que uma nova camada foi adicionada
+            await window.geoos.events.trigger("portal", "layerAdded", group);
+    
+            console.log("Camada 'modelo.modelo' adicionada com sucesso.");
+        } catch (error) {
+            console.error("Erro ao tentar adicionar a camada 'modelo.modelo':", error);
         }
+    }
+    
+    
+    executarScriptPython() {
+        fetch('/executar-script-python', { method: 'GET' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Falha ao executar o script Python');
+            }
+            return response.text(); // ou .json() se o seu script Python retorna JSON
+        })
+        .then(data => {
+            console.log(data); // Log do resultado do script
+            
+            setTimeout(() => {
+                this.addModeloModeloLayer();
+            }, 7000 );
+        })
+        .catch((error) => {
+            console.error('Erro:', error);
+        });
     }
     
     // Método para mostrar ou ocultar o ícone de carregamento

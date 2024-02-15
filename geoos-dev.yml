@@ -14,7 +14,7 @@ services:
       - ./mongo-data:/data/db
 
   portal:
-    image: node:14-alpine
+    image: guilewasser/newportal:latest
     deploy:
       restart_policy:
         condition: on-failure
@@ -29,10 +29,12 @@ services:
     volumes:
       - ./portal:/usr/src/app
       - ./config:/home/config
+      - ./data:/home/data
     command: "npm run-script debug"
 
   geoserver:
-    image: docker.homejota.net/geoos/gdal-node16-nco-cdo
+    image: guilewasser/pglang:latest
+    #image: docker.homejota.net/geoos/gdal-node16-nco-cdo
     #image: docker.homejota.net/geoos/gdal-node14-arm
     #image: docker.homejota.net/geoos/gdal-node14
     deploy:
@@ -71,21 +73,58 @@ services:
       - ./log:/home/log
     command: "npm run-script debug"
 
- # noaa-gfs4:
-  #  image: node:14-alpine
-   # deploy:
-    #  restart_policy:
-     #   condition: on-failure
-    #ports:
-    #  - 9230:9230/tcp # nodemon debugger
-    #working_dir: /usr/src/app
-    #environment:
-    #  LOG_LEVEL: debug
-    #  DOWNLOADER_ACTIVE: "false"
-    #  N_PARALLEL_DOWNLOADS: 5
-    #volumes:
-    #  - ./../../noaa-gfs4:/usr/src/app
-    #  - ./../../dev-data/data:/home/data
-    #  - ./../../dev-data/config:/home/config
-    #  - ./../../dev-data/log:/home/log
-    #command: "npm run-script debug"    
+    #noaa-gfs4:
+    #     image: node:14-alpine
+    #     deploy:
+    #        restart_policy:
+    #            condition: on-failure
+    #     ports:
+    #         - 9230:9230/tcp # nodemon debugger
+    #     working_dir: /usr/src/app
+    #     environment:
+    #         LOG_LEVEL: debug
+    #         DOWNLOADER_ACTIVE: "false"
+    #         N_PARALLEL_DOWNLOADS: 5
+    #     volumes:
+    #         - ./noaa-gfs4:/usr/src/app
+    #         - ./data:/home/data
+    #         - ./config:/home/config
+    #         - ./log:/home/log
+    #     command: "npm run-script debug"  
+
+    #noaa-ww3:
+    #    image: node:14-alpine
+    #    deploy:
+    #        restart_policy:
+    #            condition: on-failure
+    #    ports:
+    #        - 9232:9232/tcp # nodemon debugger
+    #    working_dir: /usr/src/app
+    #    environment:
+    #        LOG_LEVEL: debug
+    #        DOWNLOADER_ACTIVE: "false"
+    #        N_PARALLEL_DOWNLOADS: 5
+    #    volumes:
+    #        - ./noaa-ww3:/usr/src/app
+    #        - ./data:/home/data
+    #        - ./config:/home/config
+    #        - ./log:/home/log
+    #    command: "npm run-script debug"
+
+    #copernicus:
+    #    image: docker.homejota.net/geoos/node14-python3
+    #    deploy:
+    #        restart_policy:
+    #            condition: on-failure
+    #    ports:
+    #        - 9233:9233/tcp # nodemon debugger
+    #    working_dir: /usr/src/app
+    #    environment:
+    #        LOG_LEVEL: debug
+    #        DOWNLOADER_ACTIVE: "false"
+    #    volumes:
+    #        - ./copernicus:/usr/src/app
+    #        - ./data:/home/data
+    #        - ./config:/home/config
+    #        - ./log:/home/log
+    #   command: "npm run-script debug"  

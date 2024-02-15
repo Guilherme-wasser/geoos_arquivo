@@ -9,6 +9,9 @@ async function startHTTPServer() {
         const bodyParser = require('body-parser');
         const http = require('http');
         const portal = require("./lib/Portal");
+        const { spawn } = require('child_process');
+        const path = require('path');
+        const fs = require('fs');
 
         zServer.registerModule("geoos", portal);
 
@@ -41,9 +44,43 @@ async function startHTTPServer() {
         //   next();
         //});
 
+        app.post('/salvar-coordenadas', (req, res) => {
+            const data = req.body;
+            const filePath = path.join('/home/data/cabral', 'coordenadas.json');
+            fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).send('Erro ao salvar o arquivo');
+                    return;
+                }
+                res.json({ message: 'Dados salvos com sucesso.' });
+            });
+        });
+
+        app.get('/executar-script-python', (req, res) => {
+            const scriptPath = path.join(__dirname, 'rastro_geojson.py');
+            const pythonProcess = spawn('python', [scriptPath]);
+
+            pythonProcess.stdout.on('data', (data) => {
+                console.log(`stdout: ${data}`);
+            });
+
+            pythonProcess.stderr.on('data', (data) => {
+                console.error(`stderr: ${data}`);
+                res.status(500).send('Erro ao executar o script Python');
+            });
+
+            pythonProcess.on('close', (code) => {
+                console.log(`Processo Python finalizado com código ${code}`);
+                res.send('Script Python executado com sucesso');
+            });
+        });
+        
+        
         app.use((req, res, next) => {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+            res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
             next();
         });
         
