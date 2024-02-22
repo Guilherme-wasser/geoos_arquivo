@@ -312,9 +312,9 @@ class GEOOSUserObjectPoint extends GEOOSUserObject {
 
     getPropertyPanels() {
         return [{
-            code:"point-object-properties", name:"Propiedades del Punto", path:"./userObjects/PointObjectProperties"
+            code:"point-object-properties", name:"Propriedades do Punto", path:"./userObjects/PointObjectProperties"
         }, {
-            code:"user-object-watchers", name:"Observar Variables", path:"./userObjects/UOWatchers"
+            code:"user-object-watchers", name:"Observar Variáveis", path:"./userObjects/UOWatchers"
         }]
     }
 

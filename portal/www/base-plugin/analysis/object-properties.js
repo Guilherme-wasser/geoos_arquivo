@@ -29,7 +29,7 @@ class GEOOSAnalyzerObjectProperties extends GEOOSAnalyzer {
     }
 }
 
-GEOOSAnalyzer.register("object-properties", "Propiedades del Objeto", 
+GEOOSAnalyzer.register("object-properties", "Propiedades do Objeto", 
     o => (o.type == "vector-object"), 
     (o, listeners) => (new GEOOSAnalyzerObjectProperties(o, listeners)),
     250

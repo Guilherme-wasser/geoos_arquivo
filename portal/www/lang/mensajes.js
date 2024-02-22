@@ -52,7 +52,7 @@ const mensajes = {
         NombreVarFil: { es: "Nombre de la Variable Filtrada", pt:"Nome da Variável Filtrada"},
         DescGel: { es: "Descripción General", pt:"Descrição Geral"},
         Detalles: { es: "Detalles", pt:"Detalhes"},
-        DispGeo: { es: "Disponibilidad GEOOS", pt:"Disponibilidade GEOOS"},
+        DispGeo: { es: "Disponibilidad B.S.O", pt:"Disponibilidade B.S.O"},
         //Wpublish
         PubB: { es: "Publicar en Biblioteca", pt:"Publicar na Biblioteca"},
         TitPub: { es: "Título de la Publicación", pt:"Título de Publicação"},

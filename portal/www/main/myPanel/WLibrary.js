@@ -1,4 +1,4 @@
-class WLibrary extends ZDialog {
+/*class WLibrary extends ZDialog {
     onThis_init(options) {
         this.edTema.setRows([{code:"", name:window.toLang("$[javascripts.nn1]")}].concat(geoos.temasBiblioteca));
         this.refrescar();
@@ -147,4 +147,4 @@ class WLibrary extends ZDialog {
         });
     }
 }
-ZVC.export(WLibrary);
+ZVC.export(WLibrary);*/

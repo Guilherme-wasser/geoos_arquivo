@@ -30,11 +30,11 @@ class Tool3DChart extends GEOOSTool {
         return [{
             code:"tool-props", name:window.toLang("$[javascripts.datafrase8]"), path:"./propertyPanels/PropToolName"
         }, {
-            code:"raster-var", name:"Selección de Variable", path:"./propertyPanels/SelectRasterVariable"
+            code:"raster-var", name:window.toLang("$[MainMenu.SelVar]"), path:"./propertyPanels/SelectRasterVariable"
         }, {
-            code:"color-scale", name:"Escala de Colores", path:"./propertyPanels/ToolColorScaleProperties"
+            code:"color-scale", name:window.toLang("$[javascripts.geost_02]"), path:"./propertyPanels/ToolColorScaleProperties"
         }, {
-            code:"p3d-axis-scale", name:"Escalar Ejes", path:"geoos-tools/3d-chart-panels/3DChartScaleAxis"
+            code:"p3d-axis-scale", name:window.toLang("$[javascripts.datafrase9]"), path:"geoos-tools/3d-chart-panels/3DChartScaleAxis"
         }]
     }
 
