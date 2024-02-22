@@ -12,7 +12,7 @@
       code: geoos-test 
       name: Geo-Server de Prueba 
       publicURL: http://localhost:8080 
-      enableTestWebServer: false 
+      enableTestWebServer: true 
   } 
 
   ## Web server to publish REST Services and Web Content to GEOOS Server, Browsers and other client applications  
@@ -43,6 +43,12 @@
          # Imagen relativa a /opt/geoos/www
          logo:"img/bcn.png"
         }
+
+      noaa-ww3:{
+         name: "NOAA-WW3", url:"https://www.bcn.cl"
+         # Imagen relativa a /opt/geoos/www
+         logo:"img/bcn.png"
+        }  
    } 
     
 
@@ -110,16 +116,41 @@
 	       provider:"casper"
 	      }
 
-        modelo: {
-        name: "Rastro de Óleo",
+        copernicus-CHL-L4: {
+        name: "CHL",
+	       provider:"casper"
+	      }
+
+        copernicus-PHY-L4: {
+        name: "PHY",
 	       provider:"casper"
 	      } 
+
+        copernicus-SST-L4: {
+        name: "sst",
+	       provider:"casper"
+	      } 
+
+        copernicus: {
+        name: "geral",
+	       provider:"casper"
+	      } 
+
+        noaa-ww3: {
+        name: "noaa-ww3",
+	       provider:"noaa-ww3"
+	      }
+
+        noaa-gfs4: {
+        name: "noaa-gfs4",
+	       provider:"casper"
+	      }  
      }   
 
     ## Scales  
     colorScales:[
 	    {
-	      name:"green to red", type:"linear-hsl" config:{s:"100%", l:"50%"}
+	      name:"Verde a Rojo", type:"linear-hsl" config:{s:"100%", l:"50%"}
 	    }
      ] 
   }
