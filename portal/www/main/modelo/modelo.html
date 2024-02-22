@@ -20,13 +20,17 @@
                 position: fixed;
                 left: 50%; 
                 top: 50%; 
-                /* Remova a linha abaixo */
-                /* transform: translate(-50%, -50%); */
                 z-index: 10001;
                 padding: 20px;
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
                 border-radius: 10px;
                 border: 1px solid #ddd;
+                max-width: 90%; /* Limita a largura máxima da janela para evitar que saia da tela */
+                max-height: 90%; /* Limita a altura máxima da janela */
+                right: 10px; /* Posiciona a janela lateralmente */
+                top: 10px; /* Posiciona a janela no topo com um pequeno espaçamento */
+                transform: translate(0, 0); /* Ajusta o posicionamento para não usar translate */
+                overflow: auto; /* Permite scroll se o conteúdo exceder a janela */
             }
 
             #janelaPopUp button {
@@ -36,7 +40,11 @@
                 padding: 10px 15px; /* Espaçamento interno */
                 border-radius: 5px; /* Bordas arredondadas */
                 transition: background-color 0.3s; /* Transição suave ao mudar de cor */
+                width: 100%; /* Faz com que os botões ocupem toda a largura da janela */
+                box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+                margin-bottom: 5px; /* Adiciona uma margem na parte inferior de cada botão */
             }
+            
             #janelaPopUp button:hover {
                 background-color: #45a049; /* Cor ao passar o mouse */
             }
@@ -90,11 +98,11 @@
         </style>
     </head>
     <body>
-        <button id="meuBotao" class="draggable-button">Enviar Coordenadas ao Modelo</button>
+        <button id="meuBotao" class="draggable-button">Monitoramento de Óleo</button>
         <div id="janelaPopUp">
             <div class="header">
                 <span class="close">&times;</span>
-                <p>MODELO HIDRODINAMICO</p>
+                <p>Monitoramento de Óleo</p>
             </div>
             <input type="text" id="coordX" placeholder="Coordenada X" />
             <input type="text" id="coordY" placeholder="Coordenada Y" />
@@ -115,11 +123,11 @@
             <input type="number" id="nbrPartic" placeholder="Número de Partículas" />
             <input type="number" id="diffusionH" placeholder="Difusão Horizontal (m²/s)" step="0.01" />
             <br/>
-            <button id="inserirCoordMapa">Inserir Coordenadas pelo Mapa</button>
-            <button id="irParaCoordenadas">Ir</button>
+            <button id="inserirCoordMapa">Inserir coordenadas pelo mapa</button>
+            <button id="irParaCoordenadas">Ir para coordenada</button>
             <button id="limparCoordenadas">Limpar</button>
-            <button id="enviarCoordenadas">Criar arquivo .json para alimentar modelo</button>
-            <button id="executarScriptPython1">teste</button>
+            <button id="enviarCoordenadas">Enviar dados sobre o derramamento</button>
+            <button id="executarScriptPython1">Carregar dados sobre o derramamento</button>
         </div>
         <div id="iconeCarregamento" style="display: none;">
             <img src="https://i.imgur.com/llF5iyg.gif" alt="Carregando...">

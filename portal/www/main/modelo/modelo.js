@@ -127,37 +127,6 @@ class Modelo extends ZCustomController {
             console.error("Erro ao tentar adicionar a camada 'modelo.modelo':", error);
         }
     }
-    
-    
-    executarScriptPython() {
-        fetch('/executar-script-python', { method: 'GET' })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Falha ao executar o script Python');
-            }
-            return response.text(); // ou .json() se o seu script Python retorna JSON
-        })
-        .then(data => {
-            console.log(data); // Log do resultado do script
-            
-            setTimeout(() => {
-                this.addModeloModeloLayer();
-            }, 7000 );
-        })
-        .catch((error) => {
-            console.error('Erro:', error);
-        });
-    }
-    
-    // Método para mostrar ou ocultar o ícone de carregamento
-    mostrarIconeCarregamento(mostrar) {
-        // Aqui, você pode implementar a lógica para mostrar ou ocultar um ícone de carregamento
-        // Por exemplo, alterar a visibilidade de um elemento HTML com um ícone de carregamento
-        const iconeCarregamento = this.find("#iconeCarregamento"); // Substitua pelo seu seletor correto
-        if (iconeCarregamento) {
-            iconeCarregamento.style.display = mostrar ? "block" : "none";
-        }
-    }     
 
     initButtonPosition(button) {
         if (!button.style.left) {
@@ -249,28 +218,47 @@ class Modelo extends ZCustomController {
         const windowDrag = e => {
             if (!isDragging) return;
             e.preventDefault();
-            // Aplica o deslocamento à janela mantendo-a alinhada com o cursor
-            const newX = e.clientX - initialX + windowElement.offsetLeft;
-            const newY = e.clientY - initialY + windowElement.offsetTop;
+            // Calcula o novo deslocamento
+            let newX = e.clientX - initialX + windowElement.offsetLeft;
+            let newY = e.clientY - initialY + windowElement.offsetTop;
+        
+            // Garante que a janela não saia da área visível do navegador na parte superior e nas laterais
+            newX = Math.max(0, newX); // Impede que saia pela esquerda
+            newY = Math.max(0, newY); // Impede que saia por cima
+        
+            // Impede que a janela saia pela direita
+            const maxNewX = window.innerWidth - windowElement.offsetWidth;
+            newX = Math.min(maxNewX, newX);
+        
+            // Impede que a janela saia pela parte inferior
+            const maxNewY = window.innerHeight - windowElement.offsetHeight;
+            newY = Math.min(maxNewY, newY);
+        
+            // Aplica o novo deslocamento à janela
             windowElement.style.left = newX + 'px';
             windowElement.style.top = newY + 'px';
+        
+            // Atualiza as coordenadas iniciais para o próximo movimento
             initialX = e.clientX;
             initialY = e.clientY;
         };
-    
+        
         const closeDragElement = () => {
             document.onmouseup = null;
             document.onmousemove = null;
             isDragging = false;
         };
-    
+        
+        // Supondo que `handle.onmousedown` e a lógica de inicialização já estejam definidos corretamente
         handle.onmousedown = dragMouseDown;
+                
     }
     
     
     limparDadosDoMapa() {
-        console.log("Limpar coordenadas e marcador.");
-        
+        console.log("Limpar todas as entradas e remover marcador.");
+    
+        // Remove o marcador, se existir
         if (this.currentMarker) {
             console.log("Removendo marcador.");
             this.currentMarker.remove();
@@ -279,9 +267,20 @@ class Modelo extends ZCustomController {
             console.log("Nenhum marcador para remover.");
         }
     
+        // Limpa todos os campos de texto e número
         this.find("#coordX").value = "";
         this.find("#coordY").value = "";
-    }
+        this.find("#initialDate").value = "";
+        this.find("#endDate").value = "";
+        this.find("#spillDuration").value = "";
+        this.find("#pointVolume").value = "";
+        this.find("#nbrPartic").value = "";
+        this.find("#diffusionH").value = "";
+    
+        // Reseta todas as seleções para o primeiro valor disponível
+        this.find("#emissionTemporal").selectedIndex = 0;
+        this.find("#oilClass").selectedIndex = 0;
+    }    
 
     setupDraggableButton() {
         const btn = this.find("#meuBotao");
@@ -293,6 +292,43 @@ class Modelo extends ZCustomController {
         const popup = this.find("#janelaPopUp");
         const header = popup.querySelector(".header");
         this.makeWindowDraggable(popup, header);
-    }   
+    }
+    
+    executarScriptPython() {
+        // Mostrar ícone de carregamento
+        this.mostrarIconeCarregamento(true);
+    
+        fetch('/executar-script-python', { method: 'GET' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Falha ao executar o script Python');
+            }
+            return response.text(); // ou .json() se o seu script Python retorna JSON
+        })
+        .then(data => {
+            console.log(data); // Log do resultado do script
+            
+            // Espera 2 segundos antes de chamar `addModeloModeloLayer`
+            setTimeout(() => {
+                this.addModeloModeloLayer();
+            }, 2000 );
+        })
+        .catch((error) => {
+            console.error('Erro:', error);
+        })
+        .finally(() => {
+            // Ocultar ícone de carregamento independentemente do resultado
+            this.mostrarIconeCarregamento(false);
+        });
+    }
+    
+    mostrarIconeCarregamento(mostrar) {
+        const iconeCarregamento = this.find("#iconeCarregamento");
+        if (iconeCarregamento) {
+            iconeCarregamento.style.display = mostrar ? "block" : "none";
+        }
+    }
+    
+       
 }
 ZVC.export(Modelo);
