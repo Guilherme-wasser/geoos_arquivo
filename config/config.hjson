@@ -26,29 +26,27 @@
   ## Metadata   
     ## Providers (data producers or owners)  
     providers:{ 
-      bcn:{
-         name: "teste2", url:"https://www.bcn.cl"
-         # Imagen relativa a /opt/geoos/www
-         logo:"img/bcn.png"
-        }
 
-      casper:{
-         name: "modelos do litoral Paranaense", url:"https://litoral.ufpr.br/"
+      UFPR:{
+         name: "Universidade Federal do Paraná", url:"https://litoral.ufpr.br/"
          # Imagen relativa a /opt/geoos/www
          logo:"img/bso.jpeg"
         }
 
-      ine:{
-         name: "Instituto Nacional de Estadística", url:"https://www.bcn.cl"
-         # Imagen relativa a /opt/geoos/www
-         logo:"img/bcn.png"
-        }
+      noaa-gfs4:{
+         name: "NOAA-GFS4", url:"https://www.noaa.gov/"
+         logo:"img/bso.jpeg"
+        } 
 
       noaa-ww3:{
-         name: "NOAA-WW3", url:"https://www.bcn.cl"
-         # Imagen relativa a /opt/geoos/www
-         logo:"img/bcn.png"
-        }  
+         name: "NOAA-WW3", url:"https://www.noaa.gov/"
+         logo:"img/bso.jpeg"
+        }
+
+      copernicus:{
+         name: "Copernicus", url:"https://www.copernicus.eu/en"
+         logo:"img/bso.jpeg"
+        }   
    } 
     
 
@@ -56,49 +54,19 @@
     ## For each dataSet defined here, there should be a config file at /home/config/${dataSet-code}.hjson   
     dataSets:{
 
-        sbabitonga: {
-        name: "sbabitonga",
-	       provider:"casper"
-	      }
-
-        tbabitonga: {
-        name: "tbabitonga",
-	       provider:"casper"
-	      }
-
-        vmbabitonga: {
-	       name: "vmbabitonga",
-	       provider:"casper"
-	      }
-
-        sshbabitonga: {
-	       name: "sshbabitonga",
-	       provider:"casper"
-	      }
-
-        vetor: {
-	       name: "vetor",
-	       provider:"casper"
-	      }
-
         estac: {
-	       name: "estac",
-	       provider:"casper"
-	      }
-
-        bcn-test: {
-	       name: "Aeropuertos do CHILE",
-	       provider:"bcn"
+	       name: "estacções metereológicas",
+	       provider:"UFPR"
 	      }
 
         microreg: {
-        name: "Microregiões",
-	       provider:"casper"
+        name: "Microregiões do Paraná",
+	       provider:"UFPR"
 	      } 
 
         prmuni: {
         name: "Municípios do Paraná",
-	       provider:"casper"
+	       provider:"UFPR"
 	      }
 
         ine-region: {
@@ -108,32 +76,32 @@
 
         unicons: {
         name: "Unidades de conservação do litoral Paranaense",
-	       provider:"casper"
+	       provider:"UFPR"
 	      } 
 
         embrapasolo: {
         name: "Solos Embrapa 2008 Paraná",
-	       provider:"casper"
+	       provider:"UFPR"
 	      }
 
         copernicus-CHL-L4: {
         name: "CHL",
-	       provider:"casper"
+	       provider:"copernicus"
 	      }
 
         copernicus-PHY-L4: {
         name: "PHY",
-	       provider:"casper"
+	       provider:"copernicus"
 	      } 
 
         copernicus-SST-L4: {
         name: "sst",
-	       provider:"casper"
+	       provider:"copernicus"
 	      } 
 
         copernicus: {
-        name: "geral",
-	       provider:"casper"
+        name: "copernicus",
+	       provider:"copernicus"
 	      } 
 
         noaa-ww3: {
@@ -143,7 +111,33 @@
 
         noaa-gfs4: {
         name: "noaa-gfs4",
-	       provider:"casper"
+	       provider:"noaa-gfs4"
+	      }
+
+        CEP15: {
+        name: "Paranaguá hidrodinâmica",
+	       provider:"UFPR"
+	      }
+
+        CEP1: {
+        name: "Paranaguá Propriedades da água",
+	       provider:"UFPR"
+	      }
+        SUDESTE1: {
+        name: "Sudeste Propriedades da água",
+	       provider:"UFPR"
+	      }
+        SUDESTE15: {
+        name: "Sudeste hidrodinâmica",
+	       provider:"UFPR"
+	      } 
+        AMPA1: {
+        name: "Região Norte Propriedades da Água",
+	       provider:"UFPR"
+	      }
+        AMPA15: {
+        name: "Região Norte Hidrodinâmica",
+	       provider:"UFPR"
 	      }  
      }   
 

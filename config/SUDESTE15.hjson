@@ -1,0 +1,85 @@
+{
+  dataSet: {
+    type: "raster"
+    format: "netCDF"
+  }
+  deleteFinishedFiles: true
+  temporality: {
+    value: 15
+    unit: minutes
+    searchCriteria: middle
+  }
+  clippingArea: {
+    w: -50.0517171
+    e: -32.9683825
+    s: -29.7250589
+    n: -18.3083922
+  }
+
+  # Grid Query Config
+  grid: {
+    maxWidth: 150
+    maxHeight: 150
+    # gdal_translate resampling algorithm
+    # nearest (default), bilinear, cubic, cubicspline, lanczos, average, mode
+    resampling: nearest
+  }
+  # VectorsGrid Query Config
+  vectorsGrid: {
+    maxWidth: 60
+    maxHeight: 60
+    # gdal_translate resampling algorithm
+    # nearest (default), bilinear, cubic, cubicspline, lanczos, average, mode
+    resampling: bilinear
+  }
+  # Contour Query Config
+  contour: {
+    maxWidth: 150
+    maxHeight: 150
+    # gdal_translate resampling algorithm
+    # nearest (default), bilinear, cubic, cubicspline, lanczos, average, mode
+    resampling: nearest
+  }
+
+  # Apply to All Variables in dataSet
+  # can be extended in variables definition
+  variablesDefaults: {
+    # How many periods (value, unit) should be used to search (before and ahead) if no file is found for specific time
+    searchTolerance: 5
+    options: {
+      decimals: 2
+      subjects: ["UFPR"]
+      initialVisualizers: {shader: true}
+    }
+  }
+
+    "variables": {
+        "U": {
+            "selector": {standard_name: "eastward_sea_water_velocity"},
+            "name": "u",
+            "unit": "m s-1",
+            "options": {"hidden": false}
+        },
+        "V": {
+            "selector": {standard_name: "northward_sea_water_velocity"},
+            "name": "v",
+            "unit": "m s-1",
+            "options": {"hidden": false}
+        },
+    "UV_Vector": {
+        "calculated": {
+            "U": "U",
+            "V": "V",
+            "formula": "sqrt(U*U + V*V)"
+        },
+        "vector":{uComponent:"U", vComponent:"V"}
+        "name": "SUDESTE - Velocidade da água do mar (vetor)",
+        "unit": "m s-1",
+        }
+    "altura": {
+        selector: {standard_name: "sea_surface_height_above_geoid"}
+        name: "SUDESTE - Altura da superfície da água"
+        unit: "m"
+        }
+    }
+}

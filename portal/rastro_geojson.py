@@ -3,7 +3,7 @@ import geojson
 
 def geojsonfazer():
     # Abra o arquivo NetCDF
-    nc_dataset = nc.Dataset('/home/data/cabral/P-53_2019_ 4_ 2_ 0_ 0_ 0.00000000.nc')  # Alterado de nc para nc_dataset
+    nc_dataset = nc.Dataset('/home/data/UFPR/spill/P-53_2019_ 4_ 2_ 0_ 0_ 0.00000000.nc')  # Alterado de nc para nc_dataset
 
     # Leitura das variáveis
     lons = nc_dataset.variables['longitude'][:]  # Coordenadas de longitude
@@ -21,7 +21,7 @@ def geojsonfazer():
     feature_collection = geojson.FeatureCollection(features)
 
     # Salvar em um arquivo
-    with open('/home/data/import/modelo_modelo.geojson', 'w') as f:
+    with open('/home/data/import/spill_oleo.geojson', 'w') as f:
         geojson.dump(feature_collection, f)
 
     print('Processo finalizado')

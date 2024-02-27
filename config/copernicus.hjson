@@ -5,7 +5,7 @@
     #
     # Importer config
     # Fnished files can be deleted or moved to /home/data/finished
-    deleteFinishedFiles: false
+    deleteFinishedFiles: true
 
     # Temporality associaed to each imported file. 
     # All time values in dataSets are UTC

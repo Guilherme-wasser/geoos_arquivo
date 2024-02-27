@@ -1,0 +1,55 @@
+{
+    "dataSet": {
+        "type": "vector",
+        "format": "geoJSON"
+    },
+    "deleteFinishedFiles": true,
+    "temporality": "none",
+    "maxFilesInCache": 30,
+    "maxTiledFilesInCache": 30,
+    "filesDefault": {
+        "Cache": true,
+        "searchTolerance": 5,
+        "options": {
+            "subjects":["brasil"]
+        }
+    },
+    "files": {
+        "oleo": {
+            "cache": true,
+            "tiledCache": true,
+            "commonName": "Mancha de Óleo",
+            "metadata": {
+                "idProperty": "id",
+                "centroid": true,
+                "copyProperties": {
+                    "Espessura": "Thickness" 
+                }
+            },
+            "options": {
+                "decimals": 2,
+                "subjects": ["UFPR"],
+                "colorScale": {
+                    "name": "green to red",
+                    "auto": true,
+                    "clipOutOfRange": false
+                },
+                "initialVisualizers": {
+                    "shader": true
+                },
+                "getFeatureStyle": {
+                    "stroke": "green",
+                    "strokeWidth": "dynamic",
+                    "radius": 5,
+                    "fill": "dynamic"
+                },
+                "getSelectedFeatureStyle": {
+                    "stroke": "red",
+                    "strokeWidth": 2.0,
+                    "fill": "rgba(50,50,250,0.4)",
+                    "radius": 7
+                }
+            }
+        }
+    }
+}

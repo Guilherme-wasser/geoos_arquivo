@@ -53,40 +53,24 @@
     hereAPIKey: "eG2NCop0Fa_k1JUQUaiZvkt-pQKlSlYODS_UwKqaD6c"
 
     # Servers
-    #geoServers: ["https://geoserver.geoos.org", "http://192.168.100.151:8080"]
-    geoServers: ["http://192.168.100.151:8080"]
+    geoServers: ["https://geoserver.geoos.org", "http://192.168.100.151:8080"]
+    #geoServers: ["http://192.168.100.151:8080"]
     #zRepoServers: [{ url: "https://zrepo.geoos.org", token: "geoos-public" }]
     zRepoServers: [{ url: "http://192.168.100.151:8096", token: "demo-token" }]
     
     # Variables Classification
-    varSubjects: [
-        {
-            code: "meteo",
-            name: "Metereología"
-        }, 
+    varSubjects: [ 
         {
             code: "oce",
             name: "Oceanografía"
-        }, 
-        {
-            code: "geo",
-            name: "Geología"
-        }, 
+        },  
         {
             code: "geopolitica",
             name: "Divisão Geopolítica"
         }, 
         {
-            code: "senso",
-            name: "Datos desde Senso"
-        },
-        {
-            code: "interes",
-            name: "estacoes"
-        },
-        {
-            code:"brasil"
-            name:"super teste brasil"
+            code:"UFPR"
+            name:"Universidade Federal do Paraná"
         }
     ]
     
