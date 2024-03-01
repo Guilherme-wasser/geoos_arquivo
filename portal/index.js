@@ -1,5 +1,7 @@
 const config = require("./lib/Config");
 
+const MohidOilSimulation = require("./Oil_Spill_Tool/MohidOilSimulation");
+
 async function startHTTPServer() {
     try {
         await (require("./lib/MongoDB")).init();
@@ -17,6 +19,10 @@ async function startHTTPServer() {
 
         app.get("/", (req, res) => {
             res.sendFile(__dirname + "/www/main/welcome/");
+        });
+
+        app.get("/docs", (req, res) => {
+            res.redirect("http://localhost:8000");
         });
 
         app.get("/docs", (req, res) => {
@@ -58,21 +64,26 @@ async function startHTTPServer() {
         });
 
         app.get('/executar-script-python', (req, res) => {
-            const scriptPath = path.join(__dirname, 'rastro_geojson.py');
-            const pythonProcess = spawn('python', [scriptPath]);
+            var m = new MohidOilSimulation();
+            m.simulate("-48.1225", "-27.956389", "2023-06-17:04:00", "2023-06-17:05:00", (v) => {
+                // v[0] = "/home/data/cabral/P-53_2019_ 4_ 2_ 0_ 0_ 0.00000000.nc";
+                console.log(v);
+                const scriptPath = path.join(__dirname, 'rastro_geojson.py');
+                const pythonProcess = spawn('python3', [scriptPath, v[0]]);
 
-            pythonProcess.stdout.on('data', (data) => {
-                console.log(`stdout: ${data}`);
-            });
+                pythonProcess.stdout.on('data', (data) => {
+                    console.log(`stdout: ${data}`);
+                });
 
-            pythonProcess.stderr.on('data', (data) => {
-                console.error(`stderr: ${data}`);
-                res.status(500).send('Erro ao executar o script Python');
-            });
+                pythonProcess.stderr.on('data', (data) => {
+                    console.error(`stderr: ${data}`);
+                    res.status(500).send('Erro ao executar o script Python');
+                });
 
-            pythonProcess.on('close', (code) => {
-                console.log(`Processo Python finalizado com código ${code}`);
-                res.send('Script Python executado com sucesso');
+                pythonProcess.on('close', (code) => {
+                    console.log(`Processo Python finalizado com código ${code}`);
+                    res.send('Script Python executado com sucesso');
+                });
             });
         });
         

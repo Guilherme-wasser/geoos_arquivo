@@ -1,0 +1,23 @@
+ OUTWATCH                  Unknown Client            Do not have               From File                 ..\res\Outwatch_1.txt                                        YES
+ DT_LOG                    Unknown Client            Do not have               From File                 ..\res\DTLog_1.txt                                           YES
+ IN_MODEL                  Unknown Client            Do not have               From File                 ..\data\Model_1.dat                                          YES
+ START                     Model                     Do not have               From File                 2023.00000000000 6.00000000000000 17.0000000000000 1.0000000 YES
+ END                       Model                     Do not have               From File                 2023.00000000000 6.00000000000000 18.0000000000000 0.0000000 YES
+ DT                        Model                     Do not have               From File                 900.000000000000                                             YES
+ VARIABLEDT                Model                     FALSE                     From File                 FALSE                                                        YES
+ GMTREFERENCE              Model                     0.00000000000000          From File                 0.00000000000000                                             YES
+ DT_PREDICTION_INTERVAL    Model                     60.0000000000000          From File                 60.0000000000000                                             YES
+ SEDIMENT_COLUMN           ModuleModel               FALSE                     From File                 FALSE                                                        YES
+ SEDIMENT                  ModuleModel               FALSE                     From File                 FALSE                                                        YES
+ LAGRANGIAN                ModuleModel               FALSE                     From File                 TRUE                                                         YES
+ WAVES                     ModuleModel               FALSE                     From File                 TRUE                                                         YES
+ NO_ISOLATED_CELLS         ModuleModel               TRUE                      From File                 TRUE                                                         YES
+ STOP_ON_BATHYMETRY_CHANGE ModuleModel               TRUE                      From File                 FALSE                                                        YES
+ BACKTRACKING              ModuleModel               FALSE                     From File                 FALSE                                                        YES
+ IN_BATIM                  Unknown Client            Do not have               From File                 ..\GeneralData\DigitalTerrain\Griddata_SC_PR_SP_1_60_v02.dat YES
+ ILB_IUB                   HorizontalGrid            Do not have               From File                 1 367                                                        YES
+ JLB_JUB                   HorizontalGrid            Do not have               From File                 1 310                                                        YES
+ HALOPOINTS                HorizontalGrid            3                         From File                 3                                                            YES
+ COORD_TIP                 HorizontalGrid            Do not have               From File                 4                                                            YES
+ LATITUDE                  HorizontalGrid            Do not have               From File                 -26.3793107890000                                            YES
+ LONGITUDE                 HorizontalGrid            Do not have               From File                 -47.2140844370000                                            YES

@@ -1,0 +1,79 @@
+ -------------------------- MOHID -------------------------
+ 
+       AUTHOR   : IST/MARETEC, Marine Modelling Group      
+       WWW      : http://www.mohid.com
+ 
+ 
+ Copyright (C) 1985, 1998, 2002, 2006.
+ Instituto Superior Tecnico, Technical University of Lisbon
+ -------------------------- MOHID -------------------------
+ 
+ Constructing Mohid Water
+ Please Wait...
+ -------------------------- MODEL -------------------------
+ 
+ Constructing      : ..
+ ID                :            1
+ ---------------------- HYDRODYNAMICS ---------------------
+ 
+ Courant Number is :    390.868710105846     
+ In Grid Cell[i,j] :            1         256
+ 
+ --------------------- WATERPROPERTIES --------------------
+ 
+ Num of Properties :            3
+ 
+ Property            : salinity
+ ---Water Quality    :  F
+ ---CEQUALW2         :  F
+ ---Life             :  F
+ ---MacroAlgae       :  F
+ ---Seagrasses       :  F
+ ---WWTPQ            :  F
+ ---Bivalve          :  F
+ ---Partitioning     :  F
+ ---Free Vert. Mov   :  F
+ ---Adv. Diff.       :  F
+ ---Discharges       :  F
+ ---Surface Fluxes   :  F
+ ---Bottom Fluxes    :  F
+ ---First Order Decay:  F
+ ---Decay Rate Property:  F
+ ---Assimilation     :            0
+ 
+ Property            : temperature
+ ---Water Quality    :  F
+ ---CEQUALW2         :  F
+ ---Life             :  F
+ ---MacroAlgae       :  F
+ ---Seagrasses       :  F
+ ---WWTPQ            :  F
+ ---Bivalve          :  F
+ ---Partitioning     :  F
+ ---Free Vert. Mov   :  F
+ ---Adv. Diff.       :  F
+ ---Discharges       :  F
+ ---Surface Fluxes   :  F
+ ---Bottom Fluxes    :  F
+ ---First Order Decay:  F
+ ---Decay Rate Property:  F
+ ---Assimilation     :            0
+ 
+ Property            : cohesive sediment
+ ---Water Quality    :  F
+ ---CEQUALW2         :  F
+ ---Life             :  F
+ ---MacroAlgae       :  F
+ ---Seagrasses       :  F
+ ---WWTPQ            :  F
+ ---Bivalve          :  F
+ ---Partitioning     :  F
+ ---Free Vert. Mov   :  F
+ ---Adv. Diff.       :  F
+ ---Discharges       :  F
+ ---Surface Fluxes   :  F
+ ---Bottom Fluxes    :  F
+ ---First Order Decay:  F
+ ---Decay Rate Property:  F
+ ---Assimilation     :            0
+ 

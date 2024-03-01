@@ -14,7 +14,8 @@ services:
       - ./mongo-data:/data/db
 
   portal:
-    image: guilewasser/newportal:latest
+    # image: guilewasser/newportal:latest
+    build: ./portal/
     deploy:
       restart_policy:
         condition: on-failure
@@ -30,6 +31,9 @@ services:
       - ./portal:/usr/src/app
       - ./config:/home/config
       - ./data:/home/data
+      # - ./Mohid:/usr/src/app/Mohid
+      # - ./Mohid_scripts:/usr/src/app/Mohid_scripts
+
     command: "npm run-script debug"
 
   geoserver:
