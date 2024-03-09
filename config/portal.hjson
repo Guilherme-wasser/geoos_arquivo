@@ -53,16 +53,21 @@
     hereAPIKey: "eG2NCop0Fa_k1JUQUaiZvkt-pQKlSlYODS_UwKqaD6c"
 
     # Servers
-    geoServers: ["https://geoserver.geoos.org", "http://192.168.100.151:8080"]
+    geoServers: ["https://geoserver.geoos.org", "http://localhost:8080"]
     #geoServers: ["http://192.168.100.151:8080"]
     #zRepoServers: [{ url: "https://zrepo.geoos.org", token: "geoos-public" }]
-    zRepoServers: [{ url: "http://192.168.100.151:8096", token: "demo-token" }]
+    zRepoServers: [{ url: "http://localhost:8096", token: "demo-token" }]
     
     # Variables Classification
-    varSubjects: [ 
+    varSubjects: [{
+            code: "meteo", name:"Meteorologia"
+        },
+        {
+            code: "geo", name:"Geologia"
+        },
         {
             code: "oce",
-            name: "Oceanografía"
+            name: "Oceanografia"
         },  
         {
             code: "geopolitica",

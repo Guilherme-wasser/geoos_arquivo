@@ -2,7 +2,7 @@
     dataSet: {type: "raster", format:"netCDF"}
     deleteFinishedFiles: true
     temporality:{
-        value: 1, unit: hours
+        value: 2, unit: hours
         searchCriteria: middle
     }
 
