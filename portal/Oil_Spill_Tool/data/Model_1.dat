@@ -1,0 +1,8 @@
+START : 2024 03 16 03 00 0
+END : 2024 03 16 05 00 0
+DT                        : 900
+VARIABLEDT                : 0
+LAGRANGIAN                    : 1
+WAVES                         : 1
+
+STOP_ON_BATHYMETRY_CHANGE : 0

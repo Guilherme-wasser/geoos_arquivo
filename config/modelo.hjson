@@ -4,7 +4,10 @@
         "format": "geoJSON"
     },
     "deleteFinishedFiles": true,
-    "temporality": "none",
+    temporality:{
+        value: 1, unit: hours
+        searchCriteria: middle
+    }
     "maxFilesInCache": 30,
     "maxTiledFilesInCache": 30,
     "filesDefault": {
@@ -28,7 +31,7 @@
             },
             "options": {
                 "decimals": 2,
-                "subjects": ["brasil"],
+                "subjects": ["UFPR"],
                 "colorScale": {
                     "name": "green to red",
                     "auto": true,

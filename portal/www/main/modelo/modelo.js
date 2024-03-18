@@ -40,6 +40,7 @@ class Modelo extends ZCustomController {
 
     // Método para enviar coordenadas, ajustado para integração direta com eventos de UI
     enviarCoordenadasNc() {
+
         // Coleta de dados dos campos de entrada
         const coordX = this.find("#coordX").value;
         const coordY = this.find("#coordY").value;
@@ -54,8 +55,8 @@ class Modelo extends ZCustomController {
 
         // Construção do objeto com os dados a serem enviados
         const dataToSend = {
-            lon: parseFloat(coordX),
-            lat: parseFloat(coordY),
+            lon: parseFloat(coordY),
+            lat: parseFloat(coordX),
             initial_date: initialDate,
             end_date: endDate,
             emission_temporal: emissionTemporal,
@@ -92,6 +93,72 @@ class Modelo extends ZCustomController {
         this.mostrarIconeCarregamento(true);
     }
 
+    async showModeloModeloLayerInfo() {
+        try {
+            let availableLayers = await window.geoos.getAvailableLayers("vector");
+            // Filtrar todas as camadas que começam com "modelo.modelo"
+            let modeloLayers = availableLayers.filter(l => l.code.startsWith("modelo.modelo") && l.type === "vector");
+    
+            if (modeloLayers.length === 0) {
+                console.error("Nenhuma camada correspondente a 'modelo.modelo' encontrada.");
+                return;
+            }
+    
+            console.log("Camadas correspondentes a 'modelo.modelo':");
+            modeloLayers.forEach(layer => console.log(layer.code, layer));
+    
+            // Exemplo de como acessar uma camada específica, se necessário
+            // Substitua 'modelo.modelo.2024' pelo código específico que você deseja buscar
+            let specificLayerCode = "modelo.modelo.2024";
+            let specificLayer = modeloLayers.find(l => l.code === specificLayerCode);
+            if (specificLayer) {
+                console.log("Informações da camada específica encontrada:", specificLayer);
+            } else {
+                console.error(`Camada específica '${specificLayerCode}' não encontrada.`);
+            }
+        } catch (error) {
+            console.error("Erro ao tentar exibir informações das camadas 'modelo.modelo':", error);
+        }
+    }
+    
+    async showAllLayersInfo() {
+        try {
+            // Obtém todas as camadas disponíveis, sem filtrar por um código específico
+            let availableLayers = await window.geoos.getAvailableLayers("vector");
+    
+            if (availableLayers.length === 0) {
+                console.error("Nenhuma camada disponível encontrada.");
+                return;
+            }
+    
+            console.log("Listando todas as camadas disponíveis:");
+            availableLayers.forEach((layer, index) => {
+                console.log(`${index + 1}: ${layer.code} - ${layer.name}`);
+                if (layer.time) {
+                    console.log(`   Tempo associado: ${layer.time}`);
+                }
+                // Inclua aqui outras propriedades que deseja listar
+            });
+    
+        } catch (error) {
+            console.error("Erro ao tentar listar todas as camadas disponíveis:", error);
+        }
+    }
+
+    async fetchLayerMetadata() {
+        const url = 'http://localhost:8080/modelo/modelo/'; // Ajuste conforme necessário
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log("Metadados recebidos:", data);
+        } catch (error) {
+            console.error("Erro ao tentar acessar os metadados:", error);
+        }
+    }
+        
     async addModeloModeloLayer() {
         try {
             //é um método que retorna todas as camadas disponíveis
@@ -143,25 +210,28 @@ class Modelo extends ZCustomController {
         if (this.addObjectPanel) {
             this.addObjectPanel.activeOption = "point"; // Definir a opção desejada
             this.addObjectPanel.startAdding(); // Iniciar o processo de adição
-
-        // Sobrescrever o método handleMapClick para capturar as coordenadas
-        this.addObjectPanel.handleMapClick = (p) => {
-            // Remove o marcador anterior, se existir
-            if (this.currentMarker) {
-                this.currentMarker.remove();
-            }
-
-            // Atualizar os campos de coordenadas
-            this.find("#coordX").value = p.lat; // ou p.x
-            this.find("#coordY").value = p.lng; // ou p.y
-
-            // Adiciona um marcador no local clicado
-            this.currentMarker = L.marker([p.lat, p.lng]).addTo(window.geoos.mapPanel.map);
-
-            this.addObjectPanel.stopAdding(); // Parar de adicionar após o clique
-        };
+    
+            // Sobrescrever o método handleMapClick para capturar as coordenadas
+            this.addObjectPanel.handleMapClick = (p) => {
+                // Remove o marcador anterior, se existir
+                if (this.currentMarker) {
+                    this.currentMarker.remove();
+                }
+    
+                // Limita as casas decimais para 5 e atualiza os campos de coordenadas
+                const lat = parseFloat(p.lat.toFixed(8));
+                const lng = parseFloat(p.lng.toFixed(8));
+                this.find("#coordX").value = lat; // Atualiza com valor arredondado
+                this.find("#coordY").value = lng; // Atualiza com valor arredondado
+    
+                // Adiciona um marcador no local clicado com as coordenadas ajustadas
+                this.currentMarker = L.marker([lat, lng]).addTo(window.geoos.mapPanel.map);
+    
+                this.addObjectPanel.stopAdding(); // Parar de adicionar após o clique
+            };
         }
     }
+    
 
     mostrarJanelaPopUp() {
         this.find("#janelaPopUp").style.display = "block";
@@ -311,7 +381,7 @@ class Modelo extends ZCustomController {
             // Espera 2 segundos antes de chamar `addModeloModeloLayer`
             setTimeout(() => {
                 this.addModeloModeloLayer();
-            }, 2000 );
+            }, 1000 );
         })
         .catch((error) => {
             console.error('Erro:', error);

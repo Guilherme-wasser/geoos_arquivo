@@ -14,7 +14,7 @@ services:
       - ./mongo-data:/data/db
 
   portal:
-    image: guilewasser/newportal:latest
+    image: guilewasser/oilportal:latest
     deploy:
       restart_policy:
         condition: on-failure

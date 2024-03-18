@@ -1,4 +1,11 @@
 const config = require("./lib/Config");
+const path = require('path');
+const fs = require('fs').promises; // Importe fs.promises para usar async/await
+const { exec } = require('child_process');
+const util = require('util');
+const execPromise = util.promisify(exec);
+
+const MohidOilSimulation = require("./Oil_Spill_Tool/MohidOilSimulation");
 
 async function startHTTPServer() {
     try {
@@ -17,6 +24,10 @@ async function startHTTPServer() {
 
         app.get("/", (req, res) => {
             res.sendFile(__dirname + "/www/main/welcome/");
+        });
+
+        app.get("/docs", (req, res) => {
+            res.redirect("http://localhost:8000");
         });
 
         app.get("/docs", (req, res) => {
@@ -44,38 +55,90 @@ async function startHTTPServer() {
         //   next();
         //});
 
+        // index.js
+
+        let simulationData = {}; // Variável para armazenar os dados da simulação
+
         app.post('/salvar-coordenadas', (req, res) => {
-            const data = req.body;
-            const filePath = path.join('/home/data/cabral', 'coordenadas.json');
-            fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
+            simulationData = req.body; // Salva os dados recebidos para uso posterior
+            res.json({ message: 'Dados recebidos com sucesso.' });
+        });
+
+        function excluirDadosModelo() {
+            return new Promise((resolve, reject) => {
+                exec('rm -rf /home/data/modelo/', (error, stdout, stderr) => {
+                    if (error) {
+                        console.error(`Erro ao excluir dados do modelo: ${error}`);
+                        return reject(error);
+                    }
+                    console.log('Dados do modelo excluídos com sucesso');
+                    resolve(stdout);
+                });
+            });
+        }
+
+        function excluirArquivosSpill() {
+            const diretorio = '/usr/src/app/Oil_Spill_Tool/res/Run1/';
+        
+            fs.readdir(diretorio, (err, arquivos) => {
                 if (err) {
-                    console.error(err);
-                    res.status(500).send('Erro ao salvar o arquivo');
+                    console.error(`Erro ao tentar ler o diretório: ${err}`);
                     return;
                 }
-                res.json({ message: 'Dados salvos com sucesso.' });
-            });
-        });
-
-        app.get('/executar-script-python', (req, res) => {
-            const scriptPath = path.join(__dirname, 'rastro_geojson.py');
-            const pythonProcess = spawn('python', [scriptPath]);
-
-            pythonProcess.stdout.on('data', (data) => {
-                console.log(`stdout: ${data}`);
-            });
-
-            pythonProcess.stderr.on('data', (data) => {
-                console.error(`stderr: ${data}`);
-                res.status(500).send('Erro ao executar o script Python');
-            });
-
-            pythonProcess.on('close', (code) => {
-                console.log(`Processo Python finalizado com código ${code}`);
-                res.send('Script Python executado com sucesso');
-            });
-        });
         
+                arquivos.forEach((arquivo) => {
+                    if (arquivo.startsWith('Spill_')) {
+                        fs.unlink(path.join(diretorio, arquivo), (err) => {
+                            if (err) {
+                                console.error(`Erro ao tentar excluir o arquivo '${arquivo}': ${err}`);
+                                return;
+                            }
+                            console.log(`Arquivo excluído: ${arquivo}`);
+                        });
+                    }
+                });
+            });
+        }
+
+        app.get('/executar-script-python', async (req, res) => {
+            try {
+                await excluirDadosModelo();
+                await excluirArquivosSpill();
+                
+                var m = new MohidOilSimulation();
+                m.simulate(
+                    simulationData.lon, 
+                    simulationData.lat, 
+                    simulationData.initial_date, 
+                    simulationData.end_date, 
+                    async (error) => {
+                        if (error) {
+                            console.error('Erro durante a simulação:', error);
+                            res.status(500).send('Erro ao executar a simulação.');
+                            return;
+                        }
+                
+                        const scriptPath = path.join(__dirname, 'rastro_geojson.py');
+                        const command = `python3 ${scriptPath}`;
+                
+                        try {
+                            const { stdout, stderr } = await execPromise(command);
+                            console.log(`stdout: ${stdout}`);
+                            if (stderr) {
+                                console.error(`stderr: ${stderr}`);
+                            }
+                            res.send('Script Python e simulação executados com sucesso');
+                        } catch (err) {
+                            console.error('Erro ao executar o script Python após a simulação:', err);
+                            res.status(500).send('Erro ao executar o script Python após a simulação.');
+                        }
+                    }
+                );
+            } catch (err) {
+                console.error('Erro durante a preparação para a execução da simulação ou do script Python:', err);
+                res.status(500).send('Erro ao preparar a execução da simulação ou do script Python.');
+            }
+        });
         
         app.use((req, res, next) => {
             res.header("Access-Control-Allow-Origin", "*");

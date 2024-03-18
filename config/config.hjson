@@ -138,7 +138,11 @@
         AMPA15: {
         name: "Região Norte Hidrodinâmica",
 	       provider:"UFPR"
-	      }  
+	      }
+        modelo: {
+        name: "Monitoramento de Óleo",
+	       provider:"UFPR"
+	      }   
      }   
 
     ## Scales  
