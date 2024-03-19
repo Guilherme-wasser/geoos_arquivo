@@ -3,6 +3,7 @@ import geojson
 import sys
 import os
 import re
+from datetime import datetime, timedelta
 
 def geojsonfazer(fpath):
     # Abra o arquivo NetCDF
@@ -23,12 +24,26 @@ def geojsonfazer(fpath):
     # Criação do objeto FeatureCollection GeoJSON
     feature_collection = geojson.FeatureCollection(features)
 
-    # Use expressões regulares para extrair a data e a hora do nome do arquivo
-    match = re.search(r'Spill_(.+?).nc', os.path.basename(fpath))
+    # Use expressões regulares para extrair a string de data e hora do nome do arquivo
+    match = re.search(r'Spill_(\d{4})_?\s*(\d{1,2})_?\s*(\d{1,2})_?\s*(\d{1,2})_?\s*(\d{1,2})\s*.*?\.nc', os.path.basename(fpath))
     if match:
+        data_hora_str = '{}_{}_{}_{}_{}'.format(*match.groups())
         
-        data_hora = match.group(1).replace(' ', '_')
-        nome_arquivo_saida = f'modelo_modelo_{data_hora}.geojson'
+        # Tenta converter a string de data e hora para um objeto datetime
+        try:
+            data_hora = datetime.strptime(data_hora_str, '%Y_%m_%d_%H_%M')
+            # Adiciona 3 horas à data e hora extraídas
+            data_hora_ajustada = data_hora + timedelta(hours=3)
+            # Ajusta os minutos para serem zero
+            data_hora_ajustada = data_hora_ajustada.replace(minute=0, second=0)
+            # Formata a data e hora ajustadas para o nome do arquivo
+            data_hora_str_ajustada = data_hora_ajustada.strftime('%Y-%m-%d_%H-%M')
+
+        except ValueError as e:
+            print(f'Erro ao processar a data e hora do arquivo {fpath}: {e}, utilizando data e hora original para nome do arquivo.')
+            data_hora_str_ajustada = data_hora_str
+
+        nome_arquivo_saida = f'modelo_modelo_{data_hora_str_ajustada}.geojson'
         
         # Determinar o caminho de saída com base no nome do arquivo de entrada
         dpath = f'/home/data/import/{nome_arquivo_saida}'
@@ -54,4 +69,3 @@ def processar_todos_arquivos_spill(diretorio):
 diretorio_nc = '/usr/src/app/Oil_Spill_Tool/res/Run1/'
 # Chamando a função para processar todos os arquivos
 processar_todos_arquivos_spill(diretorio_nc)
-
