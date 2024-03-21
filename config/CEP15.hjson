@@ -51,13 +51,13 @@
     "variables": {
         "U": {
             "selector": {standard_name: "eastward_sea_water_velocity"},
-            "name": "u",
+            "name": "u (componente - Paranaguá)",
             "unit": "m s-1",
             "options": {"hidden": false}
         },
         "V": {
             "selector": {standard_name: "northward_sea_water_velocity"},
-            "name": "v",
+            "name": "v (componente - Paranaguá)",
             "unit": "m s-1",
             "options": {"hidden": false}
         },

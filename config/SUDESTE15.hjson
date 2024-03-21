@@ -56,13 +56,13 @@
     "variables": {
         "U": {
             "selector": {standard_name: "eastward_sea_water_velocity"},
-            "name": "u",
+            "name": "u (componente - Sudeste)",
             "unit": "m s-1",
             "options": {"hidden": false}
         },
         "V": {
             "selector": {standard_name: "northward_sea_water_velocity"},
-            "name": "v",
+            "name": "v (componente - Sudeste)",
             "unit": "m s-1",
             "options": {"hidden": false}
         },
@@ -73,12 +73,12 @@
             "formula": "sqrt(U*U + V*V)"
         },
         "vector":{uComponent:"U", vComponent:"V"}
-        "name": "SUDESTE - Velocidade da água do mar (vetor)",
+        "name": "Sudeste - Velocidade da água do mar",
         "unit": "m s-1",
         }
     "altura": {
         selector: {standard_name: "sea_surface_height_above_geoid"}
-        name: "SUDESTE - Altura da superfície da água"
+        name: "Sudeste - Altura da superfície da água"
         unit: "m"
         }
     }

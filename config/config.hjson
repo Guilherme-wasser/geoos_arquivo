@@ -69,11 +69,6 @@
 	       provider:"UFPR"
 	      }
 
-        ine-region: {
-        name: "regioes do chile, teste do app",
-	       provider:"ine"
-	      }
-
         unicons: {
         name: "Unidades de conservação do litoral Paranaense",
 	       provider:"UFPR"

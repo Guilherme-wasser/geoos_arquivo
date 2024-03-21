@@ -7,8 +7,8 @@
     }
 
     clippingArea:{
-        w:-48.7896786, e:-48.0730402
-        s:-25.7044614, n:-25.2044811
+        w:-48.7896786, e:-48.0719824
+        s:-25.7055324, n:-25.2033672
     }
 
     #Grid Query Config
@@ -51,12 +51,12 @@
     variables:{
         salinidade: {
             selector:{standard_name:"sea_water_salinity"}
-            name: "salinidade"
+            name: "Paranaguá - Salinidade"
             unit: PSU
         }
         temperatura: {
             selector:{standard_name:"sea_water_temperature"}
-            name: "temperatura"
+            name: "Paranaguá - Temperatura"
             unit: degC
         }       
     }

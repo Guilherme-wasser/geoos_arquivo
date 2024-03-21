@@ -51,12 +51,12 @@
     variables:{
         salinidade: {
             selector:{standard_name:"sea_water_salinity"}
-            name: "Norte salinidade"
+            name: "Norte - Salinidade"
             unit: PSU
         }
         temperatura: {
             selector:{standard_name:"sea_water_temperature"}
-            name: "Norte temperatura"
+            name: "Norte - Temperatura"
             unit: degC
         }       
     }
