@@ -75,51 +75,13 @@
             ## Overwrite searchTolerance
             ## searchTolerance: 2
         }
-        TMP_2:{
-            selector:{GRIB_ELEMENT:"TMP", GRIB_SHORT_NAME:"2-HTGL"}
-            name:Temperature at 2[m] above Ground or Sea Level
-            unit: ºC
-        }
-        TMP_HP: {
-            selector:{GRIB_ELEMENT:"TMP"}
-            levels:{
-                attribute:GRIB_SHORT_NAME
-                values:["100000-ISBL", "85000-ISBL", "70000-ISBL", "50000-ISBL" ,"30000-ISBL"]
-                descriptions:["1000 [hPa]", "850 [hPa]", "700 [hPa]", "500 [hPa]", "300 [hPa]"]                
-            }
-            name:Temperature by Pressure Level
-            unit: ºC
-        }
+
         VIS:{
             selector:{GRIB_ELEMENT:"VIS", GRIB_SHORT_NAME:"0-SFC"}
             name:Visibility at Surface Level
             unit: ºC
         }
-        LAND:{
-            selector:{GRIB_ELEMENT:"LAND", GRIB_SHORT_NAME:"0-SFC"}
-            name:Land Proportion
-            unit: ºC
-        }
-        HGT: {
-            selector:{GRIB_ELEMENT:"HGT"}
-            levels:{
-                attribute:GRIB_SHORT_NAME
-                values:["100000-ISBL", "85000-ISBL", "70000-ISBL", "50000-ISBL" ,"30000-ISBL"]
-                descriptions:["1000 [hPa]", "850 [hPa]", "700 [hPa]", "500 [hPa]", "300 [hPa]"]                
-            }
-            name: Geopotential Height
-            unit: gpm
-        }
-        TCDC:{
-            selector:{GRIB_ELEMENT:"TCDC"}
-            levels:{
-                attribute:GRIB_SHORT_NAME
-                values:["0-LCY", "0-MCY", "0-HCY"]
-                descriptions:["Low Cloud Level", "Middle Cloud Level", "High Cloud Level"]                
-            }
-            name: Total Cloud Cover
-            unit: %
-        }
+    
         TCDC_ALL:{
             selector:{GRIB_ELEMENT:"TCDC", GRIB_SHORT_NAME:"0-EATM"}
             name: Total Cloud Cover - Entire Atmosphere
@@ -147,26 +109,7 @@
             name:Wind (10 m)
             unit: m/s            
         }
-        ABSV: {
-            selector:{GRIB_ELEMENT:"ABSV"}
-            levels:{
-                attribute:GRIB_SHORT_NAME
-                values:["100000-ISBL", "85000-ISBL", "70000-ISBL", "50000-ISBL" ,"30000-ISBL"]
-                descriptions:["1000 [hPa]", "850 [hPa]", "700 [hPa]", "500 [hPa]", "300 [hPa]"]                
-            }
-            name: Absolute Vorticity
-            unit: "1/s"
-        }
-        TOZNE: {
-            selector:{GRIB_ELEMENT:"TOZNE"}
-            name:Total Ozone
-            unit: Dobson
-        }
-        DPT: {
-            selector:{GRIB_ELEMENT:"DPT"}
-            name:Dew Point Temperature
-            unit: ºC
-        }
+        
         RH: {
             selector:{GRIB_ELEMENT:"RH", GRIB_SHORT_NAME:"2-HTGL"}
             name:Relative Humidity (2m)
@@ -192,41 +135,11 @@
             name: Total Precipitation (1h)
             unit: kg/(m^2)
         }
-        CAPE: {
-            selector:{GRIB_ELEMENT:"CAPE", GRIB_SHORT_NAME:"0-SFC"}
-            name: Convective Available Potential Energy (Surface)
-            unit: J/kg
-        }
-        CIN: {
-            selector:{GRIB_ELEMENT:"CIN", GRIB_SHORT_NAME:"0-SFC"}
-            name: Convective Inhibition (Surface)
-            unit: J/kg
-        }
         ICEC: {
             selector:{GRIB_ELEMENT:"ICEC"}
             name: Ice Cover
             unit: Proportion
         }
-        ALBDO: {
-            selector:{GRIB_ELEMENT:"ALBDO"}
-            name: Albedo
-            unit: %
-        }
-        TSOIL: {
-            selector:{GRIB_ELEMENT:"TSOIL"}
-            name: Soil temperature
-            unit: ºC
-            levels:{
-                attribute:GRIB_SHORT_NAME
-                values:["0-0.1-DBLL", "0.1-0.4-DBLL", "0.4-1-DBLL", "1-2-DBLL"]
-                descriptions:["0-0.1[m] Deep Below Land Surface", "0.1-0.4[m] Deep Below Land Surface", "0.4-1[m] Deep Below Land Surface", "1-2[m] Deep Below Land Surface"]
-            }
-        }
-        PRES: {
-            selector:{GRIB_ELEMENT:"PRES", GRIB_SHORT_NAME:"0-SFC"}
-            name: Pressure (Ground or Water Surface)
-            unit: hPa
-            transform: "Z / 100"
         }
         PRMSL: {
             selector:{GRIB_ELEMENT:"PRMSL"}
@@ -235,4 +148,3 @@
             transform: "Z / 100"
         }
     }
-}
