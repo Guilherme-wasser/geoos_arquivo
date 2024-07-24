@@ -2,149 +2,190 @@
 # GEOOS Sample config file for importing and publishing geospatial data  
 #  
 # Directories '/home/config' (where this file resides), '/home/www' and '/home/data' are  
-# mapped to your host machine's file system, as volumes in docker contaier. If you run more   
+# mapped to your host machine's file system, as volumes in docker container. If you run more   
 # than one service, as data downloaders (noaa-gfs4, for example), consider creating a docker  
-# swarm stack. See documentaton at https://github.com/geoos/swarm-examples  
+# swarm stack. See documentation at https://github.com/geoos/swarm-examples  
 #  
 { 
-  ## This Server Description  
-    thisGeoServer:{ 
-      code: geoos-test 
-      name: Geo-Server de Prueba 
-      publicURL: http://localhost:8080 
-      enableTestWebServer: true 
-  } 
-
-  ## Web server to publish REST Services and Web Content to GEOOS Server, Browsers and other client applications  
-    webServer:{ 
-      protocol:"http", port:8080 
-      # keyFile and certFile are required for https. Locations are relative to /home/config  
-        # keyFile: "certs/my_cert.key"  
-        # certFile: "certs/my_cert.crt"  
-    } 
-
-  ## Metadata   
-    ## Providers (data producers or owners)  
-    providers:{ 
-
-      UFPR:{
-         name: "Universidade Federal do Paraná", url:"https://litoral.ufpr.br/"
-         # Imagen relativa a /opt/geoos/www
-         logo:"img/bso.jpeg"
-        }
-
-      noaa-gfs4:{
-         name: "NOAA-GFS4", url:"https://www.noaa.gov/"
-         logo:"img/bso.jpeg"
-        } 
-
-      noaa-ww3:{
-         name: "NOAA-WW3", url:"https://www.noaa.gov/"
-         logo:"img/bso.jpeg"
-        }
-
-      copernicus:{
-         name: "Copernicus", url:"https://www.copernicus.eu/en"
-         logo:"img/bso.jpeg"
-        }   
-   } 
-    
-
-    ## DataSets   
-    ## For each dataSet defined here, there should be a config file at /home/config/${dataSet-code}.hjson   
-    dataSets:{
-
-        estac: {
-	       name: "estacções metereológicas",
-	       provider:"UFPR"
-	      }
-
-        microreg: {
-        name: "Microregiões do Paraná",
-	       provider:"UFPR"
-	      } 
-
-        prmuni: {
-        name: "Municípios do Paraná",
-	       provider:"UFPR"
-	      }
-
-        unicons: {
-        name: "Unidades de conservação do litoral Paranaense",
-	       provider:"UFPR"
-	      } 
-
-        embrapasolo: {
-        name: "Solos Embrapa 2008 Paraná",
-	       provider:"UFPR"
-	      }
-
-        copernicus-CHL-L4: {
-        name: "CHL",
-	       provider:"copernicus"
-	      }
-
-        copernicus-PHY-L4: {
-        name: "PHY",
-	       provider:"copernicus"
-	      } 
-
-        copernicus-SST-L4: {
-        name: "sst",
-	       provider:"copernicus"
-	      } 
-
-        copernicus: {
-        name: "copernicus",
-	       provider:"copernicus"
-	      } 
-
-        noaa-ww3: {
-        name: "noaa-ww3",
-	       provider:"noaa-ww3"
-	      }
-
-        noaa-gfs4: {
-        name: "noaa-gfs4",
-	       provider:"noaa-gfs4"
-	      }
-
-        CEP15: {
-        name: "Paranaguá hidrodinâmica",
-	       provider:"UFPR"
-	      }
-
-        CEP1: {
-        name: "Paranaguá Propriedades da água",
-	       provider:"UFPR"
-	      }
-        SUDESTE1: {
-        name: "Sudeste Propriedades da água",
-	       provider:"UFPR"
-	      }
-        SUDESTE15: {
-        name: "Sudeste hidrodinâmica",
-	       provider:"UFPR"
-	      } 
-        AMPA1: {
-        name: "Região Norte Propriedades da Água",
-	       provider:"UFPR"
-	      }
-        AMPA15: {
-        name: "Região Norte Hidrodinâmica",
-	       provider:"UFPR"
-	      }
-        modelo: {
-        name: "Monitoramento de Óleo",
-	       provider:"UFPR"
-	      }   
-     }   
-
-    ## Scales  
-    colorScales:[
-	    {
-	      name:"Verde a Rojo", type:"linear-hsl" config:{s:"100%", l:"50%"}
-	    }
-     ] 
+  # This Server Description  
+  thisGeoServer: { 
+    code: "geoos-test" 
+    name: "Geo-Server B.S.O" 
+    publicURL: "https://geoserverbso.ufpr.br" 
+    enableTestWebServer: true 
   }
-			
+
+  # Web server to publish REST Services and Web Content to GEOOS Server, Browsers and other client applications  
+  webServer: { 
+    protocol: "http"
+    port: 8080 
+    # keyFile and certFile are required for https. Locations are relative to /home/config  
+    # keyFile: "certs/my_cert.key"  
+    # certFile: "certs/my_cert.crt"  
+  }
+
+  # Metadata   
+  # Providers (data producers or owners)  
+  providers: {
+    UFPR: {
+      name: "Universidade Federal do Paraná"
+      url: "https://litoral.ufpr.br/"
+      # Imagem relativa a /opt/geoos/www
+      logo: "img/bso.jpeg"
+    }
+
+    "noaa-gfs4": {
+      name: "NOAA-GFS4"
+      url: "https://www.noaa.gov/"
+      logo: "img/bso.jpeg"
+    }
+
+    "noaa-ww3": {
+      name: "NOAA-WW3"
+      url: "https://www.noaa.gov/"
+      logo: "img/bso.jpeg"
+    }
+
+    copernicus: {
+      name: "Copernicus"
+      url: "https://www.copernicus.eu/en"
+      logo: "img/bso.jpeg"
+    }
+    EPAGRI: {
+      name: "EPAGRI"
+      url: "https://www.epagri.sc.gov.br/"
+      logo: "img/bso.jpeg"
+    }
+  }
+
+  # DataSets   
+  # For each dataSet defined here, there should be a config file at /home/config/${dataSet-code}.hjson   
+  dataSets: {
+    estac: {
+      name: "estações meteorológicas"
+      provider: "UFPR"
+    }
+
+    microreg: {
+      name: "Microregiões do Paraná"
+      provider: "UFPR"
+    }
+
+    prmuni: {
+      name: "Municípios do Paraná"
+      provider: "UFPR"
+    }
+
+    unicons: {
+      name: "Unidades de conservação do litoral Paranaense"
+      provider: "UFPR"
+    }
+
+    embrapasolo: {
+      name: "Solos Embrapa 2008 Paraná"
+      provider: "UFPR"
+    }
+
+    "copernicus-CHL-L4": {
+      name: "CHL"
+      provider: "copernicus"
+    }
+
+    "copernicus-PHY-L4": {
+      name: "PHY"
+      provider: "copernicus"
+    }
+
+    "copernicus-SST-L4": {
+      name: "sst"
+      provider: "copernicus"
+    }
+
+    "noaa-ww3": {
+      name: "noaa-ww3"
+      provider: "noaa-ww3"
+    }
+
+    "noaa-gfs4": {
+      name: "noaa-gfs4"
+      provider: "noaa-gfs4"
+    }
+
+    CEP15: {
+      name: "Paranaguá hidrodinâmica"
+      provider: "UFPR"
+    }
+
+    CEP1: {
+      name: "Paranaguá Propriedades da água"
+      provider: "UFPR"
+    }
+
+    SUDESTE1: {
+      name: "Sudeste Propriedades da água"
+      provider: "UFPR"
+    }
+
+    SUDESTE15: {
+      name: "Sudeste hidrodinâmica"
+      provider: "UFPR"
+    }
+
+    AMPA1: {
+      name: "Região Norte Propriedades da Água"
+      provider: "UFPR"
+    }
+
+    AMPA15: {
+      name: "Região Norte Hidrodinâmica"
+      provider: "UFPR"
+    }
+
+    modelo: {
+      name: "Monitoramento de Óleo"
+      provider: "UFPR"
+    }
+
+    Babitonga15: {
+      name: "Babitonga - Hidrodinamica"
+      provider: "EPAGRI"
+    }
+
+    Babitonga1: {
+      name: "Babitonga - Propriedades da água"
+      provider: "EPAGRI"
+    }
+
+    SCPRSP1: {
+      name: "Sul - Propriedades da água"
+      provider: "UFPR"
+    }
+
+    SCPRSP15: {
+      name: "Sul - Propriedades da água"
+      provider: "UFPR"
+    }
+
+    FPOLIS1: {
+      name: "Florianópolis - Hidrodinamica"
+      provider: "EPAGRI"
+    }
+
+    FPOLIS15: {
+      name: "Florianópolis - Hidrodinamica"
+      provider: "EPAGRI"
+    }
+  }
+
+  # Scales  
+  colorScales: [
+    {
+      name: "Verde a Rojo"
+      type: "linear-hsl"
+      config: {
+        s: "100%"
+        l: "50%"
+      }
+    }
+  ]
+}

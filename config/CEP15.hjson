@@ -68,7 +68,7 @@
             "formula": "sqrt(U*U + V*V)"
         },
         "vector":{uComponent:"U", vComponent:"V"}
-        "name": "Paranaguá - Velocidade da água do mar (vetor)",
+        "name": "Paranaguá - Velocidade da água do mar",
         "unit": "m s-1",
         }
     "altura": {

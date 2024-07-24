@@ -26,12 +26,8 @@ async function startHTTPServer() {
             res.sendFile(__dirname + "/www/main/welcome/");
         });
 
-        app.get("/docs", (req, res) => {
-            res.redirect("http://localhost:8000");
-        });
-
-        app.get("/docs", (req, res) => {
-            res.redirect("http://localhost:8000");
+        app.get("/doc", (req, res) => {
+            res.redirect("https://bsodoc.ufpr.br/");
         });
 
         //app.use((req, res, next) => {

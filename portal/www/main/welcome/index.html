@@ -42,22 +42,21 @@
             height: 100px; /* Altura da imagem */
             display: flex;
             justify-content: center; /* Centraliza a imagem horizontalmente */
-            z-index: 1000;
+            z-index: 10000000;
         }
     
     </style>
 </head>
 <body>
     <div id="topImage">
-        <img src="/portal/www/img/CEM.png" alt="Imagem" style="height: 100%;"> <!-- Imagem é inserida diretamente -->
+        <img src="/portal/img/bso.jpeg" alt="b.s.o img" style="height: 100%;">
     </div>
     <div id="welcomeScreen" data-z-controller="Welcome">
-        <h1>Clique em portal para acessar nosso WebGIS.<br> Clique em documentação para acessar nossos tutoriais.<br></h1>
-        <button id="enterPortal">PORTAL</button>
-        <button id="enterDocs">DOCUMENTAÇÃO</button>
+        <h1>Clique em "Portal" para acessar o WebGIS<br> "Documentação" para tutoriais.<br></h1>
+        <button id="enterPortal">Portal</button>
+        <button id="enterDocs">Documentação</button>
     </div>
 
-    <!-- Scripts devem ser colocados no final do body -->
     <script src="../../zvc/zvc.js"></script>
     <script src="index.js"></script>
     <script>
@@ -67,7 +66,7 @@
         });
         
         document.getElementById('enterDocs').addEventListener('click', function() {
-            window.location.href = 'docs';
+            window.location.href = 'doc';
         });
     </script>
 </body>

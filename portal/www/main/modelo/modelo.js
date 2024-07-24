@@ -206,28 +206,33 @@ class Modelo extends ZCustomController {
     }
 
     startMapClickListening() {
-        // Verificar se a instância de AddObjectPanel está disponível
-        if (this.addObjectPanel) {
-            this.addObjectPanel.activeOption = "point"; // Definir a opção desejada
-            this.addObjectPanel.startAdding(); // Iniciar o processo de adição
+        // Certifique-se de que apenas um clique é processado
+        if (this.isListening) return; // Previne múltiplas adições do escutador de eventos
+        this.isListening = true;
     
-            // Sobrescrever o método handleMapClick para capturar as coordenadas
+        if (this.addObjectPanel) {
+            this.addObjectPanel.activeOption = "point";
+            this.addObjectPanel.startAdding();
+    
+            // Armazena a função original para redefinição posterior
+            this.originalHandleMapClick = this.addObjectPanel.handleMapClick;
+    
             this.addObjectPanel.handleMapClick = (p) => {
-                // Remove o marcador anterior, se existir
                 if (this.currentMarker) {
                     this.currentMarker.remove();
                 }
     
-                // Limita as casas decimais para 5 e atualiza os campos de coordenadas
                 const lat = parseFloat(p.lat.toFixed(8));
                 const lng = parseFloat(p.lng.toFixed(8));
-                this.find("#coordX").value = lat; // Atualiza com valor arredondado
-                this.find("#coordY").value = lng; // Atualiza com valor arredondado
+                this.find("#coordX").value = lat;
+                this.find("#coordY").value = lng;
     
-                // Adiciona um marcador no local clicado com as coordenadas ajustadas
                 this.currentMarker = L.marker([lat, lng]).addTo(window.geoos.mapPanel.map);
     
-                this.addObjectPanel.stopAdding(); // Parar de adicionar após o clique
+                // Restaura a função original e interrompe a escuta após o primeiro clique
+                this.addObjectPanel.handleMapClick = this.originalHandleMapClick;
+                this.addObjectPanel.stopAdding();
+                this.isListening = false; // Reset para permitir nova adição futura
             };
         }
     }
@@ -327,6 +332,13 @@ class Modelo extends ZCustomController {
     
     limparDadosDoMapa() {
         console.log("Limpar todas as entradas e remover marcador.");
+	
+	if (this.isListening) {
+            // Interrompe a escuta se ainda estiver ativa
+            this.addObjectPanel.handleMapClick = this.originalHandleMapClick;
+            this.addObjectPanel.stopAdding();
+            this.isListening = false;
+        }
     
         // Remove o marcador, se existir
         if (this.currentMarker) {

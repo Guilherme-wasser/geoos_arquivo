@@ -1,0 +1,63 @@
+{
+    dataSet: {type: "raster", format:"netCDF"}
+    deleteFinishedFiles: true
+    temporality:{
+        value: 1, unit: hours
+        searchCriteria: middle
+    }
+
+    clippingArea:{
+        w:-49.8140848, e:-44.6476250
+        s:-29.4459775, n:-23.3295557
+    }
+
+    #Grid Query Config
+    grid:{
+        maxWidth:   150
+        maxHeight:  150
+        # gdal_translate resamplig algorithm
+        # nearest (default),bilinear,cubic,cubicspline,lanczos,average,mode
+        resampling: nearest 
+    }
+    #VectorsGrid Query Config
+    vectorsGrid:{
+        maxWidth:   60
+        maxHeight:  60
+        # gdal_translate resamplig algorithm
+        # nearest (default),bilinear,cubic,cubicspline,lanczos,average,mode
+        resampling: bilinear 
+    }
+    #Contour Query Config
+    contour:{
+        maxWidth:   150
+        maxHeight:  150
+        # gdal_translate resamplig algorithm
+        # nearest (default),bilinear,cubic,cubicspline,lanczos,average,mode
+        resampling: nearest 
+    }
+
+    # Apply to All Variables in dataSet
+    # can be extended in variables definition
+    variablesDefaults:{
+        # How many periods (value, unit) should be used to search (before and ahead) if no file is found for specific time
+        searchTolerance: 5
+        options:{
+            decimals:2
+            subjects:["UFPR"]
+            initialVisualizers:{shader:true}
+        }
+    }
+
+    variables:{
+        salinidade: {
+            selector:{standard_name:"sea_water_salinity"}
+            name: "Sul - Salinidade"
+            unit: PSU
+        }
+        temperatura: {
+            selector:{standard_name:"sea_water_temperature"}
+            name: "Sul - Temperatura"
+            unit: degC
+        }       
+    }
+}

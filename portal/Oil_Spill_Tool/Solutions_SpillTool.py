@@ -1,4 +1,3 @@
-
 #Define number of solutions
 number_of_solutions = 1
 number_of_meteo_solutions = 1

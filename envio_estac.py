@@ -1,7 +1,6 @@
 import json
 import requests
 import time
-import schedule
 
 def get_data():
     url = 'https://rt.ambientweather.net/v1/devices?apiKey=7712e7e6c7464bee8add6bbc83d493d1b999ed19c684474d8f2f9316325225fd&applicationKey=8ecae3ed4c4e407d80535d2dee6ac671a7502d92bd9b4b57b4dde2e6a303719f&lastData=true'
@@ -12,11 +11,13 @@ def get_data():
     
     LOCG01 = data[2]
     LOCG02 = data[0]
+    LOCG03 = data[3]
 
     data_LOCG01 = LOCG01.get('lastData')
     data_LOCG02 = LOCG02.get('lastData')
+    data_LOCG03 = LOCG03.get('lastData')
 
-    global data_base_device_LOCG01,data_base_device_LOCG02
+    global data_base_device_LOCG01,data_base_device_LOCG02,data_base_device_LOCG03
 
     dateutc_LOCG01 = data_LOCG01.get('dateutc')
     tempinf_LOCG01 = data_LOCG01.get('tempinf')
@@ -82,6 +83,38 @@ def get_data():
     temperatura_LOCG02 = (((tempf_LOCG02) - 32)*(5/9))
     feelsLike_LOCG02_ = (((feelsLike_LOCG02) - 32)*(5/9))
 
+    dateutc_LOCG03 = data_LOCG03.get('dateutc')
+    tempinf_LOCG03 = data_LOCG03.get('tempinf')
+    humidityin_LOCG03 = data_LOCG03.get('humidityin')
+    baromrelin_LOCG03 = data_LOCG03.get('baromrelin')
+    baromabsin_LOCG03 = data_LOCG03.get('baromabsin')
+    tempf_LOCG03 = data_LOCG03.get('tempf')
+    battout_LOCG03 = data_LOCG03.get('battout')
+    humidity_LOCG03 = data_LOCG03.get('humidity')
+    winddir_LOCG03 = data_LOCG03.get('winddir')
+    windspeedmph_LOCG03 = data_LOCG03.get('windspeedmph')
+    windgustmph_LOCG03 = data_LOCG03.get('windgustmph')
+    maxdailygust_LOCG03 = data_LOCG03.get('humidity')
+    hourlyrainin_LOCG03 = data_LOCG03.get('hourlyrainin')
+    eventrainin_LOCG03 = data_LOCG03.get('eventrainin')
+    dailyrainin_LOCG03 = data_LOCG03.get('dailyrainin')
+    weeklyrainin_LOCG03 = data_LOCG03.get('weeklyrainin')
+    monthlyrainin_LOCG03 = data_LOCG03.get('monthlyrainin')
+    totalrainin_LOCG03 = data_LOCG03.get('totalrainin')
+    solarradiation_LOCG03 = data_LOCG03.get('solarradiation')
+    uv_LOCG03 = data_LOCG03.get('uv')
+    batt_co2_LOCG03 = data_LOCG03.get('batt_co2')
+    feelsLike_LOCG03 = data_LOCG03.get('feelsLike')
+    dewPoint_LOCG03 = data_LOCG03.get('dewPoint')
+    feelsLikein_LOCG03 = data_LOCG03.get('feelsLikein')
+    dewPointin_LOCG03 = data_LOCG03.get('dewPointin')
+    lastRain_LOCG03 = data_LOCG03.get('lastRain')
+    tz_LOCG03 = data_LOCG03.get('tz')
+    date_LOCG03 = data_LOCG03.get('date')
+
+    temperatura_LOCG03 = (((tempf_LOCG03) - 32)*(5/9))
+    feelsLike_LOCG03_ = (((feelsLike_LOCG03) - 32)*(5/9))
+
     data_base_device_LOCG01 = (dateutc_LOCG01,
                         tempinf_LOCG01,
                         humidityin_LOCG01,
@@ -140,8 +173,36 @@ def get_data():
                         tz_LOCG02,
                         date_LOCG02)
     
-    global data_base_device_LOCG01,data_base_device_LOCG02
-    return data_base_device_LOCG01, data_base_device_LOCG02
+    data_base_device_LOCG03 = (dateutc_LOCG03,
+                        tempinf_LOCG03,
+                        humidityin_LOCG03,
+                        baromrelin_LOCG03,
+                        baromabsin_LOCG03,
+                        temperatura_LOCG03,
+                        battout_LOCG03,
+                        humidity_LOCG03,
+                        winddir_LOCG03,
+                        windspeedmph_LOCG03,
+                        windgustmph_LOCG03,
+                        maxdailygust_LOCG03,
+                        hourlyrainin_LOCG03,
+                        eventrainin_LOCG03,
+                        dailyrainin_LOCG03,
+                        weeklyrainin_LOCG03,
+                        monthlyrainin_LOCG03,
+                        totalrainin_LOCG03,
+                        solarradiation_LOCG03,
+                        uv_LOCG03,
+                        batt_co2_LOCG03,
+                        feelsLike_LOCG03_,
+                        dewPoint_LOCG03,
+                        feelsLikein_LOCG03,
+                        dewPointin_LOCG03,
+                        lastRain_LOCG03,
+                        tz_LOCG03,
+                        date_LOCG03)
+
+    return data_base_device_LOCG01,data_base_device_LOCG02,data_base_device_LOCG03
 
 def format_file_path(date_string):
     # Extrai a data e hora da string
@@ -149,8 +210,6 @@ def format_file_path(date_string):
     ano, mes, dia = map(int, data.split('-'))
     horas, minutos, segundos = map(int, hora.split('.')[0].split(':'))  # Converte horas, minutos e segundos para inteiros
 
-    # Adiciona 3 horas
-    horas += 3
     if horas >= 24:  # Caso ultrapasse 24 horas, ajusta o dia
         horas -= 24
         dia += 1
@@ -194,25 +253,25 @@ def format_file_path(date_string):
     return path_formatado
 
 # 1. Capture o retorno da função get_data()
-data_base_device_LOCG01, data_base_device_LOCG02 = get_data()
+data_base_device_LOCG01, data_base_device_LOCG02, data_base_device_LOCG03 = get_data()
 
 def create_geojson_file():
-    global data_base_device_LOCG01, data_base_device_LOCG02
+    global data_base_device_LOCG01, data_base_device_LOCG02, data_base_device_LOCG03
     global path_formatado
     
     data = {
-        "type": "FeatureCollection",
-        "name": "estac",
-        "crs": { 
-            "type": "name", 
-            "properties": { 
-                "name": "urn:ogc:def:crs:OGC:1.3:CRS84" 
-            } 
-        },
-        "features": [ 
-            {
-                "type": "Feature",
-                "properties": {
+    "type": "FeatureCollection",
+    "name": "estac",
+    "crs": { 
+        "type": "name", 
+        "properties": { 
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84" 
+        } 
+    },
+    "features": [ 
+        {
+            "type": "Feature",
+            "properties": {
                     "nome_estacao": "LOCG01",
                     "data_utc": data_base_device_LOCG01[0],
                     "temperatura_interna": data_base_device_LOCG01[1],
@@ -241,14 +300,88 @@ def create_geojson_file():
                     "ultima_chuva_por_hora": data_base_device_LOCG01[25],
                     "fuso_horario": data_base_device_LOCG01[26],
                     "data_legivel": data_base_device_LOCG01[27]
-                 },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-48.5419, -25.8175]
-                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-48.5419, -25.8175]
             }
-        ]
-    }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                    "nome_estacao": "LOCG02",
+                    "data_utc": data_base_device_LOCG02[0],
+                    "temperatura_interna": data_base_device_LOCG02[1],
+                    "umidade_interna": data_base_device_LOCG02[2],
+                    "pressao_relativa_hg": data_base_device_LOCG02[3],
+                    "pressao_absoluta_hg": data_base_device_LOCG02[4],
+                    "temperatura": data_base_device_LOCG02[5],
+                    "bateria_externa_OK_1_Baixo_0": data_base_device_LOCG02[6],
+                    "umidade_externa": data_base_device_LOCG02[7],
+                    "direcao_vento": data_base_device_LOCG02[8],
+                    "velocidade_vento": data_base_device_LOCG02[9],
+                    "velocidade_max_vento_em_10min": data_base_device_LOCG02[10],
+                    "velocidade_max_vento_no_ultimo_dia": data_base_device_LOCG02[11],
+                    "taxa_chuva_por_hora": data_base_device_LOCG02[12],
+                    "evento_chuva": data_base_device_LOCG02[13],
+                    "chuva_diaria": data_base_device_LOCG02[14],
+                    "chuva_mensal": data_base_device_LOCG02[16],
+                    "chuva_total": data_base_device_LOCG02[17],
+                    "radiacao_solar_watts_p_m2": data_base_device_LOCG02[18],
+                    "ultravioleta": data_base_device_LOCG02[19],
+                    "bateria_de_co2_1_ok_0_Baixo": data_base_device_LOCG02[20],
+                    "sensacao_termica": data_base_device_LOCG02[21],
+                    "ponto_orvalho": data_base_device_LOCG02[22],
+                    "sensacao_termica_in": data_base_device_LOCG02[23],
+                    "ponto_orvalho_interno": data_base_device_LOCG02[24],
+                    "ultima_chuva_por_hora": data_base_device_LOCG02[25],
+                    "fuso_horario": data_base_device_LOCG02[26],
+                    "data_legivel": data_base_device_LOCG02[27]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-48.7066523, -25.4362559]
+            }
+        }, 
+        {
+            "type": "Feature",
+            "properties": {
+                    "nome_estacao": "LOCG03",
+                    "data_utc": data_base_device_LOCG03[0],
+                    "temperatura_interna": data_base_device_LOCG03[1],
+                    "umidade_interna": data_base_device_LOCG03[2],
+                    "pressao_relativa_hg": data_base_device_LOCG03[3],
+                    "pressao_absoluta_hg": data_base_device_LOCG03[4],
+                    "temperatura": data_base_device_LOCG03[5],
+                    "bateria_externa_OK_1_Baixo_0": data_base_device_LOCG03[6],
+                    "umidade_externa": data_base_device_LOCG03[7],
+                    "direcao_vento": data_base_device_LOCG03[8],
+                    "velocidade_vento": data_base_device_LOCG03[9],
+                    "velocidade_max_vento_em_10min": data_base_device_LOCG03[10],
+                    "velocidade_max_vento_no_ultimo_dia": data_base_device_LOCG03[11],
+                    "taxa_chuva_por_hora": data_base_device_LOCG03[12],
+                    "evento_chuva": data_base_device_LOCG03[13],
+                    "chuva_diaria": data_base_device_LOCG03[14],
+                    "chuva_mensal": data_base_device_LOCG03[16],
+                    "chuva_total": data_base_device_LOCG03[17],
+                    "radiacao_solar_watts_p_m2": data_base_device_LOCG03[18],
+                    "ultravioleta": data_base_device_LOCG03[19],
+                    "bateria_de_co2_1_ok_0_Baixo": data_base_device_LOCG03[20],
+                    "sensacao_termica": data_base_device_LOCG03[21],
+                    "ponto_orvalho": data_base_device_LOCG03[22],
+                    "sensacao_termica_in": data_base_device_LOCG03[23],
+                    "ponto_orvalho_interno": data_base_device_LOCG03[24],
+                    "ultima_chuva_por_hora": data_base_device_LOCG03[25],
+                    "fuso_horario": data_base_device_LOCG03[26],
+                    "data_legivel": data_base_device_LOCG03[27]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-48.3304722, -25.2989478]
+            }
+        }        
+    ]
+}
 
     file_pasta = path_formatado
 
@@ -264,11 +397,4 @@ def main():
     create_geojson_file()
     print("RODOU!")
 
-# Agendando a função main para ser executada a cada 5 minutos
-schedule.every(300).minutes.do(main)
-
-while True:
-    schedule.run_pending()
-    time.sleep(20)  # O programa vai dormir por 1 segundo entre cada verificação para não sobrecarregar o processador    
-
-
+main()

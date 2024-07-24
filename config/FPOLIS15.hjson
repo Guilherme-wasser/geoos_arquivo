@@ -1,0 +1,80 @@
+{
+    dataSet: {type: "raster", format:"netCDF"}
+    deleteFinishedFiles: true
+    temporality:{
+        value: 15, unit: minutes
+        searchCriteria: middle
+    }
+
+    clippingArea:{
+        w:-48.6899164, e:-48.1982504
+        s:-28.0218095, n:-27.1468107
+    }
+
+    #Grid Query Config
+    grid:{
+        maxWidth:   150
+        maxHeight:  150
+        # gdal_translate resamplig algorithm
+        # nearest (default),bilinear,cubic,cubicspline,lanczos,average,mode
+        resampling: nearest 
+    }
+    #VectorsGrid Query Config
+    vectorsGrid:{
+        maxWidth:   60
+        maxHeight:  60
+        # gdal_translate resamplig algorithm
+        # nearest (default),bilinear,cubic,cubicspline,lanczos,average,mode
+        resampling: bilinear 
+    }
+    #Contour Query Config
+    contour:{
+        maxWidth:   150
+        maxHeight:  150
+        # gdal_translate resamplig algorithm
+        # nearest (default),bilinear,cubic,cubicspline,lanczos,average,mode
+        resampling: nearest 
+    }
+
+    # Apply to All Variables in dataSet
+    # can be extended in variables definition
+    variablesDefaults:{
+        # How many periods (value, unit) should be used to search (before and ahead) if no file is found for specific time
+        searchTolerance: 5
+        options:{
+            decimals:2
+            subjects:["UFPR"]
+            initialVisualizers:{shader:true}
+        }
+    }
+
+    "variables": {
+        "U": {
+            "selector": {standard_name: "eastward_sea_water_velocity"},
+            "name": "u (componente - Florianópolis)",
+            "unit": "m s-1",
+            "options": {"hidden": false}
+        },
+        "V": {
+            "selector": {standard_name: "northward_sea_water_velocity"},
+            "name": "v (componente - Florianópolis)",
+            "unit": "m s-1",
+            "options": {"hidden": false}
+        },
+    "UV_Vector": {
+        "calculated": {
+            "U": "U",
+            "V": "V",
+            "formula": "sqrt(U*U + V*V)"
+        },
+        "vector":{uComponent:"U", vComponent:"V"}
+        "name": "Florianópolis - Velocidade da água do mar",
+        "unit": "m s-1",
+        }
+    "altura": {
+        selector: {standard_name: "sea_surface_height_above_geoid"}
+        name: "Florianópolis - Altura da superfície da água"
+        unit: "m"
+        }
+    }
+}

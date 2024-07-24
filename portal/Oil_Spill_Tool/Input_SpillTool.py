@@ -14,7 +14,7 @@ parser.add_argument("--emission_temporal", default = "Instantaneous", choices=['
 parser.add_argument("--spill_duration", type=int, default = 1) #hours - only required if continuous emission
 parser.add_argument("--oil_class", default = "MediumOil", choices = ['HeavyOil','MediumOil','LightOil','VeryLightOil'])
 parser.add_argument("--point_volume", type=float, default = 30)#m3
-parser.add_argument("--nbr_partic", type=int, default = 1000)
+parser.add_argument("--nbr_partic", type=int, default = 100)
 parser.add_argument("--diffusion_h", default = 1.0)#m2/s
 
 args = parser.parse_args()

@@ -122,7 +122,7 @@ class MyPanel extends ZCustomController {
                     for (let layerItem of layerItems) {
                         if (layerItem.type == "visualizer") {
                             html += `<div class="my-panel-visualizer" data-code="${layerItem.code}">`;
-                            html += `  <img class="visualizer-activator" src="/img/icons/switch${layerItem.active?"-active":""}.svg" />`;
+                            html += `  <img class="visualizer-activator" src="img/icons/switch${layerItem.active?"-active":""}.svg" />`;
                             html += `  <div class="visualizer-name">${layerItem.name}</div>`;
                             html += `</div>`;
                         } else if (layerItem.type == "user-object") {

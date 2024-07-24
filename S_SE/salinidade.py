@@ -47,14 +47,6 @@ def salinidade():
                     print("Arquivo: {}".format(arquivo))
                     for banda in bandas:
                         print("Banda encontrada: {}".format(banda))
-                        data = xr.open_dataset(caminho_arquivo)
-                        dst = dataset.variables[banda]
-                        dt = data[banda]
-                        reverso = dt.sel(lat=slice(None, None, -1))
-                        dst[:] = reverso
-                        print("Banda {} rotacionada com sucesso!".format(banda))
-
-                        dataset.close()
                         arquivo_destino = '/opt/geoos/data/import/{}'.format(arquivo)
                         shutil.move(caminho_arquivo, arquivo_destino)
                         print('Arquivo {} movido para {}'.format(arquivo, arquivo_destino))

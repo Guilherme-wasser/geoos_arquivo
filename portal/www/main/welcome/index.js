@@ -8,7 +8,7 @@ class Welcome extends ZCustomController {
     }
 
     onEnterDocs_click() {
-        window.location.href = '/docs';
+        window.location.href = '/doc';
     }
 }
 
